@@ -4,311 +4,312 @@
 import unittest, cppstl/string
 
 test "test string constructors and iterators":
-    var s = initString()
+  var s = initString()
 
-    check s.empty
-    check s.length == 0
-    check s == "".cstring
+  check s.empty
+  check s.length == 0
+  check s == "".cstring
 
-    s = initString("hello nim")
+  s = initString("hello nim")
 
-    check s == "hello nim".cstring
-    check $s == "hello nim".cstring
+  check s == "hello nim".cstring
+  check $s == "hello nim".cstring
 
-    s = initString("hello nim", 5)
+  s = initString("hello nim", 5)
 
-    check s == "hello".cstring
+  check s == "hello".cstring
 
-    var s1 : String = "hello".cstring
+  var s1: String = "hello".cstring
 
-    check s1 == s
+  check s1 == s
 
-    s1 = initString(s)
+  s1 = initString(s)
 
-    check s1 == s
+  check s1 == s
 
-    s1 = initString(s, 3)
+  s1 = initString(s, 3)
 
-    check s1 == "lo".cstring
+  check s1 == "lo".cstring
 
-    s1 = initString(s, 0, 4)
+  s1 = initString(s, 0, 4)
 
-    check s1 == "hell".cstring
+  check s1 == "hell".cstring
 
-    s1 = initString(s.begin, s.`end`)
+  s1 = initString(s.begin, s.`end`)
 
-    check s1 == s
+  check s1 == s
 
-    s1 = initString(s.begin, s.begin+4)
+  s1 = initString(s.begin, s.begin+4)
 
-    check s1 == "hell".cstring
+  check s1 == "hell".cstring
 
-    s1 = initString(s.cbegin, s.cbegin+4)
+  s1 = initString(s.cbegin, s.cbegin+4)
 
-    check s1 == "hell".cstring
+  check s1 == "hell".cstring
 
-    s1 = initString(s.rbegin, s.rend)
+  s1 = initString(s.rbegin, s.rend)
 
-    check s1 == "olleh".cstring
+  check s1 == "olleh".cstring
 
-    s1 = initString(s.crbegin, s.crend)
+  s1 = initString(s.crbegin, s.crend)
 
-    check s1 == "olleh".cstring
+  check s1 == "olleh".cstring
 
 test "test string capacity methods":
-    var s: String = "Hello Nim!".cstring
+  var s: String = "Hello Nim!".cstring
 
-    check s.size == s.length
-    check s.max_size > s.size
+  check s.size == s.length
+  check s.max_size > s.size
 
-    s.resize 5
+  s.resize 5
 
-    check s == "Hello".cstring
-    check s.capacity >= s.size
+  check s == "Hello".cstring
+  check s.capacity >= s.size
 
-    let oldCap = s.capacity
-    s.reserve(2*oldCap)
+  let oldCap = s.capacity
+  s.reserve(2*oldCap)
 
-    check s.capacity == 2*oldCap
+  check s.capacity == 2*oldCap
 
-    s.clear
+  s.clear
 
-    check s.empty
-    check s == "".cstring
+  check s.empty
+  check s == "".cstring
 
-    s = "Hello".cstring
-    s.reserve(s.capacity*2)
-    s.shrink_to_fit
+  s = "Hello".cstring
+  s.reserve(s.capacity*2)
+  s.shrink_to_fit
 
-    # check s.length == s.capacity # implementation dependent. Does not allways hold
+  # check s.length == s.capacity # implementation dependent. 
+                                 # Does not allways hold
 
 test "test string element access methods":
-    var s: String = "Hello Nim!".cstring
+  var s: String = "Hello Nim!".cstring
 
-    check s[1] == 'e'
-    check s.at(1) == 'e'
-    check s.front == 'H'
-    check s.back == '!'
+  check s[1] == 'e'
+  check s.at(1) == 'e'
+  check s.front == 'H'
+  check s.back == '!'
 
-    s[1] = 'o'
+  s[1] = 'o'
 
-    check s[1] == 'o'
+  check s[1] == 'o'
 
-    s.at(1) = 'e'
-    s.front() = 'h'
-    s.back() = '?'
+  s.at(1) = 'e'
+  s.front() = 'h'
+  s.back() = '?'
 
-    check s == "hello Nim?".cstring
+  check s == "hello Nim?".cstring
 
-    when compileOption("boundChecks"):
-        expect(IndexError):
-            discard s[100]
-        expect(OutOfRangeException):
-            discard s.at(100)
+  when compileOption("boundChecks"):
+    expect(IndexError):
+      discard s[100]
+    expect(OutOfRangeException):
+      discard s.at(100)
 
 test "test string modifiers":
-    var s: String = "Hello".cstring
-    var s2 = initString(" Nim!")
-    discard s += s2
+  var s: String = "Hello".cstring
+  var s2 = initString(" Nim!")
+  discard s += s2
 
-    check s == "Hello Nim!".cstring
+  check s == "Hello Nim!".cstring
 
-    discard s += " Welcome!".cstring
+  discard s += " Welcome!".cstring
 
-    check s == "Hello Nim! Welcome!".cstring
+  check s == "Hello Nim! Welcome!".cstring
 
-    discard s += '!'
+  discard s += '!'
 
-    check s == "Hello Nim! Welcome!!".cstring
+  check s == "Hello Nim! Welcome!!".cstring
 
-    s = "Hello".cstring
-    discard s.append s2
+  s = "Hello".cstring
+  discard s.append s2
 
-    check s == "Hello Nim!".cstring
+  check s == "Hello Nim!".cstring
 
-    discard s.append " Welcome!".cstring
+  discard s.append " Welcome!".cstring
 
-    check s == "Hello Nim! Welcome!".cstring
+  check s == "Hello Nim! Welcome!".cstring
 
-    discard s.append(1, '!')
+  discard s.append(1, '!')
 
-    check s == "Hello Nim! Welcome!!".cstring
+  check s == "Hello Nim! Welcome!!".cstring
 
-    discard s.append(3, '!')
+  discard s.append(3, '!')
 
-    check s == "Hello Nim! Welcome!!!!!".cstring
+  check s == "Hello Nim! Welcome!!!!!".cstring
 
-    s2 = "!!! :)".cstring
-    discard s.append(s2, 3, 3)
+  s2 = "!!! :)".cstring
+  discard s.append(s2, 3, 3)
 
-    check s == "Hello Nim! Welcome!!!!! :)".cstring
+  check s == "Hello Nim! Welcome!!!!! :)".cstring
 
-    discard s.append(" :)...........".cstring, 4)
+  discard s.append(" :)...........".cstring, 4)
 
-    check s == "Hello Nim! Welcome!!!!! :) :).".cstring
+  check s == "Hello Nim! Welcome!!!!! :) :).".cstring
 
-    s2 = "I say Bye!".cstring
-    discard s.append(s2.cbegin+5, s2.cend)
+  s2 = "I say Bye!".cstring
+  discard s.append(s2.cbegin+5, s2.cend)
 
-    check s == "Hello Nim! Welcome!!!!! :) :). Bye!".cstring
+  check s == "Hello Nim! Welcome!!!!! :) :). Bye!".cstring
 
-    discard s.push_back '!'
+  discard s.push_back '!'
 
-    check s == "Hello Nim! Welcome!!!!! :) :). Bye!!".cstring
+  check s == "Hello Nim! Welcome!!!!! :) :). Bye!!".cstring
 
-    s = "".cstring
-    s2 = "Hello".cstring
-    discard s.assign(s2)
+  s = "".cstring
+  s2 = "Hello".cstring
+  discard s.assign(s2)
 
-    check s == s2
+  check s == s2
 
-    discard s.assign(s2, 1, 3)
+  discard s.assign(s2, 1, 3)
 
-    check s == "ell".cstring
+  check s == "ell".cstring
 
-    discard s.assign("hi".cstring)
+  discard s.assign("hi".cstring)
 
-    check s == "hi".cstring
+  check s == "hi".cstring
 
-    discard s.assign("hello".cstring, 4)
+  discard s.assign("hello".cstring, 4)
 
-    check s == "hell".cstring
+  check s == "hell".cstring
 
-    discard s.assign(3, '6')
+  discard s.assign(3, '6')
 
-    check s == "666".cstring
+  check s == "666".cstring
 
-    s = "H!!!".cstring
-    s2 = "ello ".cstring
-    discard s.insert(1, s2)
+  s = "H!!!".cstring
+  s2 = "ello ".cstring
+  discard s.insert(1, s2)
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "H!!!".cstring
-    s2 = "Hello !!!".cstring
-    discard s.insert(1, s2, 1, 5)
+  s = "H!!!".cstring
+  s2 = "Hello !!!".cstring
+  discard s.insert(1, s2, 1, 5)
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "H!!!".cstring
-    discard s.insert(1, "ello ".cstring)
+  s = "H!!!".cstring
+  discard s.insert(1, "ello ".cstring)
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "H!!!".cstring
-    discard s.insert(1, "ello ???".cstring, 5)
+  s = "H!!!".cstring
+  discard s.insert(1, "ello ???".cstring, 5)
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "Heo !!!".cstring
-    discard s.insert(2, 2, 'l')
+  s = "Heo !!!".cstring
+  discard s.insert(2, 2, 'l')
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "Heo !!!".cstring
-    discard s.insert(s.begin+2, 2, 'l')
+  s = "Heo !!!".cstring
+  discard s.insert(s.begin+2, 2, 'l')
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "Hllo !!!".cstring
-    discard s.insert(s.begin+1, 'e')
+  s = "Hllo !!!".cstring
+  discard s.insert(s.begin+1, 'e')
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "H!!!".cstring
-    s2 = "Hello !!!".cstring
-    discard s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
+  s = "H!!!".cstring
+  s2 = "Hello !!!".cstring
+  discard s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
 
-    check s == "Hello !!!".cstring
+  check s == "Hello !!!".cstring
 
-    s = "Hello".cstring
-    discard s.erase()
+  s = "Hello".cstring
+  discard s.erase()
 
-    check s.empty
+  check s.empty
 
-    s = "Hello".cstring
-    discard s.erase(1)
+  s = "Hello".cstring
+  discard s.erase(1)
 
-    check s == "H".cstring
+  check s == "H".cstring
 
-    s = "Hello".cstring
-    discard s.erase(1, 3)
+  s = "Hello".cstring
+  discard s.erase(1, 3)
 
-    check s == "Ho".cstring
+  check s == "Ho".cstring
 
-    s = "Hello".cstring
-    discard s.erase(s.begin+1)
+  s = "Hello".cstring
+  discard s.erase(s.begin+1)
 
-    check s == "Hllo".cstring
+  check s == "Hllo".cstring
 
-    s = "Hello".cstring
-    discard s.erase(s.begin+1, s.`end`)
+  s = "Hello".cstring
+  discard s.erase(s.begin+1, s.`end`)
 
-    check s == "H".cstring
+  check s == "H".cstring
 
-    s = "HELLO !".cstring
-    s2 = "ello".cstring
-    discard s.replace(1, 4, s2)
+  s = "HELLO !".cstring
+  s2 = "ello".cstring
+  discard s.replace(1, 4, s2)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    s2 = "ello".cstring
-    discard s.replace(s.cbegin+1, s.cend-2, s2)
+  s = "HELLO !".cstring
+  s2 = "ello".cstring
+  discard s.replace(s.cbegin+1, s.cend-2, s2)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    s2 = "hhhello there".cstring
-    discard s.replace(1, 4, s2, 3, 4)
+  s = "HELLO !".cstring
+  s2 = "hhhello there".cstring
+  discard s.replace(1, 4, s2, 3, 4)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    discard s.replace(1, 4, "ello".cstring)
+  s = "HELLO !".cstring
+  discard s.replace(1, 4, "ello".cstring)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    discard s.replace(s.cbegin+1, s.cend-2, "ello".cstring)
+  s = "HELLO !".cstring
+  discard s.replace(s.cbegin+1, s.cend-2, "ello".cstring)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    discard s.replace(1, 4, "ello....".cstring, 4)
+  s = "HELLO !".cstring
+  discard s.replace(1, 4, "ello....".cstring, 4)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    discard s.replace(s.cbegin+1, s.cend-2, "ello....".cstring, 4)
+  s = "HELLO !".cstring
+  discard s.replace(s.cbegin+1, s.cend-2, "ello....".cstring, 4)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "Hejjo !".cstring
-    discard s.replace(2, 2, 4, 'l')
+  s = "Hejjo !".cstring
+  discard s.replace(2, 2, 4, 'l')
 
-    check s == "Hellllo !".cstring
+  check s == "Hellllo !".cstring
 
-    s = "Hejjo !".cstring
-    discard s.replace(s.cbegin+2, s.cbegin+4, 4, 'l')
+  s = "Hejjo !".cstring
+  discard s.replace(s.cbegin+2, s.cbegin+4, 4, 'l')
 
-    check s == "Hellllo !".cstring
+  check s == "Hellllo !".cstring
 
-    s = "HELLO !".cstring
-    s2 = "hello".cstring
-    discard s.replace(s.cbegin+1, s.cend-2, s2.cbegin+1, s2.cend)
+  s = "HELLO !".cstring
+  s2 = "hello".cstring
+  discard s.replace(s.cbegin+1, s.cend-2, s2.cbegin+1, s2.cend)
 
-    check s == "Hello !".cstring
+  check s == "Hello !".cstring
 
-    s = "HELLO !".cstring
-    s2 = "hello".cstring
-    s.swap s2
+  s = "HELLO !".cstring
+  s2 = "hello".cstring
+  s.swap s2
 
-    check s == "hello".cstring
+  check s == "hello".cstring
 
-    s.pop_back
+  s.pop_back
 
-    check s == "hell".cstring
+  check s == "hell".cstring
 
 test "test string operations":
   var s: String = "Hello Nim!".cstring
@@ -455,7 +456,7 @@ test "test string non-member function overloads":
   check s1 != s2
   check s1 != "beta".cstring
   check "alpha".cstring != s2
-  check not (s1 == s2) 
+  check not (s1 == s2)
   check not (s1 == "beta".cstring)
   check not ("alpha".cstring == s2)
   check s1 < s2
