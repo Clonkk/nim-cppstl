@@ -141,88 +141,82 @@ proc back*(this: var String): var cchar
     {.importcpp: "back", header: "string".}
 
 # Modifiers
-# Methods such as `+=`, append or assign should return a reference to
-# the modified string. However, because of a bug in the Nim code generator
-# I'm unable to return var String. So better return nothing
-proc `+=`*(this: var String, str: String)
+proc `+=`*(this: var String, str: String): var String
     {.importcpp: "# += #", header: "string".}
 
-proc `+=`*(this: var String, str: cstring)
+proc `+=`*(this: var String, str: cstring): var String
     {.importcpp: "# += #", header: "string".}
 
-proc `+=`*(this: var String, str: cchar)
+proc `+=`*(this: var String, str: cchar): var String
     {.importcpp: "# += #", header: "string".}
 
-proc append*(this: var String, str: String)
+proc append*(this: var String, str: String): var String
     {.importcpp: "append", header: "string".}
 
-proc append*(this: var String, str: String, subpos, sublen: csize)
+proc append*(this: var String, str: String, subpos, sublen: csize): var String
     {.importcpp: "append", header: "string".}
 
-proc append*(this: var String, str: cstring)
+proc append*(this: var String, str: cstring): var String
     {.importcpp: "append", header: "string".}
 
-proc append*(this: var String, str: cstring, n: csize)
+proc append*(this: var String, str: cstring, n: csize): var String
     {.importcpp: "append", header: "string".}
 
-proc append*(this: var String, n: csize, str: cchar)
+proc append*(this: var String, n: csize, str: cchar): var String
     {.importcpp: "append", header: "string".}
 
-proc append*(this: var String, first, last: StrConstIterator)
+proc append*(this: var String, first, last: StrConstIterator): var String
     {.importcpp: "append", header: "string".}
 
-proc push_back*(this: var String, x: cchar)
+proc push_back*(this: var String, x: cchar): var String
     {.importcpp: "push_back", header: "string".}
 
-proc assign*(this: var String, str: String)
+proc assign*(this: var String, str: String): var String
     {.importcpp: "assign", header: "string".}
 
-proc assign*(this: var String, str: String, subpos, sublen: csize)
+proc assign*(this: var String, str: String, subpos, sublen: csize): var String
     {.importcpp: "assign", header: "string".}
 
-proc assign*(this: var String, str: cstring)
+proc assign*(this: var String, str: cstring): var String
     {.importcpp: "assign", header: "string".}
 
-proc assign*(this: var String, str: cstring, n: csize)
+proc assign*(this: var String, str: cstring, n: csize): var String
     {.importcpp: "assign", header: "string".}
 
-proc assign*(this: var String, n: csize, c: cchar)
+proc assign*(this: var String, n: csize, c: cchar): var String
     {.importcpp: "assign", header: "string".}
 
-proc assign*(this: var String, first, last: StrConstIterator)
+proc assign*(this: var String, first, last: StrConstIterator): var String
     {.importcpp: "assign", header: "string".}
 
-proc insert*(this: var String, pos: csize, str: String)
+proc insert*(this: var String, pos: csize, str: String): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, pos: csize, str: String, subpos, sublen: csize)
+proc insert*(this: var String, pos: csize, str: String, subpos, sublen: csize): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, pos: csize, s: cstring)
+proc insert*(this: var String, pos: csize, s: cstring): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, pos: csize, s: cstring, n: csize)
+proc insert*(this: var String, pos: csize, s: cstring, n: csize): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, p, n: csize, c: cchar)
+proc insert*(this: var String, p, n: csize, c: cchar): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, p: StrConstIterator, n: csize, c: cchar)
+proc insert*(this: var String, p: StrConstIterator, n: csize, c: cchar): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, p: StrConstIterator, c: cchar)
+proc insert*(this: var String, p: StrConstIterator, c: cchar): var String
     {.importcpp: "insert", header: "string".}
 
-proc insert*(this: var String, p: StrIterator, first, last: StrConstIterator)
+proc insert*(this: var String, p: StrIterator, first, last: StrConstIterator): var String
     {.importcpp: "insert", header: "string".}
 
 proc erase*(this: var String): StrIterator
    {.importcpp: "erase", header: "string".}
 
-proc erase*(this: var String, pos: csize): StrIterator
-   {.importcpp: "erase", header: "string".}
-
-proc erase*(this: var String, pos, l: csize): StrIterator
+proc erase*(this: var String, pos: csize, l: csize=npos): var String
    {.importcpp: "erase", header: "string".}
 
 proc erase*(this: var String, pos: StrIterator): StrIterator
@@ -231,42 +225,42 @@ proc erase*(this: var String, pos: StrIterator): StrIterator
 proc erase*(this: var String, first, last: StrIterator): StrIterator
    {.importcpp: "erase", header: "string".}
 
-proc replace*(this: var String, pos, l: csize, str: String): StrIterator
+proc replace*(this: var String, pos, l: csize, str: String): var String
    {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, i1, i2: StrConstIterator,
-              str: String): StrIterator
+              str: String): var String
               {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, pos, l: csize,
-              str: String, subpos, subl: csize): StrIterator
+              str: String, subpos, subl: csize): var String
                {.importcpp: "replace", header: "string".}
 
-proc replace*(this: var String, pos, l: csize, s: cstring): StrIterator
+proc replace*(this: var String, pos, l: csize, s: cstring): var String
    {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, i1, i2: StrConstIterator,
-              s: cstring): StrIterator
+              s: cstring): var String
               {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, pos, l: csize, s: cstring,
-              n: csize): StrIterator
+              n: csize): var String
              {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, i1, i2: StrConstIterator,
-              s: cstring, n: csize): StrIterator
+              s: cstring, n: csize): var String
               {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, pos, l: csize, n: csize,
-              c: cchar): StrIterator
+              c: cchar): var String
              {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, i1, i2: StrConstIterator,
-              n: csize, c: cchar): StrIterator
+              n: csize, c: cchar): var String
               {.importcpp: "replace", header: "string".}
 
 proc replace*(this: var String, i1, i2: StrConstIterator,
-              first, last: StrConstIterator): StrIterator
+              first, last: StrConstIterator): var String
               {.importcpp: "replace", header: "string".}
 
 proc swap*(this: var String, x: var String)

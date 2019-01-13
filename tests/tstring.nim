@@ -109,115 +109,115 @@ test "test string element access methods":
 test "test string modifiers":
     var s: String = "Hello".cstring
     var s2 = initString(" Nim!")
-    s += s2
+    discard s += s2
 
     check s == "Hello Nim!".cstring
 
-    s += " Welcome!".cstring
+    discard s += " Welcome!".cstring
 
     check s == "Hello Nim! Welcome!".cstring
 
-    s += '!'
+    discard s += '!'
 
     check s == "Hello Nim! Welcome!!".cstring
 
     s = "Hello".cstring
-    s.append s2
+    discard s.append s2
 
     check s == "Hello Nim!".cstring
 
-    s.append " Welcome!".cstring
+    discard s.append " Welcome!".cstring
 
     check s == "Hello Nim! Welcome!".cstring
 
-    s.append(1, '!')
+    discard s.append(1, '!')
 
     check s == "Hello Nim! Welcome!!".cstring
 
-    s.append(3, '!')
+    discard s.append(3, '!')
 
     check s == "Hello Nim! Welcome!!!!!".cstring
 
     s2 = "!!! :)".cstring
-    s.append(s2, 3, 3)
+    discard s.append(s2, 3, 3)
 
     check s == "Hello Nim! Welcome!!!!! :)".cstring
 
-    s.append(" :)...........".cstring, 4)
+    discard s.append(" :)...........".cstring, 4)
 
     check s == "Hello Nim! Welcome!!!!! :) :).".cstring
 
     s2 = "I say Bye!".cstring
-    s.append(s2.cbegin+5, s2.cend)
+    discard s.append(s2.cbegin+5, s2.cend)
 
     check s == "Hello Nim! Welcome!!!!! :) :). Bye!".cstring
 
-    s.push_back '!'
+    discard s.push_back '!'
 
     check s == "Hello Nim! Welcome!!!!! :) :). Bye!!".cstring
 
     s = "".cstring
     s2 = "Hello".cstring
-    s.assign(s2)
+    discard s.assign(s2)
 
     check s == s2
 
-    s.assign(s2, 1, 3)
+    discard s.assign(s2, 1, 3)
 
     check s == "ell".cstring
 
-    s.assign("hi".cstring)
+    discard s.assign("hi".cstring)
 
     check s == "hi".cstring
 
-    s.assign("hello".cstring, 4)
+    discard s.assign("hello".cstring, 4)
 
     check s == "hell".cstring
 
-    s.assign(3, '6')
+    discard s.assign(3, '6')
 
     check s == "666".cstring
 
     s = "H!!!".cstring
     s2 = "ello ".cstring
-    s.insert(1, s2)
+    discard s.insert(1, s2)
 
     check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s2 = "Hello !!!".cstring
-    s.insert(1, s2, 1, 5)
+    discard s.insert(1, s2, 1, 5)
 
     check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
-    s.insert(1, "ello ".cstring)
+    discard s.insert(1, "ello ".cstring)
 
     check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
-    s.insert(1, "ello ???".cstring, 5)
+    discard s.insert(1, "ello ???".cstring, 5)
 
     check s == "Hello !!!".cstring
 
     s = "Heo !!!".cstring
-    s.insert(2, 2, 'l')
+    discard s.insert(2, 2, 'l')
 
     check s == "Hello !!!".cstring
 
     s = "Heo !!!".cstring
-    s.insert(s.begin+2, 2, 'l')
+    discard s.insert(s.begin+2, 2, 'l')
 
     check s == "Hello !!!".cstring
 
     s = "Hllo !!!".cstring
-    s.insert(s.begin+1, 'e')
+    discard s.insert(s.begin+1, 'e')
 
     check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s2 = "Hello !!!".cstring
-    s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
+    discard s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
 
     check s == "Hello !!!".cstring
 
@@ -445,7 +445,7 @@ test "test string non-member function overloads":
   check s1+'!' == "Hello !".cstring
   check '!'+s1+'!' == "!Hello !".cstring
 
-  s1 += s2
+  discard s1 += s2
 
   check s1 == "Hello Nim".cstring
 
