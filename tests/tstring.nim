@@ -8,16 +8,16 @@ test "test string constructors and iterators":
 
     check s.empty
     check s.length == 0
-    check s == ""
+    check s == "".cstring
 
     s = initString("hello nim")
 
-    check s == "hello nim"
-    check $s == "hello nim"
+    check s == "hello nim".cstring
+    check $s == "hello nim".cstring
 
     s = initString("hello nim", 5)
 
-    check s == "hello"
+    check s == "hello".cstring
 
     var s1 : String = "hello".cstring
 
@@ -29,11 +29,11 @@ test "test string constructors and iterators":
 
     s1 = initString(s, 3)
 
-    check s1 == "lo"
+    check s1 == "lo".cstring
 
     s1 = initString(s, 0, 4)
 
-    check s1 == "hell"
+    check s1 == "hell".cstring
 
     s1 = initString(s.begin, s.`end`)
 
@@ -41,19 +41,19 @@ test "test string constructors and iterators":
 
     s1 = initString(s.begin, s.begin+4)
 
-    check s1 == "hell"
+    check s1 == "hell".cstring
 
     s1 = initString(s.cbegin, s.cbegin+4)
 
-    check s1 == "hell"
+    check s1 == "hell".cstring
 
     s1 = initString(s.rbegin, s.rend)
 
-    check s1 == "olleh"
+    check s1 == "olleh".cstring
 
     s1 = initString(s.crbegin, s.crend)
 
-    check s1 == "olleh"
+    check s1 == "olleh".cstring
 
 test "test string capacity methods":
     var s: String = "Hello Nim!".cstring
@@ -63,7 +63,7 @@ test "test string capacity methods":
 
     s.resize 5
 
-    check s == "Hello"
+    check s == "Hello".cstring
     check s.capacity >= s.size
 
     let oldCap = s.capacity
@@ -74,7 +74,7 @@ test "test string capacity methods":
     s.clear
 
     check s.empty
-    check s == ""
+    check s == "".cstring
 
     s = "Hello".cstring
     s.reserve(s.capacity*2)
@@ -98,7 +98,7 @@ test "test string element access methods":
     s.front() = 'h'
     s.back() = '?'
 
-    check s == "hello Nim?"
+    check s == "hello Nim?".cstring
 
     when compileOption("boundChecks"):
         expect(IndexError):
@@ -111,50 +111,50 @@ test "test string modifiers":
     var s2 = initString(" Nim!")
     s += s2
 
-    check s == "Hello Nim!"
+    check s == "Hello Nim!".cstring
 
     s += " Welcome!".cstring
 
-    check s == "Hello Nim! Welcome!"
+    check s == "Hello Nim! Welcome!".cstring
 
     s += '!'
 
-    check s == "Hello Nim! Welcome!!"
+    check s == "Hello Nim! Welcome!!".cstring
 
     s = "Hello".cstring
     s.append s2
 
-    check s == "Hello Nim!"
+    check s == "Hello Nim!".cstring
 
     s.append " Welcome!".cstring
 
-    check s == "Hello Nim! Welcome!"
+    check s == "Hello Nim! Welcome!".cstring
 
     s.append(1, '!')
 
-    check s == "Hello Nim! Welcome!!"
+    check s == "Hello Nim! Welcome!!".cstring
 
     s.append(3, '!')
 
-    check s == "Hello Nim! Welcome!!!!!"
+    check s == "Hello Nim! Welcome!!!!!".cstring
 
     s2 = "!!! :)".cstring
     s.append(s2, 3, 3)
 
-    check s == "Hello Nim! Welcome!!!!! :)"
+    check s == "Hello Nim! Welcome!!!!! :)".cstring
 
     s.append(" :)...........".cstring, 4)
 
-    check s == "Hello Nim! Welcome!!!!! :) :)."
+    check s == "Hello Nim! Welcome!!!!! :) :).".cstring
 
     s2 = "I say Bye!".cstring
     s.append(s2.cbegin+5, s2.cend)
 
-    check s == "Hello Nim! Welcome!!!!! :) :). Bye!"
+    check s == "Hello Nim! Welcome!!!!! :) :). Bye!".cstring
 
     s.push_back '!'
 
-    check s == "Hello Nim! Welcome!!!!! :) :). Bye!!"
+    check s == "Hello Nim! Welcome!!!!! :) :). Bye!!".cstring
 
     s = "".cstring
     s2 = "Hello".cstring
@@ -164,62 +164,62 @@ test "test string modifiers":
 
     s.assign(s2, 1, 3)
 
-    check s == "ell"
+    check s == "ell".cstring
 
     s.assign("hi".cstring)
 
-    check s == "hi"
+    check s == "hi".cstring
 
     s.assign("hello".cstring, 4)
 
-    check s == "hell"
+    check s == "hell".cstring
 
     s.assign(3, '6')
 
-    check s == "666"
+    check s == "666".cstring
 
     s = "H!!!".cstring
     s2 = "ello ".cstring
     s.insert(1, s2)
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s2 = "Hello !!!".cstring
     s.insert(1, s2, 1, 5)
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s.insert(1, "ello ".cstring)
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s.insert(1, "ello ???".cstring, 5)
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "Heo !!!".cstring
     s.insert(2, 2, 'l')
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "Heo !!!".cstring
     s.insert(s.begin+2, 2, 'l')
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "Hllo !!!".cstring
     s.insert(s.begin+1, 'e')
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "H!!!".cstring
     s2 = "Hello !!!".cstring
     s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
 
-    check s == "Hello !!!"
+    check s == "Hello !!!".cstring
 
     s = "Hello".cstring
     discard s.erase()
@@ -229,86 +229,86 @@ test "test string modifiers":
     s = "Hello".cstring
     discard s.erase(1)
 
-    check s == "H"
+    check s == "H".cstring
 
     s = "Hello".cstring
     discard s.erase(1, 3)
 
-    check s == "Ho"
+    check s == "Ho".cstring
 
     s = "Hello".cstring
     discard s.erase(s.begin+1)
 
-    check s == "Hllo"
+    check s == "Hllo".cstring
 
     s = "Hello".cstring
     discard s.erase(s.begin+1, s.`end`)
 
-    check s == "H"
+    check s == "H".cstring
 
     s = "HELLO !".cstring
     s2 = "ello".cstring
     discard s.replace(1, 4, s2)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     s2 = "ello".cstring
     discard s.replace(s.cbegin+1, s.cend-2, s2)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     s2 = "hhhello there".cstring
     discard s.replace(1, 4, s2, 3, 4)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     discard s.replace(1, 4, "ello".cstring)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     discard s.replace(s.cbegin+1, s.cend-2, "ello".cstring)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     discard s.replace(1, 4, "ello....".cstring, 4)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     discard s.replace(s.cbegin+1, s.cend-2, "ello....".cstring, 4)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "Hejjo !".cstring
     discard s.replace(2, 2, 4, 'l')
 
-    check s == "Hellllo !"
+    check s == "Hellllo !".cstring
 
     s = "Hejjo !".cstring
     discard s.replace(s.cbegin+2, s.cbegin+4, 4, 'l')
 
-    check s == "Hellllo !"
+    check s == "Hellllo !".cstring
 
     s = "HELLO !".cstring
     s2 = "hello".cstring
     discard s.replace(s.cbegin+1, s.cend-2, s2.cbegin+1, s2.cend)
 
-    check s == "Hello !"
+    check s == "Hello !".cstring
 
     s = "HELLO !".cstring
     s2 = "hello".cstring
     s.swap s2
 
-    check s == "hello"
+    check s == "hello".cstring
 
     s.pop_back
 
-    check s == "hell"
+    check s == "hell".cstring
 
 test "test string operations":
   var s: String = "Hello Nim!".cstring
@@ -350,7 +350,7 @@ test "test string operations":
     s[found] = '*'
     found = s.find_first_of(s2, found+1)
 
-  check s == "Pl**s*, r*pl*c* th* v*w*ls *n th*s s*nt*nc* by *st*r*sks."
+  check s == "Pl**s*, r*pl*c* th* v*w*ls *n th*s s*nt*nc* by *st*r*sks.".cstring
 
   s = "Please, replace the vowels in this sentence by asterisks.".cstring
   found = s.find_first_of("aeiou");
@@ -358,7 +358,7 @@ test "test string operations":
     s[found] = '*'
     found = s.find_first_of("aeiou", found+1)
 
-  check s == "Pl**s*, r*pl*c* th* v*w*ls *n th*s s*nt*nc* by *st*r*sks."
+  check s == "Pl**s*, r*pl*c* th* v*w*ls *n th*s s*nt*nc* by *st*r*sks.".cstring
 
   s = "Please, replace the vowels in this sentence by asterisks.".cstring
   found = s.find_first_of("aeiou", 0, 3);
@@ -366,42 +366,42 @@ test "test string operations":
     s[found] = '*'
     found = s.find_first_of("aeiou", found+1, 3)
 
-  check s == "Pl**s*, r*pl*c* th* vow*ls *n th*s s*nt*nc* by *st*r*sks."
+  check s == "Pl**s*, r*pl*c* th* vow*ls *n th*s s*nt*nc* by *st*r*sks.".cstring
   check s.find_first_of('l', 3) == 11
 
   s = "/usr/bin/man".cstring
   s2 = "/\\".cstring
   found = s.find_last_of(s2)
 
-  check s.substr(found+1) == "man"
+  check s.substr(found+1) == "man".cstring
 
   found = s.find_last_of(s2, found-1)
 
-  check s.substr(found+1) == "bin/man"
+  check s.substr(found+1) == "bin/man".cstring
 
   found = s.find_last_of("/\\")
 
-  check s.substr(found+1) == "man"
+  check s.substr(found+1) == "man".cstring
 
   found = s.find_last_of("/\\", found-1)
 
-  check s.substr(found+1) == "bin/man"
+  check s.substr(found+1) == "bin/man".cstring
 
   found = s.find_last_of("/\\lll", -1, 3)
 
-  check s.substr(found+1) == "man"
+  check s.substr(found+1) == "man".cstring
 
   found = s.find_last_of("/\\", found-1, 3)
 
-  check s.substr(found+1) == "bin/man"
+  check s.substr(found+1) == "bin/man".cstring
 
   found = s.find_last_of('m')
 
-  check s.substr(found) == "man"
+  check s.substr(found) == "man".cstring
 
   found = s.find_last_of('b', found-1)
 
-  check s.substr(found) == "bin/man"
+  check s.substr(found) == "bin/man".cstring
 
   s = "1293a456b7".cstring
   s2 = "123456789".cstring
@@ -423,3 +423,44 @@ test "test string operations":
   check s.find_last_not_of("123456789".cstring, 4, 3) == 4
   check s.find_last_not_of('1') == 9
   check s.find_last_not_of('1', 1) == 1
+
+  s = "green apple".cstring
+  s2 = "red apple".cstring
+
+  check s.compare(s2) != 0
+  check s.compare("red apple".cstring) != 0
+  check s.compare(0, s.length, s2) != 0
+  check s.compare(0, s.length, "red apple".cstring) != 0
+  check s.compare(6, 5, "apple".cstring) == 0
+  check s.compare(6, 5, "red apple".cstring, 4, 5) == 0
+  check s.compare(6, 5, s2, 4, 5) == 0
+
+test "test string non-member function overloads":
+  var s1: String = "Hello ".cstring
+  var s2: String = "Nim".cstring
+
+  check s1+s2 == "Hello Nim".cstring
+  check s1+"Nim".cstring == "Hello Nim".cstring
+  check "Hello ".cstring()+s2 == "Hello Nim".cstring
+  check s1+'!' == "Hello !".cstring
+  check '!'+s1+'!' == "!Hello !".cstring
+
+  s1 += s2
+
+  check s1 == "Hello Nim".cstring
+
+  s1 = "alpha".cstring
+  s2 = "beta".cstring
+
+  check s1 != s2
+  check s1 != "beta".cstring
+  check "alpha".cstring != s2
+  check not (s1 == s2) 
+  check not (s1 == "beta".cstring)
+  check not ("alpha".cstring == s2)
+  check s1 < s2
+  check not (s1 > s2)
+  check s1 > "aaaaaaaaaaaaa".cstring
+  check s1 <= s2
+  check not (s1 >= s2)
+  check s1 >= "aaaaaaaaaaaaa".cstring

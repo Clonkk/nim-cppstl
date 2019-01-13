@@ -360,7 +360,35 @@ proc find_last_not_of*(this: String, c: cchar, pos: csize=npos): csize
 proc substr*(this: String, pos: csize=0, l:csize = npos): String
     {.importcpp: "substr", header: "string".}
 
-# Relational operators
+proc compare*(this, str: String): cint
+    {.importcpp: "compare", header: "string".}
+
+proc compare*(this: String, pos, l: csize, str: String): cint
+    {.importcpp: "compare", header: "string".}
+
+proc compare*(this: String, pos, l: csize, 
+              str: String, subpos, subl: csize): cint
+    {.importcpp: "compare", header: "string".}
+
+proc compare*(this: String, s: cstring): cint
+    {.importcpp: "compare", header: "string".}
+
+proc compare*(this: String, pos, l: csize, str: cstring): cint
+    {.importcpp: "compare", header: "string".}
+
+proc compare*(this: String, pos, l: csize, str: cstring, n: csize): cint
+    {.importcpp: "compare", header: "string".}
+
+# Non-member function overloads
+proc `+`*(a: String, b: String) : String
+    {.importcpp: "# + #", header: "string" .}
+
+proc `+`*(a: String, b: cchar) : String
+    {.importcpp: "# + char(#)", header: "string" .}
+
+proc `+`*(a: cchar, b: String) : String
+    {.importcpp: "char(#) + #", header: "string" .}
+
 proc `==`*(a: String, b: String) : bool
     {.importcpp: "# == #", header: "string" .}
 
@@ -383,7 +411,7 @@ proc `>=`*(a: String, b: String) : bool
 converter StrIteratorToStrConstIterator*(s: StrIterator): StrConstIterator {.importcpp: "#".}
 
 # Converter: String -> cstring
-converter CppStringToCString*(s: String): cstring = s.c_str()
+# converter CppStringToCString*(s: String): cstring = s.c_str()
 
 # Converter: cstring -> String
 converter CStringToCppString*(s: cstring): String {.inline.} = initString(s)
@@ -396,7 +424,7 @@ converter CStringToCppString*(s: cstring): String {.inline.} = initString(s)
 
 # Display String
 proc `$`*(s: String) : string {.noinit.}  =
-    result = $(s.cstring)
+    result = $(s.c_str())
 
 # Iterators arithmetics
 iteratorsArithmetics(StrIterator)
