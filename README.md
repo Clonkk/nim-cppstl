@@ -23,7 +23,13 @@ Pull requests are welcome of course.
 
 ## Installation
 
-TO DO
+Add the following lines to your `.nimble`:
+
+```
+backend = "cpp"
+
+requires "cppstl >= 0.1.0"
+```
 
 ## Usage
 
