@@ -15,4 +15,4 @@ jobs:
         id: install_nim
         uses: iffy/install-nim@v3
       - run: nimble install -y
-      - run: testament r tests/testall.nim
+      - run: testament p "tests/t*.nim"
