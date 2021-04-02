@@ -239,27 +239,27 @@ proc `>`*(a: string|cstring, b: StdString): bool =
 proc `>=`*(a: string|cstring, b: StdString): bool =
   initStdString(a) >= b
 
-proc checkIndex(self: StdString, i: csize_t) =
+proc checkIndex(self: StdString, i: csize_t) {.inline.} =
   if i > self.size:
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
-proc `[]`*(self: StdString, idx: Natural): cchar =
+proc `[]`*(self: StdString, idx: Natural): cchar {.inline.} =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
-  when compileOption("boundChecks"): checkIndex(self, i)
+  when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i)
 
-proc `[]`*(self: var StdString, idx: Natural): var cchar =
+proc `[]`*(self: var StdString, idx: Natural): var cchar {.inline.} =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
-  when compileOption("boundChecks"): checkIndex(self, i)
+  when compileOption("boundChecks"): self.checkIndex(i)
   # TODO : find Nim bugs # associated
   # This strange syntax is to avoid a bug in the Nim c++ code generator
   (addr self.unsafeIndex(i))[]
 
-proc `[]=`*(self: var StdString, idx: Natural, val: cchar) =
+proc `[]=`*(self: var StdString, idx: Natural, val: cchar) {.inline.} =
   let i = csize_t(idx)
-  when compileOption("boundChecks"): checkIndex(self, i)
+  when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i) = val
 
 

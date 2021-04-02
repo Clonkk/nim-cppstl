@@ -10,9 +10,7 @@ export exception
 {.push header: "<vector>".}
 type
   StdVector*[T] {.importcpp: "std::vector".} = object
-
   StdVecIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = object
-
   StdVecConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = object
 
 # Constructors
@@ -37,47 +35,16 @@ proc crend*[T](x: StdVector[T]): StdVecConstIterator[T] {.importcpp: "crend".}
 
 # Capacity
 proc size*[T](self: StdVector[T]): csize_t {.importcpp: "size".}
-
 proc max_size*[T](self: StdVector[T]): csize_t {.importcpp: "max_size".}
-
 proc resize*[T](self: StdVector[T], n: csize_t) {.importcpp: "resize".}
-
 proc capacity*[T](self: StdVector[T]): csize_t {.importcpp: "capacity".}
-
 proc empty*[T](self: StdVector[T]): bool {.importcpp: "empty".}
-
 proc reserve*[T](self: var StdVector[T], n: csize_t) {.importcpp: "reserve".}
-
 proc shrink_to_fit*[T](self: var StdVector[T]) {.importcpp: "shrink_to_fit".}
 
 # Internal utility functions
 proc unsafeIndex[T](self: var StdVector[T], i: csize_t): var T {.importcpp: "#[#]".}
 proc unsafeIndex[T](self: StdVector[T], i: csize_t): T {.importcpp: "#[#]".}
-
-when compileOption("boundChecks"):
-  proc checkIndex[T](self: StdVector[T], i: csize_t) {.inline.} =
-    if i >= self.size:
-      raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
-
-# Element access
-proc `[]`*[T](self: StdVector[T], i: Natural): T {.inline.} =
-  let i = csize_t(i)
-  when compileOption("boundChecks"):
-    self.checkIndex i
-  result = self.unsafeIndex(i)
-
-proc `[]`*[T](self: var StdVector[T], i: Natural): var T {.inline, noinit.} =
-  let i = csize_t(i)
-  when compileOption("boundChecks"):
-    self.checkIndex i
-  # this strange syntax is to avoid a bug in the Nim c++ code generator
-  result = (addr self.unsafeIndex(i))[]
-
-proc `[]=`*[T](self: var StdVector[T], i: Natural, val: T) {.inline, noinit.} =
-  let i = csize_t(i)
-  when compileOption("boundChecks"):
-    self.checkIndex i
-  self.unsafeIndex(i) = val
 
 proc at*[T](self: var StdVector[T], n: csize_t): var T {.importcpp: "at".}
 proc at*[T](self: StdVector[T], n: csize_t): T {.importcpp: "at".}
@@ -122,7 +89,29 @@ proc `>`*[T](a: StdVector[T], b: StdVector[T]): bool {.importcpp: "# > #".}
 
 proc `>=`*[T](a: StdVector[T], b: StdVector[T]): bool {.importcpp: "# >= #".}
 
+{.pop.}
+
 # Nim specifics
+proc checkIndex[T](self: StdVector[T], i: csize_t) {.inline.} =
+  if i >= self.size:
+    raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
+
+# Element access
+proc `[]`*[T](self: StdVector[T], idx: Natural): T  {.inline.} =
+  let i = csize_t(idx)
+  when compileOption("boundChecks"): self.checkIndex(i)
+  self.unsafeIndex(i)
+
+proc `[]`*[T](self: var StdVector[T], idx: Natural): var T {.inline.} =
+  let i = csize_t(idx)
+  when compileOption("boundChecks"): self.checkIndex(i)
+  # this strange syntax is to avoid a bug in the Nim c++ code generator
+  (addr self.unsafeIndex(i))[]
+
+proc `[]=`*[T](self: var StdVector[T], idx: Natural, val: T) {.inline.} =
+  let i = csize_t(idx)
+  when compileOption("boundChecks"): self.checkIndex(i)
+  self.unsafeIndex(i) = val
 
 # Converter: StdVecIterator -> StdVecConstIterator
 converter StdVecIteratorToStdVecConstIterator*[T](x: StdVecIterator[T]):
