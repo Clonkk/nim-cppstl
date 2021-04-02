@@ -4,21 +4,21 @@
 import unittest, cppstl/vector
 
 test "test vector constructors and iterators":
-  var v = initVector[int](3)
+  var v = initStdVector[int](3)
 
   check v.size == 3
   check v[0] == 0
   check v[1] == 0
   check v[2] == 0
 
-  v = initVector[int](3, 1)
+  v = initStdVector[int](3, 1)
 
   check v.size == 3
   check v[0] == 1
   check v[1] == 1
   check v[2] == 1
 
-  v = initVector[int]()
+  v = initStdVector[int]()
   v.push_back(1)
   v.push_back(2)
   v.push_back(3)
@@ -28,14 +28,14 @@ test "test vector constructors and iterators":
   check v[1] == 2
   check v[2] == 3
 
-  var v2 = initVector(v)
+  var v2 = initStdVector(v)
 
   check v.size == v2.size
   check v[0] == v2[0]
   check v[1] == v2[1]
   check v[2] == v2[2]
 
-  v2 = initVector(begin(v), `end`(v))
+  v2 = initStdVector(begin(v), `end`(v))
 
   check v.size == v2.size
   check v[0] == v2[0]
@@ -43,7 +43,7 @@ test "test vector constructors and iterators":
   check v[2] == v2[2]
   check v == v2
 
-  v2 = initVector(rbegin(v), rend(v))
+  v2 = initStdVector(rbegin(v), rend(v))
 
   check v.size == v2.size
   check v[0] == v2[2]
@@ -51,7 +51,7 @@ test "test vector constructors and iterators":
   check v[2] == v2[0]
   check v != v2
 
-  v2 = initVector(cbegin(v), cend(v))
+  v2 = initStdVector(cbegin(v), cend(v))
 
   check v.size == v2.size
   check v[0] == v2[0]
@@ -59,7 +59,7 @@ test "test vector constructors and iterators":
   check v[2] == v2[2]
   check v == v2
 
-  v2 = initVector(crbegin(v), crend(v))
+  v2 = initStdVector(crbegin(v), crend(v))
 
   check v.size == v2.size
   check v[0] == v2[2]
@@ -68,7 +68,7 @@ test "test vector constructors and iterators":
   check v != v2
 
 test "test vector capacity methods":
-  var v = initVector[int](3)
+  var v = initStdVector[int](3)
 
   check v.size == 3
   check v.capacity >= v.size
@@ -91,7 +91,7 @@ test "test vector capacity methods":
   check v.size == v.capacity
 
 test "test vector element access methods":
-  var v = initVector[int](3)
+  var v = initStdVector[int](3)
 
   check v[0] == 0
   check v.at(0) == 0
@@ -112,14 +112,14 @@ test "test vector element access methods":
     expect(OutOfRangeException):
       discard v.at(4)
 
-  v = initVector[int](5)
+  v = initStdVector[int](5)
   for i in 0..<v.size:
     v[i] = i
 
   check v.front == 0
   check v.back == 4
 
-  v = initVector[int](2)
+  v = initStdVector[int](2)
   v.front() = 10
   v.back() = 11
 
@@ -132,7 +132,7 @@ test "test vector element access methods":
   check cast[ptr int](cast[int](pdata)+1*sizeof(int))[] == 11
 
 test "test vector modifiers":
-  var v = initVector[int]()
+  var v = initStdVector[int]()
   for i in 0..<3:
     v.push_back i
 
@@ -202,8 +202,8 @@ test "test vector modifiers":
   check v.size == 1
   check v[0] == 2
 
-  v = initVector[int](3, 1)
-  var v1 = initVector[int](3, 2)
+  v = initStdVector[int](3, 1)
+  var v1 = initStdVector[int](3, 2)
 
   for i in 0..<3:
     check v[i] == 1
@@ -221,8 +221,8 @@ test "test vector modifiers":
   check v.empty
 
 test "test vector relational operators":
-  let foo = initVector[int](3, 100)
-  let bar = initVector[int](2, 200)
+  let foo = initStdVector[int](3, 100)
+  let bar = initStdVector[int](2, 200)
 
   check foo == foo
   check foo <= foo
@@ -234,7 +234,7 @@ test "test vector relational operators":
   check foo <= bar
 
 test "test vector display":
-  var v = initVector[int]()
+  var v = initStdVector[int]()
 
   check $v == "[]"
 
