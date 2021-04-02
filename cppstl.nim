@@ -33,4 +33,5 @@ runnableExamples:
 
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
-{.passC: "-std=c++11".}
+# std=c++11 at least needed
+# {.passC: "-std=c++11".}
