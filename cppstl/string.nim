@@ -1,4 +1,5 @@
 # Copyright 2019 Nouredine Hussain
+# Copyright 2021 Caillaund Regis
 
 # This code is licensed under MIT license (see LICENSE.txt for details)
 
