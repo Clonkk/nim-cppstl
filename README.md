@@ -29,7 +29,4 @@ The tests are the best examples as I tray to cover every wrapped c++ code.
 
 ## License
 
-Copyright 2019 Nouredine Hussain
-Copyright 2021 Ca 
-
 This code is licensed under MIT license (see LICENSE.txt for details)
