@@ -10,3 +10,4 @@ license       = "MIT"
 
 requires "nim >= 0.19.9"
 
+backend = "cpp"
