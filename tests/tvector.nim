@@ -3,23 +3,23 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
 import unittest, cppstl/vector
 
-suite "Vector":
+suite "CppVector":
   test "constructors and iterators":
-    var v = initVector[int](3)
+    var v = initCppVector[int](3)
 
     check v.size == 3
     check v[0] == 0
     check v[1] == 0
     check v[2] == 0
 
-    v = initVector[int](3, 1)
+    v = initCppVector[int](3, 1)
 
     check v.size == 3
     check v[0] == 1
     check v[1] == 1
     check v[2] == 1
 
-    v = initVector[int]()
+    v = initCppVector[int]()
     v.push_back(1)
     v.push_back(2)
     v.push_back(3)
@@ -29,14 +29,14 @@ suite "Vector":
     check v[1] == 2
     check v[2] == 3
 
-    var v2 = initVector(v)
+    var v2 = initCppVector(v)
 
     check v.size == v2.size
     check v[0] == v2[0]
     check v[1] == v2[1]
     check v[2] == v2[2]
 
-    v2 = initVector(begin(v), `end`(v))
+    v2 = initCppVector(begin(v), `end`(v))
 
     check v.size == v2.size
     check v[0] == v2[0]
@@ -44,7 +44,7 @@ suite "Vector":
     check v[2] == v2[2]
     check v == v2
 
-    v2 = initVector(rbegin(v), rend(v))
+    v2 = initCppVector(rbegin(v), rend(v))
 
     check v.size == v2.size
     check v[0] == v2[2]
@@ -52,7 +52,7 @@ suite "Vector":
     check v[2] == v2[0]
     check v != v2
 
-    v2 = initVector(cbegin(v), cend(v))
+    v2 = initCppVector(cbegin(v), cend(v))
 
     check v.size == v2.size
     check v[0] == v2[0]
@@ -60,7 +60,7 @@ suite "Vector":
     check v[2] == v2[2]
     check v == v2
 
-    v2 = initVector(crbegin(v), crend(v))
+    v2 = initCppVector(crbegin(v), crend(v))
 
     check v.size == v2.size
     check v[0] == v2[2]
@@ -69,7 +69,7 @@ suite "Vector":
     check v != v2
 
   test "capacity":
-    var v = initVector[int](3)
+    var v = initCppVector[int](3)
 
     check v.size == 3
     check v.capacity >= v.size
@@ -92,7 +92,7 @@ suite "Vector":
     check v.size == v.capacity
 
   test "element access":
-    var v = initVector[int](3)
+    var v = initCppVector[int](3)
 
     check v[0] == 0
     check v.at(0) == 0
@@ -113,14 +113,14 @@ suite "Vector":
       expect(OutOfRangeException):
         discard v.at(4)
 
-    v = initVector[int](5)
+    v = initCppVector[int](5)
     for i in 0..<v.size:
       v[i] = i.int
 
     check v.front == 0
     check v.back == 4
 
-    v = initVector[int](2)
+    v = initCppVector[int](2)
     v.front() = 10
     v.back() = 11
 
@@ -133,7 +133,7 @@ suite "Vector":
     check cast[ptr int](cast[int](pdata)+1*sizeof(int))[] == 11
 
   test "modifiers":
-    var v = initVector[int]()
+    var v = initCppVector[int]()
     for i in 0..<3:
       v.push_back i
 
@@ -203,8 +203,8 @@ suite "Vector":
     check v.size == 1
     check v[0] == 2
 
-    v = initVector[int](3, 1)
-    var v1 = initVector[int](3, 2)
+    v = initCppVector[int](3, 1)
+    var v1 = initCppVector[int](3, 2)
 
     for i in 0..<3:
       check v[i] == 1
@@ -222,8 +222,8 @@ suite "Vector":
     check v.empty
 
   test "relational operators":
-    let foo = initVector[int](3, 100)
-    let bar = initVector[int](2, 200)
+    let foo = initCppVector[int](3, 100)
+    let bar = initCppVector[int](2, 200)
 
     check foo == foo
     check foo <= foo
@@ -235,7 +235,7 @@ suite "Vector":
     check foo <= bar
 
   test "display":
-    var v = initVector[int]()
+    var v = initCppVector[int]()
 
     check $v == "[]"
 
