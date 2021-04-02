@@ -11,3 +11,6 @@ license       = "MIT"
 requires "nim >= 1.0.0"
 
 backend = "cpp"
+
+task gendoc, "gen doc":
+  exec("nimble doc --backend:cpp --project cppstl.nim --out:docs/")
