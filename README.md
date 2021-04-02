@@ -25,7 +25,9 @@ requires "cppstl"
 
 ## Usage
 
-The tests are the best examples as I tray to cover every wrapped c++ code.
+The documentation is here : https://clonkk.github.io/nim-cppstl/
+
+You can find more use-case in the ``tests`` folder.
 
 ## License
 
