@@ -1,5 +1,9 @@
 # Nim bindings for the C++ STL
 
+![workflow](https://github.com/SciNim/nimfftw3/actions/workflows/ci.yml/badge.svg)
+
+## Introduction
+
 This library is a Nim wrapper for ``std::vector`` and ``std::string`` C++ Standard Template Library (STL). 
 **This library is obviously only compatible with the C++ backend**
 
