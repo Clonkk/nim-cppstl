@@ -8,6 +8,6 @@ license       = "MIT"
 
 # Dependencies
 
-requires "nim >= 0.19.9"
+requires "nim >= 1.0.0"
 
 backend = "cpp"
