@@ -124,9 +124,9 @@ proc swap*(self: var CppString, x: var CppString) {.importcpp: "swap".}
 proc pop_back*(self: var CppString) {.importcpp: "pop_back".}
 
 # CppString operations
-proc c_str*(self: CppString): cstring {.importcpp: "c_str".}
-
-proc data*(self: CppString): ptr cchar {.importcpp: "data".}
+# Avoid const char* vs char* issues
+proc c_str*(self: CppString): cstring {.importcpp: "const_cast<char*>(#.c_str())".}
+func data*(self: CppString): ptr cchar {.importcpp: "const_cast<char*>(#.data())".}
 
 proc copy*(self: CppString, s: ptr cchar, l: csize_t, pos: csize_t = 0): csize_t {.importcpp: "copy".}
 
