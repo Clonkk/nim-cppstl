@@ -13,9 +13,7 @@ when not defined(cpp):
 {.push header: "<string>".}
 type
   CppString* {.importcpp: "std::string".} = object
-
   CppStrIterator* {.importcpp: "std::string::iterator".} = object
-
   CppStrConstIterator* {.importcpp: "std::string::const_iterator".} = object
 
 # std_npos is declared as the highest possible value of csize_t

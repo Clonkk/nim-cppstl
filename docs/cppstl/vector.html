@@ -100,8 +100,8 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#Vectortor"
-    title="Vectortor[T] {.importcpp: &quot;std::vector&quot;.} = object">Vectortor</a></li>
+      <li><a class="reference" href="#Vector"
+    title="Vector[T] {.importcpp: &quot;std::vector&quot;.} = object">Vector</a></li>
   <li><a class="reference" href="#VectorIterator"
     title="VectorIterator[T] {.importcpp: &quot;std::vector&lt;\&apos;0&gt;::iterator&quot;.} = object">VectorIterator</a></li>
   <li><a class="reference" href="#VectorConstIterator"
@@ -113,54 +113,67 @@ function main() {
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">at
-      <li><a class="reference" href="#at%2CVectortor%5BT%5D%2Ccsize_t"
-    title="at[T](self: var Vectortor[T]; n: csize_t): var T">at,<wbr>Vectortor[T],<wbr>csize_t</a></li>
-  <li><a class="reference" href="#at%2CVectortor%5BT%5D%2Ccsize_t_2"
-    title="at[T](self: Vectortor[T]; n: csize_t): T">at,<wbr>Vectortor[T],<wbr>csize_t_2</a></li>
+      <li><a class="reference" href="#at%2CVector%5BT%5D%2Ccsize_t"
+    title="at[T](self: var Vector[T]; n: csize_t): var T">at,<wbr>Vector[T],<wbr>csize_t</a></li>
+  <li><a class="reference" href="#at%2CVector%5BT%5D%2Ccsize_t_2"
+    title="at[T](self: Vector[T]; n: csize_t): T">at,<wbr>Vector[T],<wbr>csize_t_2</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">end
-      <li><a class="reference" href="#end%2CVectortor%5BT%5D"
-    title="`end`[T](x: Vectortor[T]): VectorIterator[T]">end,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#end%2CVector%5BT%5D"
+    title="`end`[T](x: Vector[T]): VectorIterator[T]">end,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">>=
-      <li><a class="reference" href="#%3E%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`&gt;=`[T](a: Vectortor[T]; b: Vectortor[T]): bool">>=,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%3E%3D%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`&gt;=`[T](a: Vector[T]; b: Vector[T]): bool">>=,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">$
-      <li><a class="reference" href="#%24%2CVectortor%5BT%5D"
-    title="`$`[T](v: Vectortor[T]): string">$,<wbr>Vectortor[T]</a></li>
+  <ul class="simple nested-toc-section">initVector
+      <li><a class="reference" href="#initVector"
+    title="initVector[T](): Vector[T]">initVector</a></li>
+  <li><a class="reference" href="#initVector%2Ccsize_t"
+    title="initVector[T](n: csize_t): Vector[T]">initVector,<wbr>csize_t</a></li>
+  <li><a class="reference" href="#initVector%2Ccsize_t%2CT"
+    title="initVector[T](n: csize_t; val: T): Vector[T]">initVector,<wbr>csize_t,<wbr>T</a></li>
+  <li><a class="reference" href="#initVector%2CVector%5BT%5D"
+    title="initVector[T](x: Vector[T]): Vector[T]">initVector,<wbr>Vector[T]</a></li>
+  <li><a class="reference" href="#initVector%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
+    title="initVector[T](first, last: VectorConstIterator[T]): Vector[T]">initVector,<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">resize
-      <li><a class="reference" href="#resize%2CVectortor%5BT%5D%2Ccsize_t"
-    title="resize[T](self: Vectortor[T]; n: csize_t)">resize,<wbr>Vectortor[T],<wbr>csize_t</a></li>
+      <li><a class="reference" href="#resize%2CVector%5BT%5D%2Ccsize_t"
+    title="resize[T](self: Vector[T]; n: csize_t)">resize,<wbr>Vector[T],<wbr>csize_t</a></li>
 
   </ul>
   <ul class="simple nested-toc-section"><=
-      <li><a class="reference" href="#%3C%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`&lt;=`[T](a: Vectortor[T]; b: Vectortor[T]): bool"><=,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%3C%3D%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`&lt;=`[T](a: Vector[T]; b: Vector[T]): bool"><=,<wbr>Vector[T],<wbr>Vector[T]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">$
+      <li><a class="reference" href="#%24%2CVector%5BT%5D"
+    title="`$`[T](v: Vector[T]): string">$,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">begin
-      <li><a class="reference" href="#begin%2CVectortor%5BT%5D"
-    title="begin[T](x: Vectortor[T]): VectorIterator[T]">begin,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#begin%2CVector%5BT%5D"
+    title="begin[T](x: Vector[T]): VectorIterator[T]">begin,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">erase
-      <li><a class="reference" href="#erase%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D"
-    title="erase[T](self: var Vectortor[T]; position: VectorConstIterator[T]): VectorIterator[
-    T]">erase,<wbr>Vectortor[T],<wbr>VectorConstIterator[T]</a></li>
-  <li><a class="reference" href="#erase%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
-    title="erase[T](self: var Vectortor[T]; first, last: VectorConstIterator[T]): VectorIterator[
-    T]">erase,<wbr>Vectortor[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
+      <li><a class="reference" href="#erase%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D"
+    title="erase[T](self: var Vector[T]; position: VectorConstIterator[T]): VectorIterator[
+    T]">erase,<wbr>Vector[T],<wbr>VectorConstIterator[T]</a></li>
+  <li><a class="reference" href="#erase%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
+    title="erase[T](self: var Vector[T]; first, last: VectorConstIterator[T]): VectorIterator[
+    T]">erase,<wbr>Vector[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">crend
-      <li><a class="reference" href="#crend%2CVectortor%5BT%5D"
-    title="crend[T](x: Vectortor[T]): VectorConstIterator[T]">crend,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#crend%2CVector%5BT%5D"
+    title="crend[T](x: Vector[T]): VectorConstIterator[T]">crend,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">assign
@@ -171,45 +184,45 @@ function main() {
 
   </ul>
   <ul class="simple nested-toc-section">[]=
-      <li><a class="reference" href="#%5B%5D%3D%2CVectortor%5BT%5D%2CNatural%2CT"
-    title="`[]=`[T](self: var Vectortor[T]; idx: Natural; val: T)">[]=,<wbr>Vectortor[T],<wbr>Natural,<wbr>T</a></li>
+      <li><a class="reference" href="#%5B%5D%3D%2CVector%5BT%5D%2CNatural%2CT"
+    title="`[]=`[T](self: var Vector[T]; idx: Natural; val: T)">[]=,<wbr>Vector[T],<wbr>Natural,<wbr>T</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">data
-      <li><a class="reference" href="#data%2CVectortor%5BT%5D"
-    title="data[T](self: Vectortor[T]): ptr T">data,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#data%2CVector%5BT%5D"
+    title="data[T](self: Vector[T]): ptr T">data,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">max_size
-      <li><a class="reference" href="#max_size%2CVectortor%5BT%5D"
-    title="max_size[T](self: Vectortor[T]): csize_t">max_size,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#max_size%2CVector%5BT%5D"
+    title="max_size[T](self: Vector[T]): csize_t">max_size,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">back
-      <li><a class="reference" href="#back%2CVectortor%5BT%5D"
-    title="back[T](self: Vectortor[T]): T">back,<wbr>Vectortor[T]</a></li>
-  <li><a class="reference" href="#back%2CVectortor%5BT%5D_2"
-    title="back[T](self: var Vectortor[T]): var T">back,<wbr>Vectortor[T]_2</a></li>
+      <li><a class="reference" href="#back%2CVector%5BT%5D"
+    title="back[T](self: Vector[T]): T">back,<wbr>Vector[T]</a></li>
+  <li><a class="reference" href="#back%2CVector%5BT%5D_2"
+    title="back[T](self: var Vector[T]): var T">back,<wbr>Vector[T]_2</a></li>
 
   </ul>
   <ul class="simple nested-toc-section"><
-      <li><a class="reference" href="#%3C%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`&lt;`[T](a: Vectortor[T]; b: Vectortor[T]): bool"><,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%3C%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`&lt;`[T](a: Vector[T]; b: Vector[T]): bool"><,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">swap
-      <li><a class="reference" href="#swap%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="swap[T](self: var Vectortor[T]; x: var Vectortor[T])">swap,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#swap%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="swap[T](self: var Vector[T]; x: var Vector[T])">swap,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">cbegin
-      <li><a class="reference" href="#cbegin%2CVectortor%5BT%5D"
-    title="cbegin[T](x: Vectortor[T]): VectorConstIterator[T]">cbegin,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#cbegin%2CVector%5BT%5D"
+    title="cbegin[T](x: Vector[T]): VectorConstIterator[T]">cbegin,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">>
-      <li><a class="reference" href="#%3E%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`&gt;`[T](a: Vectortor[T]; b: Vectortor[T]): bool">>,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%3E%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`&gt;`[T](a: Vector[T]; b: Vector[T]): bool">>,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">-
@@ -220,112 +233,99 @@ function main() {
 
   </ul>
   <ul class="simple nested-toc-section">front
-      <li><a class="reference" href="#front%2CVectortor%5BT%5D"
-    title="front[T](self: Vectortor[T]): T">front,<wbr>Vectortor[T]</a></li>
-  <li><a class="reference" href="#front%2CVectortor%5BT%5D_2"
-    title="front[T](self: var Vectortor[T]): var T">front,<wbr>Vectortor[T]_2</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">initVectortor
-      <li><a class="reference" href="#initVectortor"
-    title="initVectortor[T](): Vectortor[T]">initVectortor</a></li>
-  <li><a class="reference" href="#initVectortor%2Ccsize_t"
-    title="initVectortor[T](n: csize_t): Vectortor[T]">initVectortor,<wbr>csize_t</a></li>
-  <li><a class="reference" href="#initVectortor%2Ccsize_t%2CT"
-    title="initVectortor[T](n: csize_t; val: T): Vectortor[T]">initVectortor,<wbr>csize_t,<wbr>T</a></li>
-  <li><a class="reference" href="#initVectortor%2CVectortor%5BT%5D"
-    title="initVectortor[T](x: Vectortor[T]): Vectortor[T]">initVectortor,<wbr>Vectortor[T]</a></li>
-  <li><a class="reference" href="#initVectortor%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
-    title="initVectortor[T](first, last: VectorConstIterator[T]): Vectortor[T]">initVectortor,<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
+      <li><a class="reference" href="#front%2CVector%5BT%5D"
+    title="front[T](self: Vector[T]): T">front,<wbr>Vector[T]</a></li>
+  <li><a class="reference" href="#front%2CVector%5BT%5D_2"
+    title="front[T](self: var Vector[T]): var T">front,<wbr>Vector[T]_2</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">capacity
-      <li><a class="reference" href="#capacity%2CVectortor%5BT%5D"
-    title="capacity[T](self: Vectortor[T]): csize_t">capacity,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#capacity%2CVector%5BT%5D"
+    title="capacity[T](self: Vector[T]): csize_t">capacity,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">insert
-      <li><a class="reference" href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CT"
-    title="insert[T](self: var Vectortor[T]; position: VectorConstIterator[T]; x: T): VectorIterator[
-    T]">insert,<wbr>Vectortor[T],<wbr>VectorConstIterator[T],<wbr>T</a></li>
-  <li><a class="reference" href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2Ccsize_t%2CT"
-    title="insert[T](self: var Vectortor[T]; position: VectorConstIterator[T]; n: csize_t;
-          x: T): VectorIterator[T]">insert,<wbr>Vectortor[T],<wbr>VectorConstIterator[T],<wbr>csize_t,<wbr>T</a></li>
-  <li><a class="reference" href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
-    title="insert[T](self: var Vectortor[T]; position, first, last: VectorConstIterator[T]): VectorIterator[
-    T]">insert,<wbr>Vectortor[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
+      <li><a class="reference" href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CT"
+    title="insert[T](self: var Vector[T]; position: VectorConstIterator[T]; x: T): VectorIterator[
+    T]">insert,<wbr>Vector[T],<wbr>VectorConstIterator[T],<wbr>T</a></li>
+  <li><a class="reference" href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2Ccsize_t%2CT"
+    title="insert[T](self: var Vector[T]; position: VectorConstIterator[T]; n: csize_t;
+          x: T): VectorIterator[T]">insert,<wbr>Vector[T],<wbr>VectorConstIterator[T],<wbr>csize_t,<wbr>T</a></li>
+  <li><a class="reference" href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"
+    title="insert[T](self: var Vector[T]; position, first, last: VectorConstIterator[T]): VectorIterator[
+    T]">insert,<wbr>Vector[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T],<wbr>VectorConstIterator[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">rend
-      <li><a class="reference" href="#rend%2CVectortor%5BT%5D"
-    title="rend[T](x: Vectortor[T]): VectorIterator[T]">rend,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#rend%2CVector%5BT%5D"
+    title="rend[T](x: Vector[T]): VectorIterator[T]">rend,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">rbegin
-      <li><a class="reference" href="#rbegin%2CVectortor%5BT%5D"
-    title="rbegin[T](x: Vectortor[T]): VectorIterator[T]">rbegin,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#rbegin%2CVector%5BT%5D"
+    title="rbegin[T](x: Vector[T]): VectorIterator[T]">rbegin,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">pop_back
-      <li><a class="reference" href="#pop_back%2CVectortor%5BT%5D"
-    title="pop_back[T](self: var Vectortor[T])">pop_back,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#pop_back%2CVector%5BT%5D"
+    title="pop_back[T](self: var Vector[T])">pop_back,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">clear
-      <li><a class="reference" href="#clear%2CVectortor%5BT%5D"
-    title="clear[T](self: var Vectortor[T])">clear,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#clear%2CVector%5BT%5D"
+    title="clear[T](self: var Vector[T])">clear,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">push_back
-      <li><a class="reference" href="#push_back%2CVectortor%5BT%5D%2CT"
-    title="push_back[T](self: var Vectortor[T]; x: T)">push_back,<wbr>Vectortor[T],<wbr>T</a></li>
+      <li><a class="reference" href="#push_back%2CVector%5BT%5D%2CT"
+    title="push_back[T](self: var Vector[T]; x: T)">push_back,<wbr>Vector[T],<wbr>T</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">!=
-      <li><a class="reference" href="#%21%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`!=`[T](a: Vectortor[T]; b: Vectortor[T]): bool">!=,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%21%3D%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`!=`[T](a: Vector[T]; b: Vector[T]): bool">!=,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">empty
-      <li><a class="reference" href="#empty%2CVectortor%5BT%5D"
-    title="empty[T](self: Vectortor[T]): bool">empty,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#empty%2CVector%5BT%5D"
+    title="empty[T](self: Vector[T]): bool">empty,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">crbegin
-      <li><a class="reference" href="#crbegin%2CVectortor%5BT%5D"
-    title="crbegin[T](x: Vectortor[T]): VectorConstIterator[T]">crbegin,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#crbegin%2CVector%5BT%5D"
+    title="crbegin[T](x: Vector[T]): VectorConstIterator[T]">crbegin,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">reserve
-      <li><a class="reference" href="#reserve%2CVectortor%5BT%5D%2Ccsize_t"
-    title="reserve[T](self: var Vectortor[T]; n: csize_t)">reserve,<wbr>Vectortor[T],<wbr>csize_t</a></li>
+      <li><a class="reference" href="#reserve%2CVector%5BT%5D%2Ccsize_t"
+    title="reserve[T](self: var Vector[T]; n: csize_t)">reserve,<wbr>Vector[T],<wbr>csize_t</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">cend
-      <li><a class="reference" href="#cend%2CVectortor%5BT%5D"
-    title="cend[T](x: Vectortor[T]): VectorConstIterator[T]">cend,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#cend%2CVector%5BT%5D"
+    title="cend[T](x: Vector[T]): VectorConstIterator[T]">cend,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">shrink_to_fit
-      <li><a class="reference" href="#shrink_to_fit%2CVectortor%5BT%5D"
-    title="shrink_to_fit[T](self: var Vectortor[T])">shrink_to_fit,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#shrink_to_fit%2CVector%5BT%5D"
+    title="shrink_to_fit[T](self: var Vector[T])">shrink_to_fit,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">size
-      <li><a class="reference" href="#size%2CVectortor%5BT%5D"
-    title="size[T](self: Vectortor[T]): csize_t">size,<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#size%2CVector%5BT%5D"
+    title="size[T](self: Vector[T]): csize_t">size,<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">==
-      <li><a class="reference" href="#%3D%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"
-    title="`==`[T](a: Vectortor[T]; b: Vectortor[T]): bool">==,<wbr>Vectortor[T],<wbr>Vectortor[T]</a></li>
+      <li><a class="reference" href="#%3D%3D%2CVector%5BT%5D%2CVector%5BT%5D"
+    title="`==`[T](a: Vector[T]; b: Vector[T]): bool">==,<wbr>Vector[T],<wbr>Vector[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">[]
-      <li><a class="reference" href="#%5B%5D%2CVectortor%5BT%5D%2CNatural"
-    title="`[]`[T](self: Vectortor[T]; idx: Natural): T">[],<wbr>Vectortor[T],<wbr>Natural</a></li>
-  <li><a class="reference" href="#%5B%5D%2CVectortor%5BT%5D%2CNatural_2"
-    title="`[]`[T](self: var Vectortor[T]; idx: Natural): var T">[],<wbr>Vectortor[T],<wbr>Natural_2</a></li>
+      <li><a class="reference" href="#%5B%5D%2CVector%5BT%5D%2CNatural"
+    title="`[]`[T](self: Vector[T]; idx: Natural): T">[],<wbr>Vector[T],<wbr>Natural</a></li>
+  <li><a class="reference" href="#%5B%5D%2CVector%5BT%5D%2CNatural_2"
+    title="`[]`[T](self: var Vector[T]; idx: Natural): var T">[],<wbr>Vector[T],<wbr>Natural_2</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">+
@@ -369,8 +369,8 @@ function main() {
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<a id="Vectortor"></a>
-<dt><pre><a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&quot;</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span></pre></dt>
+<a id="Vector"></a>
+<dt><pre><a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&quot;</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span></pre></dt>
 <dd>
 
 
@@ -395,213 +395,210 @@ function main() {
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<a id="initVectortor"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#initVectortor"><span class="Identifier">initVectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span>
-                                        <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="initVector"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#initVector"><span class="Identifier">initVector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span>
+                                  <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="initVectortor,csize_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#initVectortor%2Ccsize_t"><span class="Identifier">initVectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<a id="initVector,csize_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#initVector%2Ccsize_t"><span class="Identifier">initVector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="initVector,csize_t,T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#initVector%2Ccsize_t%2CT"><span class="Identifier">initVector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="initVectortor,csize_t,T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#initVectortor%2Ccsize_t%2CT"><span class="Identifier">initVectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<a id="initVector,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#initVector%2CVector%5BT%5D"><span class="Identifier">initVector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="initVector,VectorConstIterator[T],VectorConstIterator[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#initVector%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">initVector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">first</span><span class="Other">,</span> <span class="Identifier">last</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="initVectortor,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#initVectortor%2CVectortor%5BT%5D"><span class="Identifier">initVectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="initVectortor,VectorConstIterator[T],VectorConstIterator[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#initVectortor%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">initVectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">first</span><span class="Other">,</span> <span class="Identifier">last</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::vector&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="begin,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#begin%2CVectortor%5BT%5D"><span class="Identifier">begin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;begin&quot;</span><span class="Other">,</span>
+<a id="begin,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#begin%2CVector%5BT%5D"><span class="Identifier">begin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;begin&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="end,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#end%2CVectortor%5BT%5D"><span class="Identifier">`end`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;end&quot;</span><span class="Other">,</span>
+<a id="end,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#end%2CVector%5BT%5D"><span class="Identifier">`end`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;end&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="rbegin,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#rbegin%2CVectortor%5BT%5D"><span class="Identifier">rbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;rbegin&quot;</span><span class="Other">,</span>
+<a id="rbegin,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#rbegin%2CVector%5BT%5D"><span class="Identifier">rbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;rbegin&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="rend,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#rend%2CVectortor%5BT%5D"><span class="Identifier">rend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;rend&quot;</span><span class="Other">,</span>
+<a id="rend,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#rend%2CVector%5BT%5D"><span class="Identifier">rend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;rend&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="cbegin,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cbegin%2CVectortor%5BT%5D"><span class="Identifier">cbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;cbegin&quot;</span><span class="Other">,</span>
+<a id="cbegin,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#cbegin%2CVector%5BT%5D"><span class="Identifier">cbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;cbegin&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="cend,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cend%2CVectortor%5BT%5D"><span class="Identifier">cend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;cend&quot;</span><span class="Other">,</span>
+<a id="cend,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#cend%2CVector%5BT%5D"><span class="Identifier">cend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;cend&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="crbegin,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#crbegin%2CVectortor%5BT%5D"><span class="Identifier">crbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;crbegin&quot;</span><span class="Other">,</span>
+<a id="crbegin,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#crbegin%2CVector%5BT%5D"><span class="Identifier">crbegin</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;crbegin&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="crend,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#crend%2CVectortor%5BT%5D"><span class="Identifier">crend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;crend&quot;</span><span class="Other">,</span>
+<a id="crend,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#crend%2CVector%5BT%5D"><span class="Identifier">crend</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;crend&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="size,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#size%2CVectortor%5BT%5D"><span class="Identifier">size</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;size&quot;</span><span class="Other">,</span>
+<a id="size,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#size%2CVector%5BT%5D"><span class="Identifier">size</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;size&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="max_size,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#max_size%2CVector%5BT%5D"><span class="Identifier">max_size</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;max_size&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="max_size,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#max_size%2CVectortor%5BT%5D"><span class="Identifier">max_size</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;max_size&quot;</span><span class="Other">,</span>
+<a id="resize,Vector[T],csize_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#resize%2CVector%5BT%5D%2Ccsize_t"><span class="Identifier">resize</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;resize&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="resize,Vectortor[T],csize_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#resize%2CVectortor%5BT%5D%2Ccsize_t"><span class="Identifier">resize</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;resize&quot;</span><span class="Other">,</span>
+<a id="capacity,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#capacity%2CVector%5BT%5D"><span class="Identifier">capacity</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;capacity&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="capacity,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#capacity%2CVectortor%5BT%5D"><span class="Identifier">capacity</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;capacity&quot;</span><span class="Other">,</span>
+<a id="empty,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#empty%2CVector%5BT%5D"><span class="Identifier">empty</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;empty&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="reserve,Vector[T],csize_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#reserve%2CVector%5BT%5D%2Ccsize_t"><span class="Identifier">reserve</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;reserve&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="empty,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#empty%2CVectortor%5BT%5D"><span class="Identifier">empty</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;empty&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="reserve,Vectortor[T],csize_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#reserve%2CVectortor%5BT%5D%2Ccsize_t"><span class="Identifier">reserve</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;reserve&quot;</span><span class="Other">,</span>
+<a id="shrink_to_fit,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#shrink_to_fit%2CVector%5BT%5D"><span class="Identifier">shrink_to_fit</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;shrink_to_fit&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="shrink_to_fit,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#shrink_to_fit%2CVectortor%5BT%5D"><span class="Identifier">shrink_to_fit</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;shrink_to_fit&quot;</span><span class="Other">,</span>
+<a id="at,Vector[T],csize_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#at%2CVector%5BT%5D%2Ccsize_t"><span class="Identifier">at</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;at&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="at,Vectortor[T],csize_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#at%2CVectortor%5BT%5D%2Ccsize_t"><span class="Identifier">at</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;at&quot;</span><span class="Other">,</span>
+<a id="at,Vector[T],csize_t_2"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#at%2CVector%5BT%5D%2Ccsize_t_2"><span class="Identifier">at</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;at&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="front,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#front%2CVector%5BT%5D"><span class="Identifier">front</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;front&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="front,Vector[T]_2"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#front%2CVector%5BT%5D_2"><span class="Identifier">front</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;front&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="at,Vectortor[T],csize_t_2"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#at%2CVectortor%5BT%5D%2Ccsize_t_2"><span class="Identifier">at</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;at&quot;</span><span class="Other">,</span>
-    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="back,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#back%2CVector%5BT%5D"><span class="Identifier">back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;back&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="front,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#front%2CVectortor%5BT%5D"><span class="Identifier">front</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;front&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="back,Vector[T]_2"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#back%2CVector%5BT%5D_2"><span class="Identifier">back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;back&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="front,Vectortor[T]_2"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#front%2CVectortor%5BT%5D_2"><span class="Identifier">front</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;front&quot;</span><span class="Other">,</span>
-    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="back,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#back%2CVectortor%5BT%5D"><span class="Identifier">back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;back&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="back,Vectortor[T]_2"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#back%2CVectortor%5BT%5D_2"><span class="Identifier">back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;back&quot;</span><span class="Other">,</span>
-    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="data,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#data%2CVectortor%5BT%5D"><span class="Identifier">data</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;data&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="data,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#data%2CVector%5BT%5D"><span class="Identifier">data</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;data&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -622,32 +619,32 @@ function main() {
 
 
 </dd>
-<a id="push_back,Vectortor[T],T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#push_back%2CVectortor%5BT%5D%2CT"><span class="Identifier">push_back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;push_back&quot;</span><span class="Other">,</span>
+<a id="push_back,Vector[T],T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#push_back%2CVector%5BT%5D%2CT"><span class="Identifier">push_back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;push_back&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="pop_back,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#pop_back%2CVectortor%5BT%5D"><span class="Identifier">pop_back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;pop_back&quot;</span><span class="Other">,</span>
-    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="pop_back,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#pop_back%2CVector%5BT%5D"><span class="Identifier">pop_back</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;pop_back&quot;</span><span class="Other">,</span>
+                                        <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="insert,Vectortor[T],VectorConstIterator[T],T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CT"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
+<a id="insert,Vector[T],VectorConstIterator[T],T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CT"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
     <span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;insert&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="insert,Vectortor[T],VectorConstIterator[T],csize_t,T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2Ccsize_t%2CT"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span>
+<a id="insert,Vector[T],VectorConstIterator[T],csize_t,T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2Ccsize_t%2CT"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span>
                <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;insert&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
@@ -655,8 +652,8 @@ function main() {
 
 
 </dd>
-<a id="insert,Vectortor[T],VectorConstIterator[T],VectorConstIterator[T],VectorConstIterator[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span>
+<a id="insert,Vector[T],VectorConstIterator[T],VectorConstIterator[T],VectorConstIterator[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#insert%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">insert</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span>
                <span class="Identifier">position</span><span class="Other">,</span> <span class="Identifier">first</span><span class="Other">,</span> <span class="Identifier">last</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;insert&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
@@ -664,108 +661,108 @@ function main() {
 
 
 </dd>
-<a id="erase,Vectortor[T],VectorConstIterator[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#erase%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">erase</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
+<a id="erase,Vector[T],VectorConstIterator[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#erase%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">erase</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">position</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
     <span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;erase&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="erase,Vectortor[T],VectorConstIterator[T],VectorConstIterator[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#erase%2CVectortor%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">erase</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">first</span><span class="Other">,</span> <span class="Identifier">last</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
+<a id="erase,Vector[T],VectorConstIterator[T],VectorConstIterator[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#erase%2CVector%5BT%5D%2CVectorConstIterator%5BT%5D%2CVectorConstIterator%5BT%5D"><span class="Identifier">erase</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">first</span><span class="Other">,</span> <span class="Identifier">last</span><span class="Other">:</span> <a href="vector.html#VectorConstIterator"><span class="Identifier">VectorConstIterator</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="vector.html#VectorIterator"><span class="Identifier">VectorIterator</span></a><span class="Other">[</span>
     <span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;erase&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="swap,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#swap%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">swap</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;swap&quot;</span><span class="Other">,</span>
+<a id="swap,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#swap%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">swap</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;swap&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="clear,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#clear%2CVectortor%5BT%5D"><span class="Identifier">clear</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;clear&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="clear,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#clear%2CVector%5BT%5D"><span class="Identifier">clear</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;clear&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="==,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3D%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`==`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# == #&quot;</span><span class="Other">,</span>
+<a id="==,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3D%3D%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`==`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# == #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="!=,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%21%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`!=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# != #&quot;</span><span class="Other">,</span>
+<a id="!=,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%21%3D%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`!=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# != #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="<,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3C%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`&lt;`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &lt; #&quot;</span><span class="Other">,</span>
+<a id="<,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3C%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`&lt;`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &lt; #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="<=,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3C%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`&lt;=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &lt;= #&quot;</span><span class="Other">,</span>
+<a id="<=,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3C%3D%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`&lt;=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &lt;= #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id=">,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3E%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`&gt;`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &gt; #&quot;</span><span class="Other">,</span>
+<a id=">,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3E%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`&gt;`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &gt; #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id=">=,Vectortor[T],Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3E%3D%2CVectortor%5BT%5D%2CVectortor%5BT%5D"><span class="Identifier">`&gt;=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &gt;= #&quot;</span><span class="Other">,</span>
+<a id=">=,Vector[T],Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3E%3D%2CVector%5BT%5D%2CVector%5BT%5D"><span class="Identifier">`&gt;=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;# &gt;= #&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;vector&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="[],Vectortor[T],Natural"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CVectortor%5BT%5D%2CNatural"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="[],Vector[T],Natural"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CVector%5BT%5D%2CNatural"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="[],Vectortor[T],Natural_2"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CVectortor%5BT%5D%2CNatural_2"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="[],Vector[T],Natural_2"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CVector%5BT%5D%2CNatural_2"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="[]=,Vectortor[T],Natural,T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%3D%2CVectortor%5BT%5D%2CNatural%2CT"><span class="Identifier">`[]=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="[]=,Vector[T],Natural,T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%3D%2CVector%5BT%5D%2CNatural%2CT"><span class="Identifier">`[]=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">idx</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
-<a id="$,Vectortor[T]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%24%2CVectortor%5BT%5D"><span class="Identifier">`$`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <a href="vector.html#Vectortor"><span class="Identifier">Vectortor</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">noinit</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="$,Vector[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%24%2CVector%5BT%5D"><span class="Identifier">`$`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <a href="vector.html#Vector"><span class="Identifier">Vector</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">noinit</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -831,7 +828,7 @@ function main() {
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-02 12:32:42 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-02 13:25:40 UTC</small>
       </div>
     </div>
   </div>

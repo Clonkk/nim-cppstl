@@ -1,55 +1,55 @@
-Vectortor	cppstl/vector.html#Vectortor	vector: Vectortor	
+Vector	cppstl/vector.html#Vector	vector: Vector	
 VectorIterator	cppstl/vector.html#VectorIterator	vector: VectorIterator	
 VectorConstIterator	cppstl/vector.html#VectorConstIterator	vector: VectorConstIterator	
-initVectortor	cppstl/vector.html#initVectortor	vector: initVectortor[T](): Vectortor[T]	
-initVectortor	cppstl/vector.html#initVectortor,csize_t	vector: initVectortor[T](n: csize_t): Vectortor[T]	
-initVectortor	cppstl/vector.html#initVectortor,csize_t,T	vector: initVectortor[T](n: csize_t; val: T): Vectortor[T]	
-initVectortor	cppstl/vector.html#initVectortor,Vectortor[T]	vector: initVectortor[T](x: Vectortor[T]): Vectortor[T]	
-initVectortor	cppstl/vector.html#initVectortor,VectorConstIterator[T],VectorConstIterator[T]	vector: initVectortor[T](first, last: VectorConstIterator[T]): Vectortor[T]	
-begin	cppstl/vector.html#begin,Vectortor[T]	vector: begin[T](x: Vectortor[T]): VectorIterator[T]	
-`end`	cppstl/vector.html#end,Vectortor[T]	vector: `end`[T](x: Vectortor[T]): VectorIterator[T]	
-rbegin	cppstl/vector.html#rbegin,Vectortor[T]	vector: rbegin[T](x: Vectortor[T]): VectorIterator[T]	
-rend	cppstl/vector.html#rend,Vectortor[T]	vector: rend[T](x: Vectortor[T]): VectorIterator[T]	
-cbegin	cppstl/vector.html#cbegin,Vectortor[T]	vector: cbegin[T](x: Vectortor[T]): VectorConstIterator[T]	
-cend	cppstl/vector.html#cend,Vectortor[T]	vector: cend[T](x: Vectortor[T]): VectorConstIterator[T]	
-crbegin	cppstl/vector.html#crbegin,Vectortor[T]	vector: crbegin[T](x: Vectortor[T]): VectorConstIterator[T]	
-crend	cppstl/vector.html#crend,Vectortor[T]	vector: crend[T](x: Vectortor[T]): VectorConstIterator[T]	
-size	cppstl/vector.html#size,Vectortor[T]	vector: size[T](self: Vectortor[T]): csize_t	
-max_size	cppstl/vector.html#max_size,Vectortor[T]	vector: max_size[T](self: Vectortor[T]): csize_t	
-resize	cppstl/vector.html#resize,Vectortor[T],csize_t	vector: resize[T](self: Vectortor[T]; n: csize_t)	
-capacity	cppstl/vector.html#capacity,Vectortor[T]	vector: capacity[T](self: Vectortor[T]): csize_t	
-empty	cppstl/vector.html#empty,Vectortor[T]	vector: empty[T](self: Vectortor[T]): bool	
-reserve	cppstl/vector.html#reserve,Vectortor[T],csize_t	vector: reserve[T](self: var Vectortor[T]; n: csize_t)	
-shrink_to_fit	cppstl/vector.html#shrink_to_fit,Vectortor[T]	vector: shrink_to_fit[T](self: var Vectortor[T])	
-at	cppstl/vector.html#at,Vectortor[T],csize_t	vector: at[T](self: var Vectortor[T]; n: csize_t): var T	
-at	cppstl/vector.html#at,Vectortor[T],csize_t_2	vector: at[T](self: Vectortor[T]; n: csize_t): T	
-front	cppstl/vector.html#front,Vectortor[T]	vector: front[T](self: Vectortor[T]): T	
-front	cppstl/vector.html#front,Vectortor[T]_2	vector: front[T](self: var Vectortor[T]): var T	
-back	cppstl/vector.html#back,Vectortor[T]	vector: back[T](self: Vectortor[T]): T	
-back	cppstl/vector.html#back,Vectortor[T]_2	vector: back[T](self: var Vectortor[T]): var T	
-data	cppstl/vector.html#data,Vectortor[T]	vector: data[T](self: Vectortor[T]): ptr T	
+initVector	cppstl/vector.html#initVector	vector: initVector[T](): Vector[T]	
+initVector	cppstl/vector.html#initVector,csize_t	vector: initVector[T](n: csize_t): Vector[T]	
+initVector	cppstl/vector.html#initVector,csize_t,T	vector: initVector[T](n: csize_t; val: T): Vector[T]	
+initVector	cppstl/vector.html#initVector,Vector[T]	vector: initVector[T](x: Vector[T]): Vector[T]	
+initVector	cppstl/vector.html#initVector,VectorConstIterator[T],VectorConstIterator[T]	vector: initVector[T](first, last: VectorConstIterator[T]): Vector[T]	
+begin	cppstl/vector.html#begin,Vector[T]	vector: begin[T](x: Vector[T]): VectorIterator[T]	
+`end`	cppstl/vector.html#end,Vector[T]	vector: `end`[T](x: Vector[T]): VectorIterator[T]	
+rbegin	cppstl/vector.html#rbegin,Vector[T]	vector: rbegin[T](x: Vector[T]): VectorIterator[T]	
+rend	cppstl/vector.html#rend,Vector[T]	vector: rend[T](x: Vector[T]): VectorIterator[T]	
+cbegin	cppstl/vector.html#cbegin,Vector[T]	vector: cbegin[T](x: Vector[T]): VectorConstIterator[T]	
+cend	cppstl/vector.html#cend,Vector[T]	vector: cend[T](x: Vector[T]): VectorConstIterator[T]	
+crbegin	cppstl/vector.html#crbegin,Vector[T]	vector: crbegin[T](x: Vector[T]): VectorConstIterator[T]	
+crend	cppstl/vector.html#crend,Vector[T]	vector: crend[T](x: Vector[T]): VectorConstIterator[T]	
+size	cppstl/vector.html#size,Vector[T]	vector: size[T](self: Vector[T]): csize_t	
+max_size	cppstl/vector.html#max_size,Vector[T]	vector: max_size[T](self: Vector[T]): csize_t	
+resize	cppstl/vector.html#resize,Vector[T],csize_t	vector: resize[T](self: Vector[T]; n: csize_t)	
+capacity	cppstl/vector.html#capacity,Vector[T]	vector: capacity[T](self: Vector[T]): csize_t	
+empty	cppstl/vector.html#empty,Vector[T]	vector: empty[T](self: Vector[T]): bool	
+reserve	cppstl/vector.html#reserve,Vector[T],csize_t	vector: reserve[T](self: var Vector[T]; n: csize_t)	
+shrink_to_fit	cppstl/vector.html#shrink_to_fit,Vector[T]	vector: shrink_to_fit[T](self: var Vector[T])	
+at	cppstl/vector.html#at,Vector[T],csize_t	vector: at[T](self: var Vector[T]; n: csize_t): var T	
+at	cppstl/vector.html#at,Vector[T],csize_t_2	vector: at[T](self: Vector[T]; n: csize_t): T	
+front	cppstl/vector.html#front,Vector[T]	vector: front[T](self: Vector[T]): T	
+front	cppstl/vector.html#front,Vector[T]_2	vector: front[T](self: var Vector[T]): var T	
+back	cppstl/vector.html#back,Vector[T]	vector: back[T](self: Vector[T]): T	
+back	cppstl/vector.html#back,Vector[T]_2	vector: back[T](self: var Vector[T]): var T	
+data	cppstl/vector.html#data,Vector[T]	vector: data[T](self: Vector[T]): ptr T	
 assign	cppstl/vector.html#assign,csize_t,T	vector: assign[T](n: csize_t; val: T)	
 assign	cppstl/vector.html#assign,VectorIterator[T],VectorIterator[T]	vector: assign[T](first: VectorIterator[T]; last: VectorIterator[T])	
-push_back	cppstl/vector.html#push_back,Vectortor[T],T	vector: push_back[T](self: var Vectortor[T]; x: T)	
-pop_back	cppstl/vector.html#pop_back,Vectortor[T]	vector: pop_back[T](self: var Vectortor[T])	
-insert	cppstl/vector.html#insert,Vectortor[T],VectorConstIterator[T],T	vector: insert[T](self: var Vectortor[T]; position: VectorConstIterator[T]; x: T): VectorIterator[\n    T]	
-insert	cppstl/vector.html#insert,Vectortor[T],VectorConstIterator[T],csize_t,T	vector: insert[T](self: var Vectortor[T]; position: VectorConstIterator[T]; n: csize_t;\n          x: T): VectorIterator[T]	
-insert	cppstl/vector.html#insert,Vectortor[T],VectorConstIterator[T],VectorConstIterator[T],VectorConstIterator[T]	vector: insert[T](self: var Vectortor[T]; position, first, last: VectorConstIterator[T]): VectorIterator[\n    T]	
-erase	cppstl/vector.html#erase,Vectortor[T],VectorConstIterator[T]	vector: erase[T](self: var Vectortor[T]; position: VectorConstIterator[T]): VectorIterator[\n    T]	
-erase	cppstl/vector.html#erase,Vectortor[T],VectorConstIterator[T],VectorConstIterator[T]	vector: erase[T](self: var Vectortor[T]; first, last: VectorConstIterator[T]): VectorIterator[\n    T]	
-swap	cppstl/vector.html#swap,Vectortor[T],Vectortor[T]	vector: swap[T](self: var Vectortor[T]; x: var Vectortor[T])	
-clear	cppstl/vector.html#clear,Vectortor[T]	vector: clear[T](self: var Vectortor[T])	
-`==`	cppstl/vector.html#==,Vectortor[T],Vectortor[T]	vector: `==`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`!=`	cppstl/vector.html#!=,Vectortor[T],Vectortor[T]	vector: `!=`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`&lt;`	cppstl/vector.html#<,Vectortor[T],Vectortor[T]	vector: `&lt;`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`&lt;=`	cppstl/vector.html#<=,Vectortor[T],Vectortor[T]	vector: `&lt;=`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`&gt;`	cppstl/vector.html#>,Vectortor[T],Vectortor[T]	vector: `&gt;`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`&gt;=`	cppstl/vector.html#>=,Vectortor[T],Vectortor[T]	vector: `&gt;=`[T](a: Vectortor[T]; b: Vectortor[T]): bool	
-`[]`	cppstl/vector.html#[],Vectortor[T],Natural	vector: `[]`[T](self: Vectortor[T]; idx: Natural): T	
-`[]`	cppstl/vector.html#[],Vectortor[T],Natural_2	vector: `[]`[T](self: var Vectortor[T]; idx: Natural): var T	
-`[]=`	cppstl/vector.html#[]=,Vectortor[T],Natural,T	vector: `[]=`[T](self: var Vectortor[T]; idx: Natural; val: T)	
+push_back	cppstl/vector.html#push_back,Vector[T],T	vector: push_back[T](self: var Vector[T]; x: T)	
+pop_back	cppstl/vector.html#pop_back,Vector[T]	vector: pop_back[T](self: var Vector[T])	
+insert	cppstl/vector.html#insert,Vector[T],VectorConstIterator[T],T	vector: insert[T](self: var Vector[T]; position: VectorConstIterator[T]; x: T): VectorIterator[\n    T]	
+insert	cppstl/vector.html#insert,Vector[T],VectorConstIterator[T],csize_t,T	vector: insert[T](self: var Vector[T]; position: VectorConstIterator[T]; n: csize_t;\n          x: T): VectorIterator[T]	
+insert	cppstl/vector.html#insert,Vector[T],VectorConstIterator[T],VectorConstIterator[T],VectorConstIterator[T]	vector: insert[T](self: var Vector[T]; position, first, last: VectorConstIterator[T]): VectorIterator[\n    T]	
+erase	cppstl/vector.html#erase,Vector[T],VectorConstIterator[T]	vector: erase[T](self: var Vector[T]; position: VectorConstIterator[T]): VectorIterator[\n    T]	
+erase	cppstl/vector.html#erase,Vector[T],VectorConstIterator[T],VectorConstIterator[T]	vector: erase[T](self: var Vector[T]; first, last: VectorConstIterator[T]): VectorIterator[\n    T]	
+swap	cppstl/vector.html#swap,Vector[T],Vector[T]	vector: swap[T](self: var Vector[T]; x: var Vector[T])	
+clear	cppstl/vector.html#clear,Vector[T]	vector: clear[T](self: var Vector[T])	
+`==`	cppstl/vector.html#==,Vector[T],Vector[T]	vector: `==`[T](a: Vector[T]; b: Vector[T]): bool	
+`!=`	cppstl/vector.html#!=,Vector[T],Vector[T]	vector: `!=`[T](a: Vector[T]; b: Vector[T]): bool	
+`&lt;`	cppstl/vector.html#<,Vector[T],Vector[T]	vector: `&lt;`[T](a: Vector[T]; b: Vector[T]): bool	
+`&lt;=`	cppstl/vector.html#<=,Vector[T],Vector[T]	vector: `&lt;=`[T](a: Vector[T]; b: Vector[T]): bool	
+`&gt;`	cppstl/vector.html#>,Vector[T],Vector[T]	vector: `&gt;`[T](a: Vector[T]; b: Vector[T]): bool	
+`&gt;=`	cppstl/vector.html#>=,Vector[T],Vector[T]	vector: `&gt;=`[T](a: Vector[T]; b: Vector[T]): bool	
+`[]`	cppstl/vector.html#[],Vector[T],Natural	vector: `[]`[T](self: Vector[T]; idx: Natural): T	
+`[]`	cppstl/vector.html#[],Vector[T],Natural_2	vector: `[]`[T](self: var Vector[T]; idx: Natural): var T	
+`[]=`	cppstl/vector.html#[]=,Vector[T],Natural,T	vector: `[]=`[T](self: var Vector[T]; idx: Natural; val: T)	
 VectorIteratorToVectorConstIterator	cppstl/vector.html#VectorIteratorToVectorConstIterator.c,VectorIterator[T]	vector: VectorIteratorToVectorConstIterator[T](x: VectorIterator[T]): VectorConstIterator[\n    T]	
-`$`	cppstl/vector.html#$,Vectortor[T]	vector: `$`[T](v: Vectortor[T]): string	
+`$`	cppstl/vector.html#$,Vector[T]	vector: `$`[T](v: Vector[T]): string	
 `+`	cppstl/vector.html#+,T,int	vector: `+`[T: VectorIterator](it`gensym0: T; offset`gensym0: int): T	
 `-`	cppstl/vector.html#-,T,int	vector: `-`[T: VectorIterator](it`gensym0: T; offset`gensym0: int): T	
 `+`	cppstl/vector.html#+,T,int_2	vector: `+`[T: VectorConstIterator](it`gensym1: T; offset`gensym1: int): T	
