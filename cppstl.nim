@@ -4,7 +4,7 @@ import cppstl/string
 export string
 
 ## Nim wrapper for C++ STL ``std::string`` and ``std::vector``
-##   * ``std::vector`` mapped to ``Vector``
+##   * ``std::vector`` mapped to ``CppVector``
 ##   * ``std::string`` mapped to ``CppString`` to avoid name conflict (String was too close to ``string``)
 ##
 
@@ -23,7 +23,7 @@ runnableExamples:
 runnableExamples:
   import cppstl
   import math
-  var vec = initVector[float64]()
+  var vec = initCppVector[float64]()
   for i in 0..<5:
     vec.push_back(sqrt(i.float64))
   assert vec[0] == sqrt 0.0
