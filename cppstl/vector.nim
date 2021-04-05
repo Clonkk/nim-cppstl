@@ -93,6 +93,13 @@ proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# > #".}
 
 proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# >= #".}
 
+when defined(gcDestructors): discard
+  # TODO : Fix missing template in this syntax
+  # func `=copy`*[T](dst: var CppVector[T], src: CppVector[T]) {.importcpp: "# = #".}
+  # func `=destroy`*[T](dst: var CppVector[T]){.importcpp: "#.~'*1()".}
+  # func `=sink`*[T](dst: var CppVector[T], src: CppVector[T]){.importcpp: "# = std::move(#)".}
+
+
 {.pop.}
 
 # Nim specifics
