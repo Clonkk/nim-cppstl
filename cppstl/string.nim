@@ -192,11 +192,15 @@ proc `>=`*(a: CppString, b: CppString): bool {.importcpp: "# >= #".}
 # Converter: CppStrIterator -> StrConstIterator
 converter CppStrIteratorToStrConstIterator*(s: CppStrIterator): CppStrConstIterator {.importcpp: "#".}
 
+proc dest*(dst: var CppString) {.importcpp: "#.~basic_string()".}
+
 when defined(gcDestructors):
-  func `=copy`*(dst: var CppString, src: CppString) {.importcpp: "# = #"}
+  func `=copy`*(dst: var CppString, src: CppString) {.importcpp: "#.assign(@)"}
   # std::string actually is basic_string
   # TODO : Fix double free on this hook
   # func `=destroy`*(dst: var CppString){.importcpp: "#.~basic_string()".}
+  func `=destroy`*(dst: var CppString) {.inline.} =
+    dest(dst)
   func `=sink`*(dst: var CppString, src: CppString){.importcpp: "# = std::move(#)".}
 
 

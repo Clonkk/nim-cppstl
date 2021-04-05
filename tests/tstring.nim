@@ -71,7 +71,7 @@ suite "CppString":
     s.shrink_to_fit
 
     # check s.length == s.capacity # implementation dependent.
-                                   # Does not allways hold
+      # Does not allways hold
 
   test "accessors":
     var s: CppString = initCppString("Hello Nim!")
@@ -388,3 +388,15 @@ suite "CppString":
     check s1 <= s2
     check not (s1 >= s2)
     check s1 >= "aaaaaaaaaaaaa".cstring
+
+  test "arc =move/destroy/copy":
+    var s = initCppString("123456789")
+    var s2: CppString
+    echo "0) 1>", s
+    echo "0) 2>", s2
+    `=copy`(s2, s)
+    echo "1) 1>", s
+    echo "1) 2>", s2
+    `=sink`(s2, s)
+    echo "2) 1>", s
+    echo "2) 2>", s2
