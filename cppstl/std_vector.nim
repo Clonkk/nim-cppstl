@@ -5,8 +5,8 @@
 
 import strformat
 import ./private/utils
-import ./exception
-export exception
+import ./std_exception
+export std_exception
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 

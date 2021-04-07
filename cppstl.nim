@@ -1,11 +1,11 @@
-import cppstl/vector
-export vector
-import cppstl/string
-export string
-import cppstl/smartptrs
-export smartptrs
-import cppstl/complex
-export complex
+import cppstl/std_vector
+export std_vector
+import cppstl/std_string
+export std_string
+import cppstl/std_smartptrs
+export std_smartptrs
+import cppstl/std_complex
+export std_complex
 
 ## Nim wrapper for C++ STL ``std::string`` and ``std::vector``
 ##   * ``std::vector`` mapped to ``CppVector``

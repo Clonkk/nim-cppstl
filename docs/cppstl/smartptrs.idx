@@ -1,8 +1,0 @@
-CppSharedPtr	cppstl/smartptrs.html#CppSharedPtr	smartptrs: CppSharedPtr	
-make_shared	cppstl/smartptrs.html#make_shared,typedesc	smartptrs: make_shared(T: typedesc): CppSharedPtr[T]	
-CppUniquePtr	cppstl/smartptrs.html#CppUniquePtr	smartptrs: CppUniquePtr	
-make_unique	cppstl/smartptrs.html#make_unique,typedesc	smartptrs: make_unique(T: typedesc): CppUniquePtr[T]	
-deref	cppstl/smartptrs.html#deref	smartptrs: deref[T](p: CppUniquePtr[T] or CppSharedPtr[T]): var T	
-`.()`	cppstl/smartptrs.html#.().m,,untyped,varargs[untyped]	smartptrs: `.()`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n         args: varargs[untyped]): untyped	
-`.`	cppstl/smartptrs.html#..m,,untyped,varargs[untyped]	smartptrs: `.`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n       args: varargs[untyped]): untyped	
-`.=`	cppstl/smartptrs.html#.=.m,,untyped,untyped	smartptrs: `.=`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n        args: untyped): untyped	

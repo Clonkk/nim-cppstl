@@ -2,7 +2,7 @@
 
 # This code is licensed under MIT license (see LICENSE.txt for details)
 import unittest
-import cppstl/string
+import cppstl/std_string
 
 suite "CppString":
   test "constructors and iterators":

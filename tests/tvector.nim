@@ -1,7 +1,7 @@
 # Copyright 2019 Nouredine Hussain
 
 # This code is licensed under MIT license (see LICENSE.txt for details)
-import unittest, cppstl/vector
+import unittest, cppstl/std_vector
 
 suite "CppVector":
   test "constructors and iterators":

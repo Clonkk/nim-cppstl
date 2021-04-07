@@ -1,0 +1,148 @@
+CppString	cppstl/std_string.html#CppString	std_string: CppString	
+CppStrIterator	cppstl/std_string.html#CppStrIterator	std_string: CppStrIterator	
+CppStrConstIterator	cppstl/std_string.html#CppStrConstIterator	std_string: CppStrConstIterator	
+std_npos	cppstl/std_string.html#std_npos	std_string: std_npos	
+initCppString	cppstl/std_string.html#initCppString	std_string: initCppString(): CppString	
+initCppString	cppstl/std_string.html#initCppString,CppString	std_string: initCppString(str: CppString): CppString	
+initCppString	cppstl/std_string.html#initCppString,CppString,csize_t	std_string: initCppString(str: CppString; pos: csize_t): CppString	
+initCppString	cppstl/std_string.html#initCppString,CppString,csize_t,csize_t	std_string: initCppString(str: CppString; pos, len: csize_t): CppString	
+initCppString	cppstl/std_string.html#initCppString,cstring	std_string: initCppString(s: cstring): CppString	
+initCppString	cppstl/std_string.html#initCppString,cstring,csize_t	std_string: initCppString(s: cstring; n: csize_t): CppString	
+initCppString	cppstl/std_string.html#initCppString,CppStrConstIterator,CppStrConstIterator	std_string: initCppString(first, last: CppStrConstIterator): CppString	
+begin	cppstl/std_string.html#begin,CppString	std_string: begin(x: CppString): CppStrIterator	
+`end`	cppstl/std_string.html#end,CppString	std_string: `end`(x: CppString): CppStrIterator	
+rbegin	cppstl/std_string.html#rbegin,CppString	std_string: rbegin(x: CppString): CppStrIterator	
+rend	cppstl/std_string.html#rend,CppString	std_string: rend(x: CppString): CppStrIterator	
+cbegin	cppstl/std_string.html#cbegin,CppString	std_string: cbegin(x: CppString): CppStrConstIterator	
+cend	cppstl/std_string.html#cend,CppString	std_string: cend(x: CppString): CppStrConstIterator	
+crbegin	cppstl/std_string.html#crbegin,CppString	std_string: crbegin(x: CppString): CppStrConstIterator	
+crend	cppstl/std_string.html#crend,CppString	std_string: crend(x: CppString): CppStrConstIterator	
+size	cppstl/std_string.html#size,CppString	std_string: size(self: CppString): csize_t	
+length	cppstl/std_string.html#length,CppString	std_string: length(s: CppString): csize_t	
+max_size	cppstl/std_string.html#max_size,CppString	std_string: max_size(self: CppString): csize_t	
+resize	cppstl/std_string.html#resize,CppString,csize_t	std_string: resize(self: CppString; n: csize_t)	
+capacity	cppstl/std_string.html#capacity,CppString	std_string: capacity(self: CppString): csize_t	
+reserve	cppstl/std_string.html#reserve,CppString,csize_t	std_string: reserve(self: var CppString; n: csize_t)	
+clear	cppstl/std_string.html#clear,CppString	std_string: clear(self: var CppString)	
+empty	cppstl/std_string.html#empty,CppString	std_string: empty(self: CppString): bool	
+shrink_to_fit	cppstl/std_string.html#shrink_to_fit,CppString	std_string: shrink_to_fit(self: var CppString)	
+at	cppstl/std_string.html#at,CppString,csize_t	std_string: at(self: var CppString; n: csize_t): var cchar	
+at	cppstl/std_string.html#at,CppString,csize_t_2	std_string: at(self: CppString; n: csize_t): cchar	
+front	cppstl/std_string.html#front,CppString	std_string: front(self: CppString): cchar	
+front	cppstl/std_string.html#front,CppString_2	std_string: front(self: var CppString): var cchar	
+back	cppstl/std_string.html#back,CppString	std_string: back(self: CppString): cchar	
+back	cppstl/std_string.html#back,CppString_2	std_string: back(self: var CppString): var cchar	
+`+=`	cppstl/std_string.html#+=,CppString,CppString	std_string: `+=`(self: var CppString; str: CppString): var CppString	
+`+=`	cppstl/std_string.html#+=,CppString,cstring	std_string: `+=`(self: var CppString; str: cstring): var CppString	
+`+=`	cppstl/std_string.html#+=,CppString,cchar	std_string: `+=`(self: var CppString; str: cchar): var CppString	
+append	cppstl/std_string.html#append,CppString,CppString	std_string: append(self: var CppString; str: CppString): var CppString	
+append	cppstl/std_string.html#append,CppString,CppString,csize_t,csize_t	std_string: append(self: var CppString; str: CppString; subpos, sublen: csize_t): var CppString	
+append	cppstl/std_string.html#append,CppString,cstring	std_string: append(self: var CppString; str: cstring): var CppString	
+append	cppstl/std_string.html#append,CppString,cstring,csize_t	std_string: append(self: var CppString; str: cstring; n: csize_t): var CppString	
+append	cppstl/std_string.html#append,CppString,csize_t,cchar	std_string: append(self: var CppString; n: csize_t; str: cchar): var CppString	
+append	cppstl/std_string.html#append,CppString,CppStrConstIterator,CppStrConstIterator	std_string: append(self: var CppString; first, last: CppStrConstIterator): var CppString	
+push_back	cppstl/std_string.html#push_back,CppString,cchar	std_string: push_back(self: var CppString; x: cchar): var CppString	
+assign	cppstl/std_string.html#assign,CppString,CppString	std_string: assign(self: var CppString; str: CppString): var CppString	
+assign	cppstl/std_string.html#assign,CppString,CppString,csize_t,csize_t	std_string: assign(self: var CppString; str: CppString; subpos, sublen: csize_t): var CppString	
+assign	cppstl/std_string.html#assign,CppString,cstring	std_string: assign(self: var CppString; str: cstring): var CppString	
+assign	cppstl/std_string.html#assign,CppString,cstring,csize_t	std_string: assign(self: var CppString; str: cstring; n: csize_t): var CppString	
+assign	cppstl/std_string.html#assign,CppString,csize_t,cchar	std_string: assign(self: var CppString; n: csize_t; c: cchar): var CppString	
+assign	cppstl/std_string.html#assign,CppString,CppStrConstIterator,CppStrConstIterator	std_string: assign(self: var CppString; first, last: CppStrConstIterator): var CppString	
+insert	cppstl/std_string.html#insert,CppString,csize_t,CppString	std_string: insert(self: var CppString; pos: csize_t; str: CppString): var CppString	
+insert	cppstl/std_string.html#insert,CppString,csize_t,CppString,csize_t,csize_t	std_string: insert(self: var CppString; pos: csize_t; str: CppString;\n       subpos, sublen: csize_t): var CppString	
+insert	cppstl/std_string.html#insert,CppString,csize_t,cstring	std_string: insert(self: var CppString; pos: csize_t; s: cstring): var CppString	
+insert	cppstl/std_string.html#insert,CppString,csize_t,cstring,csize_t	std_string: insert(self: var CppString; pos: csize_t; s: cstring; n: csize_t): var CppString	
+insert	cppstl/std_string.html#insert,CppString,csize_t,csize_t,cchar	std_string: insert(self: var CppString; p, n: csize_t; c: cchar): var CppString	
+insert	cppstl/std_string.html#insert,CppString,CppStrConstIterator,csize_t,cchar	std_string: insert(self: var CppString; p: CppStrConstIterator; n: csize_t; c: cchar): var CppString	
+insert	cppstl/std_string.html#insert,CppString,CppStrConstIterator,cchar	std_string: insert(self: var CppString; p: CppStrConstIterator; c: cchar): var CppString	
+insert	cppstl/std_string.html#insert,CppString,CppStrIterator,CppStrConstIterator,CppStrConstIterator	std_string: insert(self: var CppString; p: CppStrIterator; first, last: CppStrConstIterator): var CppString	
+erase	cppstl/std_string.html#erase,CppString	std_string: erase(self: var CppString): CppStrIterator	
+erase	cppstl/std_string.html#erase,CppString,csize_t,csize_t	std_string: erase(self: var CppString; pos: csize_t; l: csize_t = std_npos): var CppString	
+erase	cppstl/std_string.html#erase,CppString,CppStrIterator	std_string: erase(self: var CppString; pos: CppStrIterator): CppStrIterator	
+erase	cppstl/std_string.html#erase,CppString,CppStrIterator,CppStrIterator	std_string: erase(self: var CppString; first, last: CppStrIterator): CppStrIterator	
+replace	cppstl/std_string.html#replace,CppString,csize_t,csize_t,CppString	std_string: replace(self: var CppString; pos, l: csize_t; str: CppString): var CppString	
+replace	cppstl/std_string.html#replace,CppString,CppStrConstIterator,CppStrConstIterator,CppString	std_string: replace(self: var CppString; i1, i2: CppStrConstIterator; str: CppString): var CppString	
+replace	cppstl/std_string.html#replace,CppString,csize_t,csize_t,CppString,csize_t,csize_t	std_string: replace(self: var CppString; pos, l: csize_t; str: CppString;\n        subpos, subl: csize_t): var CppString	
+replace	cppstl/std_string.html#replace,CppString,csize_t,csize_t,cstring	std_string: replace(self: var CppString; pos, l: csize_t; s: cstring): var CppString	
+replace	cppstl/std_string.html#replace,CppString,CppStrConstIterator,CppStrConstIterator,cstring	std_string: replace(self: var CppString; i1, i2: CppStrConstIterator; s: cstring): var CppString	
+replace	cppstl/std_string.html#replace,CppString,csize_t,csize_t,cstring,csize_t	std_string: replace(self: var CppString; pos, l: csize_t; s: cstring; n: csize_t): var CppString	
+replace	cppstl/std_string.html#replace,CppString,CppStrConstIterator,CppStrConstIterator,cstring,csize_t	std_string: replace(self: var CppString; i1, i2: CppStrConstIterator; s: cstring; n: csize_t): var CppString	
+replace	cppstl/std_string.html#replace,CppString,csize_t,csize_t,csize_t,cchar	std_string: replace(self: var CppString; pos, l: csize_t; n: csize_t; c: cchar): var CppString	
+replace	cppstl/std_string.html#replace,CppString,CppStrConstIterator,CppStrConstIterator,csize_t,cchar	std_string: replace(self: var CppString; i1, i2: CppStrConstIterator; n: csize_t; c: cchar): var CppString	
+replace	cppstl/std_string.html#replace,CppString,CppStrConstIterator,CppStrConstIterator,CppStrConstIterator,CppStrConstIterator	std_string: replace(self: var CppString; i1, i2: CppStrConstIterator;\n        first, last: CppStrConstIterator): var CppString	
+swap	cppstl/std_string.html#swap,CppString,CppString	std_string: swap(self: var CppString; x: var CppString)	
+pop_back	cppstl/std_string.html#pop_back,CppString	std_string: pop_back(self: var CppString)	
+c_str	cppstl/std_string.html#c_str,CppString	std_string: c_str(self: CppString): cstring	
+data	cppstl/std_string.html#data,CppString	std_string: data(self: CppString): ptr cchar	
+copy	cppstl/std_string.html#copy,CppString,ptr.cchar,csize_t,csize_t	std_string: copy(self: CppString; s: ptr cchar; l: csize_t; pos: csize_t = 0): csize_t	
+find	cppstl/std_string.html#find,CppString,CppString,csize_t	std_string: find(self, str: CppString; pos: csize_t = 0): csize_t	
+find	cppstl/std_string.html#find,CppString,CppString,csize_t,csize_t	std_string: find(self, str: CppString; pos, n: csize_t): csize_t	
+find	cppstl/std_string.html#find,CppString,cstring,csize_t	std_string: find(self: CppString; s: cstring; pos: csize_t = 0): csize_t	
+find	cppstl/std_string.html#find,CppString,cstring,csize_t,csize_t	std_string: find(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+find	cppstl/std_string.html#find,CppString,cchar,csize_t	std_string: find(self: CppString; c: cchar; pos: csize_t = 0): csize_t	
+rfind	cppstl/std_string.html#rfind,CppString,CppString,csize_t	std_string: rfind(self, str: CppString; pos: csize_t = std_npos): csize_t	
+rfind	cppstl/std_string.html#rfind,CppString,CppString,csize_t,csize_t	std_string: rfind(self: CppString; s: CppString; pos, n: csize_t): csize_t	
+rfind	cppstl/std_string.html#rfind,CppString,cstring,csize_t	std_string: rfind(self: CppString; s: cstring; pos: csize_t = std_npos): csize_t	
+rfind	cppstl/std_string.html#rfind,CppString,cstring,csize_t,csize_t	std_string: rfind(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+rfind	cppstl/std_string.html#rfind,CppString,cchar,csize_t	std_string: rfind(self: CppString; c: cchar; pos: csize_t = std_npos): csize_t	
+find_first_of	cppstl/std_string.html#find_first_of,CppString,CppString,csize_t	std_string: find_first_of(self, str: CppString; pos: csize_t = 0): csize_t	
+find_first_of	cppstl/std_string.html#find_first_of,CppString,CppString,csize_t,csize_t	std_string: find_first_of(self, str: CppString; pos, n: csize_t): csize_t	
+find_first_of	cppstl/std_string.html#find_first_of,CppString,cstring,csize_t	std_string: find_first_of(self: CppString; s: cstring; pos: csize_t = 0): csize_t	
+find_first_of	cppstl/std_string.html#find_first_of,CppString,cstring,csize_t,csize_t	std_string: find_first_of(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+find_first_of	cppstl/std_string.html#find_first_of,CppString,cchar,csize_t	std_string: find_first_of(self: CppString; c: cchar; pos: csize_t = 0): csize_t	
+find_last_of	cppstl/std_string.html#find_last_of,CppString,CppString,csize_t	std_string: find_last_of(self, str: CppString; pos: csize_t = std_npos): csize_t	
+find_last_of	cppstl/std_string.html#find_last_of,CppString,CppString,csize_t,csize_t	std_string: find_last_of(self: CppString; s: CppString; pos, n: csize_t): csize_t	
+find_last_of	cppstl/std_string.html#find_last_of,CppString,cstring,csize_t	std_string: find_last_of(self: CppString; s: cstring; pos: csize_t = std_npos): csize_t	
+find_last_of	cppstl/std_string.html#find_last_of,CppString,cstring,csize_t,csize_t	std_string: find_last_of(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+find_last_of	cppstl/std_string.html#find_last_of,CppString,cchar,csize_t	std_string: find_last_of(self: CppString; c: cchar; pos: csize_t = std_npos): csize_t	
+find_first_not_of	cppstl/std_string.html#find_first_not_of,CppString,CppString,csize_t	std_string: find_first_not_of(self, str: CppString; pos: csize_t = 0): csize_t	
+find_first_not_of	cppstl/std_string.html#find_first_not_of,CppString,CppString,csize_t,csize_t	std_string: find_first_not_of(self, str: CppString; pos, n: csize_t): csize_t	
+find_first_not_of	cppstl/std_string.html#find_first_not_of,CppString,cstring,csize_t	std_string: find_first_not_of(self: CppString; s: cstring; pos: csize_t = 0): csize_t	
+find_first_not_of	cppstl/std_string.html#find_first_not_of,CppString,cstring,csize_t,csize_t	std_string: find_first_not_of(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+find_first_not_of	cppstl/std_string.html#find_first_not_of,CppString,cchar,csize_t	std_string: find_first_not_of(self: CppString; c: cchar; pos: csize_t = 0): csize_t	
+find_last_not_of	cppstl/std_string.html#find_last_not_of,CppString,CppString,csize_t	std_string: find_last_not_of(self, str: CppString; pos: csize_t = std_npos): csize_t	
+find_last_not_of	cppstl/std_string.html#find_last_not_of,CppString,CppString,csize_t,csize_t	std_string: find_last_not_of(self, str: CppString; pos, n: csize_t): csize_t	
+find_last_not_of	cppstl/std_string.html#find_last_not_of,CppString,cstring,csize_t	std_string: find_last_not_of(self: CppString; s: cstring; pos: csize_t = std_npos): csize_t	
+find_last_not_of	cppstl/std_string.html#find_last_not_of,CppString,cstring,csize_t,csize_t	std_string: find_last_not_of(self: CppString; s: cstring; pos, n: csize_t): csize_t	
+find_last_not_of	cppstl/std_string.html#find_last_not_of,CppString,cchar,csize_t	std_string: find_last_not_of(self: CppString; c: cchar; pos: csize_t = std_npos): csize_t	
+substr	cppstl/std_string.html#substr,CppString,csize_t,csize_t	std_string: substr(self: CppString; pos: csize_t = 0; l: csize_t = std_npos): CppString	
+compare	cppstl/std_string.html#compare,CppString,CppString	std_string: compare(self, str: CppString): cint	
+compare	cppstl/std_string.html#compare,CppString,csize_t,csize_t,CppString	std_string: compare(self: CppString; pos, l: csize_t; str: CppString): cint	
+compare	cppstl/std_string.html#compare,CppString,csize_t,csize_t,CppString,csize_t,csize_t	std_string: compare(self: CppString; pos, l: csize_t; str: CppString; subpos, subl: csize_t): cint	
+compare	cppstl/std_string.html#compare,CppString,cstring	std_string: compare(self: CppString; s: cstring): cint	
+compare	cppstl/std_string.html#compare,CppString,csize_t,csize_t,cstring	std_string: compare(self: CppString; pos, l: csize_t; str: cstring): cint	
+compare	cppstl/std_string.html#compare,CppString,csize_t,csize_t,cstring,csize_t	std_string: compare(self: CppString; pos, l: csize_t; str: cstring; n: csize_t): cint	
+compare	cppstl/std_string.html#compare,CppString,csize_t,csize_t,cstring,csize_t,csize_t	std_string: compare(self: CppString; pos, l: csize_t; str: cstring; subpos, subl: csize_t): cint	
+`+`	cppstl/std_string.html#+,CppString,cchar	std_string: `+`(a: CppString; b: cchar): CppString	
+`+`	cppstl/std_string.html#+,cchar,CppString	std_string: `+`(a: cchar; b: CppString): CppString	
+`+`	cppstl/std_string.html#+,CppString,CppString	std_string: `+`(a: CppString; b: CppString): CppString	
+`==`	cppstl/std_string.html#==,CppString,CppString	std_string: `==`(a: CppString; b: CppString): bool	
+`!=`	cppstl/std_string.html#!=,CppString,CppString	std_string: `!=`(a: CppString; b: CppString): bool	
+`&lt;`	cppstl/std_string.html#<,CppString,CppString	std_string: `&lt;`(a: CppString; b: CppString): bool	
+`&lt;=`	cppstl/std_string.html#<=,CppString,CppString	std_string: `&lt;=`(a: CppString; b: CppString): bool	
+`&gt;`	cppstl/std_string.html#>,CppString,CppString	std_string: `&gt;`(a: CppString; b: CppString): bool	
+`&gt;=`	cppstl/std_string.html#>=,CppString,CppString	std_string: `&gt;=`(a: CppString; b: CppString): bool	
+CppStrIteratorToStrConstIterator	cppstl/std_string.html#CppStrIteratorToStrConstIterator.c,CppStrIterator	std_string: CppStrIteratorToStrConstIterator(s: CppStrIterator): CppStrConstIterator	
+initCppString	cppstl/std_string.html#initCppString,string	std_string: initCppString(s: string): CppString	
+`+`	cppstl/std_string.html#+,CppString,	std_string: `+`(a: CppString; b: string | cstring): CppString	
+`+`	cppstl/std_string.html#+,,CppString	std_string: `+`(a: string | cstring; b: CppString): CppString	
+`==`	cppstl/std_string.html#==,CppString,	std_string: `==`(a: CppString; b: string | cstring): bool	
+`==`	cppstl/std_string.html#==,,CppString	std_string: `==`(a: string | cstring; b: CppString): bool	
+`!=`	cppstl/std_string.html#!=,CppString,	std_string: `!=`(a: CppString; b: string | cstring): bool	
+`!=`	cppstl/std_string.html#!=,,CppString	std_string: `!=`(a: string | cstring; b: CppString): bool	
+`&lt;`	cppstl/std_string.html#<,CppString,	std_string: `&lt;`(a: CppString; b: string | cstring): bool	
+`&lt;`	cppstl/std_string.html#<,,CppString	std_string: `&lt;`(a: string | cstring; b: CppString): bool	
+`&lt;=`	cppstl/std_string.html#<=,CppString,	std_string: `&lt;=`(a: CppString; b: string | cstring): bool	
+`&lt;=`	cppstl/std_string.html#<=,,CppString	std_string: `&lt;=`(a: string | cstring; b: CppString): bool	
+`&gt;`	cppstl/std_string.html#>,CppString,	std_string: `&gt;`(a: CppString; b: string | cstring): bool	
+`&gt;`	cppstl/std_string.html#>,,CppString	std_string: `&gt;`(a: string | cstring; b: CppString): bool	
+`&gt;=`	cppstl/std_string.html#>=,CppString,	std_string: `&gt;=`(a: CppString; b: string | cstring): bool	
+`&gt;=`	cppstl/std_string.html#>=,,CppString	std_string: `&gt;=`(a: string | cstring; b: CppString): bool	
+`[]`	cppstl/std_string.html#[],CppString,Natural	std_string: `[]`(self: CppString; idx: Natural): cchar	
+`[]`	cppstl/std_string.html#[],CppString,Natural_2	std_string: `[]`(self: var CppString; idx: Natural): var cchar	
+`[]=`	cppstl/std_string.html#[]=,CppString,Natural,cchar	std_string: `[]=`(self: var CppString; idx: Natural; val: cchar)	
+`$`	cppstl/std_string.html#$,CppString	std_string: `$`(s: CppString): string	
+`+`	cppstl/std_string.html#+,T,int	std_string: `+`[T: CppStrIterator](it`gensym5: T; offset`gensym5: int): T	
+`-`	cppstl/std_string.html#-,T,int	std_string: `-`[T: CppStrIterator](it`gensym5: T; offset`gensym5: int): T	
+`+`	cppstl/std_string.html#+,T,int_2	std_string: `+`[T: CppStrConstIterator](it`gensym6: T; offset`gensym6: int): T	
+`-`	cppstl/std_string.html#-,T,int_2	std_string: `-`[T: CppStrConstIterator](it`gensym6: T; offset`gensym6: int): T	

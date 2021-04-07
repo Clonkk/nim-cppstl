@@ -1,0 +1,8 @@
+CppSharedPtr	cppstl/std_smartptrs.html#CppSharedPtr	std_smartptrs: CppSharedPtr	
+make_shared	cppstl/std_smartptrs.html#make_shared,typedesc	std_smartptrs: make_shared(T: typedesc): CppSharedPtr[T]	
+CppUniquePtr	cppstl/std_smartptrs.html#CppUniquePtr	std_smartptrs: CppUniquePtr	
+make_unique	cppstl/std_smartptrs.html#make_unique,typedesc	std_smartptrs: make_unique(T: typedesc): CppUniquePtr[T]	
+deref	cppstl/std_smartptrs.html#deref	std_smartptrs: deref[T](p: CppUniquePtr[T] or CppSharedPtr[T]): var T	
+`.()`	cppstl/std_smartptrs.html#.().m,,untyped,varargs[untyped]	std_smartptrs: `.()`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n         args: varargs[untyped]): untyped	
+`.`	cppstl/std_smartptrs.html#..m,,untyped,varargs[untyped]	std_smartptrs: `.`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n       args: varargs[untyped]): untyped	
+`.=`	cppstl/std_smartptrs.html#.=.m,,untyped,untyped	std_smartptrs: `.=`[T](p: CppUniquePtr[T] or CppSharedPtr[T]; fieldOrFunc: untyped;\n        args: untyped): untyped	
