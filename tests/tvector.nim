@@ -241,8 +241,8 @@ suite "CppVector":
       v.push_back(1)
       v.push_back(2)
       v.push_back(3)
-      doAssert $v == "[1, 2, 3]"
-      doAssert (v.size() == 3)
+      check $v == "[1, 2, 3]"
+      check (v.size() == 3)
 
     block:
       var v = initCppVector[float](5, 0.0'f64)
