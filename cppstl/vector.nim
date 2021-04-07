@@ -101,7 +101,7 @@ proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
 # Element access
-proc `[]`*[T](self: CppVector[T], idx: Natural): T  {.inline.} =
+proc `[]`*[T](self: CppVector[T], idx: Natural): T {.inline.} =
   let i = csize_t(idx)
   when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i)
