@@ -1,8 +1,6 @@
-# Copyright 2019 Nouredine Hussain
-
 # This code is licensed under MIT license (see LICENSE.txt for details)
 import unittest
-import cppstl/string
+import cppstl/std_string
 
 suite "CppString":
   test "constructors and iterators":
@@ -71,7 +69,7 @@ suite "CppString":
     s.shrink_to_fit
 
     # check s.length == s.capacity # implementation dependent.
-                                   # Does not allways hold
+      # Does not allways hold
 
   test "accessors":
     var s: CppString = initCppString("Hello Nim!")
@@ -388,3 +386,4 @@ suite "CppString":
     check s1 <= s2
     check not (s1 >= s2)
     check s1 >= "aaaaaaaaaaaaa".cstring
+

@@ -5,13 +5,13 @@
 
 import strformat
 import ./private/utils
-import ./exception
-export exception
+import ./std_exception
+export std_exception
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 
-
 {.push header: "<vector>".}
+
 type
   CppVector*[T] {.importcpp: "std::vector".} = object
   CppVectorIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = object
@@ -101,7 +101,7 @@ proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
 # Element access
-proc `[]`*[T](self: CppVector[T], idx: Natural): T  {.inline.} =
+proc `[]`*[T](self: CppVector[T], idx: Natural): T {.inline.} =
   let i = csize_t(idx)
   when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i)
@@ -122,14 +122,17 @@ converter CppVectorIteratorToCppVectorConstIterator*[T](x: CppVectorIterator[T])
           CppVectorConstIterator[T] {.importcpp: "#".}
 
 # Display the content of a vector
-proc `$`*[T](v: CppVector[T]): string {.noinit.} =
-  if v.empty:
-    result = "[]"
-  else:
+proc `$`*[T](v: CppVector[T]): string =
+  let size = v.size()
+  if size > 0:
     result = "["
-    for i in 0..<v.size-1:
-      result = result & $v[i] & ", "
-    result = result & $v[v.size-1] & "]"
+    for i in 0..<size-1:
+      result.add $(v.at(i.csize_t))
+      result.add ", "
+    result.add $(v.at(size-1))
+    result.add "]"
+  else:
+    result = "[]"
 
 # Iterators arithmetics
 iteratorsArithmetics(CppVectorIterator)

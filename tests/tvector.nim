@@ -1,7 +1,5 @@
-# Copyright 2019 Nouredine Hussain
-
 # This code is licensed under MIT license (see LICENSE.txt for details)
-import unittest, cppstl/vector
+import unittest, cppstl/std_vector
 
 suite "CppVector":
   test "constructors and iterators":
@@ -235,12 +233,16 @@ suite "CppVector":
     check foo <= bar
 
   test "display":
-    var v = initCppVector[int]()
+    block:
+      var v = initCppVector[int]()
+      check $v == "[]"
+      v.push_back(1)
+      v.push_back(2)
+      v.push_back(3)
+      check $v == "[1, 2, 3]"
+      check (v.size() == 3)
 
-    check $v == "[]"
-
-    v.push_back 1
-    v.push_back 2
-    v.push_back 3
-
-    check $v == "[1, 2, 3]"
+    block:
+      var v = initCppVector[float](5, 0.0'f64)
+      check $v == "[0.0, 0.0, 0.0, 0.0, 0.0]"
+      check v.size() == 5

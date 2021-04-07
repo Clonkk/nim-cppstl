@@ -1,0 +1,22 @@
+CppComplex	cppstl/std_complex.html#CppComplex	std_complex: CppComplex	
+initCppComplex	cppstl/std_complex.html#initCppComplex,T,T	std_complex: initCppComplex[T: SomeFloat](re, im: T): CppComplex[T]	
+polar	cppstl/std_complex.html#polar,T,T	std_complex: polar[T: SomeFloat](r, theta: T): CppComplex[T]	
+real	cppstl/std_complex.html#real,CppComplex[T: SomeFloat]	std_complex: real[T: SomeFloat](self: CppComplex[T]): T	
+imag	cppstl/std_complex.html#imag,CppComplex[T: SomeFloat]	std_complex: imag[T: SomeFloat](self: CppComplex[T]): T	
+`+=`	cppstl/std_complex.html#+=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `+=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`-=`	cppstl/std_complex.html#-=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `-=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`*=`	cppstl/std_complex.html#*=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `*=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`/=`	cppstl/std_complex.html#/=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `/=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`+`	cppstl/std_complex.html#+,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `+`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`-`	cppstl/std_complex.html#-,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `-`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`*`	cppstl/std_complex.html#*,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `*`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`/`	cppstl/std_complex.html#/,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `/`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`==`	cppstl/std_complex.html#==,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `==`[T: SomeFloat](a, b: CppComplex[T]): bool	
+`!=`	cppstl/std_complex.html#!=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	std_complex: `!=`[T: SomeFloat](a, b: CppComplex[T]): bool	
+abs	cppstl/std_complex.html#abs,CppComplex[T: SomeFloat]	std_complex: abs[T: SomeFloat](self: CppComplex[T]): T	
+norm	cppstl/std_complex.html#norm,CppComplex[T: SomeFloat]	std_complex: norm[T: SomeFloat](self: CppComplex[T]): T	
+arg	cppstl/std_complex.html#arg,CppComplex[T: SomeFloat]	std_complex: arg[T: SomeFloat](self: CppComplex[T]): T	
+conj	cppstl/std_complex.html#conj,CppComplex[T: SomeFloat]	std_complex: conj[T: SomeFloat](self: CppComplex[T]): CppComplex[T]	
+toComplex	cppstl/std_complex.html#toComplex,CppComplex[T]	std_complex: toComplex[T](c: CppComplex[T]): Complex[T]	
+toCppComplex	cppstl/std_complex.html#toCppComplex,Complex[T]	std_complex: toCppComplex[T](c: Complex[T]): CppComplex[T]	
+`$`	cppstl/std_complex.html#$,CppComplex[T]	std_complex: `$`[T](c: CppComplex[T]): string	
