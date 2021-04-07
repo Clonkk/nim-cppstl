@@ -1,0 +1,17 @@
+CppComplex	cppstl/complex.html#CppComplex	complex: CppComplex	
+initCppComplex	cppstl/complex.html#initCppComplex,T,T	complex: initCppComplex[T: SomeFloat](re, im: T): CppComplex[T]	
+real	cppstl/complex.html#real,CppComplex[T: SomeFloat]	complex: real[T: SomeFloat](self: CppComplex[T]): T	
+imag	cppstl/complex.html#imag,CppComplex[T: SomeFloat]	complex: imag[T: SomeFloat](self: CppComplex[T]): T	
+`+`	cppstl/complex.html#+,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `+`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`-`	cppstl/complex.html#-,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `-`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`*`	cppstl/complex.html#*,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `*`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`/`	cppstl/complex.html#/,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `/`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]	
+`=+`	cppstl/complex.html#=+,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `=+`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`=-`	cppstl/complex.html#=-,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `=-`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`=*`	cppstl/complex.html#=*,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `=*`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`=/`	cppstl/complex.html#=/,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `=/`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])	
+`==`	cppstl/complex.html#==,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `==`[T: SomeFloat](a, b: CppComplex[T]): bool	
+`!=`	cppstl/complex.html#!=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]	complex: `!=`[T: SomeFloat](a, b: CppComplex[T]): bool	
+abs	cppstl/complex.html#abs,CppComplex[T: SomeFloat]	complex: abs[T: SomeFloat](self: CppComplex[T]): T	
+arg	cppstl/complex.html#arg,CppComplex[T: SomeFloat]	complex: arg[T: SomeFloat](self: CppComplex[T]): T	
+norm	cppstl/complex.html#norm,CppComplex[T: SomeFloat]	complex: norm[T: SomeFloat](self: CppComplex[T]): T	

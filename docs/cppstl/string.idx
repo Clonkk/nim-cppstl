@@ -125,18 +125,18 @@ compare	cppstl/string.html#compare,CppString,csize_t,csize_t,cstring,csize_t,csi
 CppStrIteratorToStrConstIterator	cppstl/string.html#CppStrIteratorToStrConstIterator.c,CppStrIterator	string: CppStrIteratorToStrConstIterator(s: CppStrIterator): CppStrConstIterator	
 initCppString	cppstl/string.html#initCppString,string	string: initCppString(s: string): CppString	
 `+`	cppstl/string.html#+,CppString,	string: `+`(a: CppString; b: string | cstring): CppString	
-`==`	cppstl/string.html#==,CppString,	string: `==`(a: CppString; b: string | cstring): bool	
-`!=`	cppstl/string.html#!=,CppString,	string: `!=`(a: CppString; b: string | cstring): bool	
-`&lt;`	cppstl/string.html#<,CppString,	string: `&lt;`(a: CppString; b: string | cstring): bool	
-`&lt;=`	cppstl/string.html#<=,CppString,	string: `&lt;=`(a: CppString; b: string | cstring): bool	
-`&gt;`	cppstl/string.html#>,CppString,	string: `&gt;`(a: CppString; b: string | cstring): bool	
-`&gt;=`	cppstl/string.html#>=,CppString,	string: `&gt;=`(a: CppString; b: string | cstring): bool	
 `+`	cppstl/string.html#+,,CppString	string: `+`(a: string | cstring; b: CppString): CppString	
+`==`	cppstl/string.html#==,CppString,	string: `==`(a: CppString; b: string | cstring): bool	
 `==`	cppstl/string.html#==,,CppString	string: `==`(a: string | cstring; b: CppString): bool	
+`!=`	cppstl/string.html#!=,CppString,	string: `!=`(a: CppString; b: string | cstring): bool	
 `!=`	cppstl/string.html#!=,,CppString	string: `!=`(a: string | cstring; b: CppString): bool	
+`&lt;`	cppstl/string.html#<,CppString,	string: `&lt;`(a: CppString; b: string | cstring): bool	
 `&lt;`	cppstl/string.html#<,,CppString	string: `&lt;`(a: string | cstring; b: CppString): bool	
+`&lt;=`	cppstl/string.html#<=,CppString,	string: `&lt;=`(a: CppString; b: string | cstring): bool	
 `&lt;=`	cppstl/string.html#<=,,CppString	string: `&lt;=`(a: string | cstring; b: CppString): bool	
+`&gt;`	cppstl/string.html#>,CppString,	string: `&gt;`(a: CppString; b: string | cstring): bool	
 `&gt;`	cppstl/string.html#>,,CppString	string: `&gt;`(a: string | cstring; b: CppString): bool	
+`&gt;=`	cppstl/string.html#>=,CppString,	string: `&gt;=`(a: CppString; b: string | cstring): bool	
 `&gt;=`	cppstl/string.html#>=,,CppString	string: `&gt;=`(a: string | cstring; b: CppString): bool	
 `[]`	cppstl/string.html#[],CppString,Natural	string: `[]`(self: CppString; idx: Natural): cchar	
 `[]`	cppstl/string.html#[],CppString,Natural_2	string: `[]`(self: var CppString; idx: Natural): var cchar	
