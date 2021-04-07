@@ -10,9 +10,10 @@ type
 func make_shared*(T: typedesc): CppSharedPtr[T] {.importcpp: "std::make_shared<'*0>()".}
 
 when defined(gcDestructors):
-  func `=copy`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]) {.error: "A unique ptr cannot be copied".}
-  func `=destroy`*[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
-  func `=sink`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]){.importcpp: "# = std::move(#)".}
+  # TODO Fix copy on shared_ptr
+  proc `=copy`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]) {.error: "A shared_ptr cannot be copied".}
+  # proc `=destroy`*[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
+  # proc `=sink`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]){.importcpp: "# = std::move(#)".}
 
 
 # std::unique_ptr<T>
@@ -24,9 +25,9 @@ func make_unique*(T: typedesc): CppUniquePtr[T] {.importcpp: "std::make_unique<'
 
 
 when defined(gcDestructors):
-  func `=copy`*(dst: var CppUniquePtr[T], src: CppUniquePtr[T]) {.error: "A unique ptr cannot be copied".}
-  func `=destroy`*(dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
-  func `=sink`*(dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
+  proc `=copy`*(dst: var CppUniquePtr[T], src: CppUniquePtr[T]) {.error: "A unique ptr cannot be copied".}
+  # proc `=destroy`*(dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
+  # proc `=sink`*(dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
 
 {.pop.}
 

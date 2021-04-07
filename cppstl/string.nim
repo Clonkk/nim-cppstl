@@ -11,6 +11,7 @@ when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 
 {.push header: "<string>".}
+
 type
   CppString* {.importcpp: "std::string".} = object
   CppStrIterator* {.importcpp: "std::string::iterator".} = object
@@ -192,77 +193,62 @@ proc `>=`*(a: CppString, b: CppString): bool {.importcpp: "# >= #".}
 # Converter: CppStrIterator -> StrConstIterator
 converter CppStrIteratorToStrConstIterator*(s: CppStrIterator): CppStrConstIterator {.importcpp: "#".}
 
-proc dest*(dst: var CppString) {.importcpp: "#.~basic_string()".}
-
-when defined(gcDestructors):
-  func `=copy`*(dst: var CppString, src: CppString) {.importcpp: "#.assign(@)"}
-  # std::string actually is basic_string
-  # TODO : Fix double free on this hook
-  # func `=destroy`*(dst: var CppString){.importcpp: "#.~basic_string()".}
-  func `=destroy`*(dst: var CppString) {.inline.} =
-    dest(dst)
-  func `=sink`*(dst: var CppString, src: CppString){.importcpp: "# = std::move(#)".}
-
-
 {.pop.}
 
+
+{.push inline.}
 proc initCppString*(s: string): CppString =
   initCppString(s.cstring)
 
 proc `+`*(a: CppString, b: string|cstring): CppString =
-  a + initCppString(b)
+  result = (a + initCppString(b))
+proc `+`*(a: string|cstring, b: CppString): CppString =
+  let a = initCppString(a)
+  result = (a + b)
 
 proc `==`*(a: CppString, b: string|cstring): bool =
-  a == initCppString(b)
+  let b = initCppString(b)
+  result = (a == b)
+proc `==`*(a: string|cstring, b: CppString): bool =
+  let a = initCppString(a)
+  result = (a == b)
 
 proc `!=`*(a: CppString, b: string|cstring): bool =
-  a != initCppString(b)
+  result = (a != initCppString(b))
+proc `!=`*(a: string|cstring, b: CppString): bool =
+  result = (initCppString(a) != b)
 
 proc `<`*(a: CppString, b: string|cstring): bool =
-  a < initCppString(b)
+  result = (a < initCppString(b))
+proc `<`*(a: string|cstring, b: CppString): bool =
+  result = (initCppString(a) < b)
 
 proc `<=`*(a: CppString, b: string|cstring): bool =
-  a <= initCppString(b)
+  result = (a <= initCppString(b))
+proc `<=`*(a: string|cstring, b: CppString): bool =
+  result = (initCppString(a) <= b)
 
 proc `>`*(a: CppString, b: string|cstring): bool =
-  a > initCppString(b)
+  result = (a > initCppString(b))
+proc `>`*(a: string|cstring, b: CppString): bool =
+  result = (initCppString(a) > b)
 
 proc `>=`*(a: CppString, b: string|cstring): bool =
-  a >= initCppString(b)
-
-
-proc `+`*(a: string|cstring, b: CppString): CppString =
-  initCppString(a) + b
-
-proc `==`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) == b
-
-proc `!=`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) != b
-
-proc `<`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) < b
-
-proc `<=`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) <= b
-
-proc `>`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) > b
-
+  result = (a >= initCppString(b))
 proc `>=`*(a: string|cstring, b: CppString): bool =
-  initCppString(a) >= b
+  result = (initCppString(a) >= b)
 
-proc checkIndex(self: CppString, i: csize_t) {.inline.} =
+proc checkIndex(self: CppString, i: csize_t) =
   if i > self.size:
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
-proc `[]`*(self: CppString, idx: Natural): cchar {.inline.} =
+proc `[]`*(self: CppString, idx: Natural): cchar =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
   when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i)
 
-proc `[]`*(self: var CppString, idx: Natural): var cchar {.inline.} =
+proc `[]`*(self: var CppString, idx: Natural): var cchar =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
   when compileOption("boundChecks"): self.checkIndex(i)
@@ -270,11 +256,12 @@ proc `[]`*(self: var CppString, idx: Natural): var cchar {.inline.} =
   # This strange syntax is to avoid a bug in the Nim c++ code generator
   (addr self.unsafeIndex(i))[]
 
-proc `[]=`*(self: var CppString, idx: Natural, val: cchar) {.inline.} =
+proc `[]=`*(self: var CppString, idx: Natural, val: cchar) =
   let i = csize_t(idx)
   when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i) = val
 
+{.pop.}
 
 # Converter: CppString -> cstring
 # converter CppCppStringToCCppString*(s: CppString): cstring = s.c_str()
@@ -287,7 +274,6 @@ proc `[]=`*(self: var CppString, idx: Natural, val: cchar) {.inline.} =
 # converter CppStringToCppCppString*(s: string): CppString = s.cstring
 # Converter: CppString -> string
 # converter CppCppStringToCppString*(s: CppString): string = $(s.cstring)
-
 
 # Display CppString
 proc `$`*(s: CppString): string {.noinit.} =
