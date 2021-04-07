@@ -95,14 +95,24 @@ function main() {
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#CppComplex"
-    title="CppComplex[T] {.importcpp: &quot;c10::complex&quot;.} = object">CppComplex</a></li>
+    title="CppComplex[T] {.importcpp: &quot;std::complex&quot;.} = object">CppComplex</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">/
+      <ul class="simple nested-toc-section">+=
+      <li><a class="reference" href="#%2B%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
+    title="`+=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">+=,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">$
+      <li><a class="reference" href="#%24%2CCppComplex%5BT%5D"
+    title="`$`[T](c: CppComplex[T]): string">$,<wbr>CppComplex[T]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">/
       <li><a class="reference" href="#%2F%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
     title="`/`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]">/,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
@@ -117,14 +127,14 @@ function main() {
     title="`-`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]">-,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">=-
-      <li><a class="reference" href="#%3D-%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
-    title="`=-`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">=-,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+  <ul class="simple nested-toc-section">-=
+      <li><a class="reference" href="#-%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
+    title="`-=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">-=,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">=+
-      <li><a class="reference" href="#%3D%2B%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
-    title="`=+`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">=+,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+  <ul class="simple nested-toc-section">toComplex
+      <li><a class="reference" href="#toComplex%2CCppComplex%5BT%5D"
+    title="toComplex[T](c: CppComplex[T]): Complex[T]">toComplex,<wbr>CppComplex[T]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">!=
@@ -132,14 +142,9 @@ function main() {
     title="`!=`[T: SomeFloat](a, b: CppComplex[T]): bool">!=,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">=*
-      <li><a class="reference" href="#%3D%2A%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
-    title="`=*`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">=*,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">=/
-      <li><a class="reference" href="#%3D%2F%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
-    title="`=/`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">=/,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+  <ul class="simple nested-toc-section">/=
+      <li><a class="reference" href="#%2F%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
+    title="`/=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">/=,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">==
@@ -147,9 +152,19 @@ function main() {
     title="`==`[T: SomeFloat](a, b: CppComplex[T]): bool">==,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">*=
+      <li><a class="reference" href="#%2A%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
+    title="`*=`[T: SomeFloat](self: var CppComplex[T]; arg: CppComplex[T])">*=,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">+
       <li><a class="reference" href="#%2B%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"
     title="`+`[T: SomeFloat](a, b: CppComplex[T]): CppComplex[T]">+,<wbr>CppComplex[T: SomeFloat],<wbr>CppComplex[T: SomeFloat]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">toCppComplex
+      <li><a class="reference" href="#toCppComplex%2CComplex%5BT%5D"
+    title="toCppComplex[T](c: Complex[T]): CppComplex[T]">toCppComplex,<wbr>Complex[T]</a></li>
 
   </ul>
 
@@ -173,9 +188,19 @@ function main() {
     title="norm[T: SomeFloat](self: CppComplex[T]): T">norm,<wbr>CppComplex[T: SomeFloat]</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">conj
+      <li><a class="reference" href="#conj%2CCppComplex%5BT%3A+SomeFloat%5D"
+    title="conj[T: SomeFloat](self: CppComplex[T]): CppComplex[T]">conj,<wbr>CppComplex[T: SomeFloat]</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">imag
       <li><a class="reference" href="#imag%2CCppComplex%5BT%3A+SomeFloat%5D"
     title="imag[T: SomeFloat](self: CppComplex[T]): T">imag,<wbr>CppComplex[T: SomeFloat]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">polar
+      <li><a class="reference" href="#polar%2CT%2CT"
+    title="polar[T: SomeFloat](r, theta: T): CppComplex[T]">polar,<wbr>T,<wbr>T</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">abs
@@ -203,7 +228,7 @@ function main() {
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
 <a id="CppComplex"></a>
-<dt><pre><a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;c10::complex&quot;</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span></pre></dt>
+<dt><pre><a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::complex&quot;</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span></pre></dt>
 <dd>
 
 
@@ -214,9 +239,41 @@ function main() {
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
+<a id="+=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%2B%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`+=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# += #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="-=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#-%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`-=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# -= #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="*=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%2A%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`*=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# *= #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="/=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%2F%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`/=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# /= #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
 <a id="+,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%2B%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`+`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# + #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# + #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -224,7 +281,7 @@ function main() {
 </dd>
 <a id="-,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#-%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`-`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# - #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# - #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -232,7 +289,7 @@ function main() {
 </dd>
 <a id="*,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%2A%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`*`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# * #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# * #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -240,39 +297,7 @@ function main() {
 </dd>
 <a id="/,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%2F%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`/`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# / #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="=+,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3D%2B%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`=+`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# += #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="=-,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3D-%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`=-`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# -= #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="=*,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3D%2A%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`=*`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# *= #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="=/,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#%3D%2F%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`=/`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">arg</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# /= #)&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# / #)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -280,7 +305,7 @@ function main() {
 </dd>
 <a id="==,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%3D%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`==`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# == #)&quot;</span><span class="Other">,</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -288,7 +313,28 @@ function main() {
 </dd>
 <a id="!=,CppComplex[T: SomeFloat],CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%21%3D%2CCppComplex%5BT%3A+SomeFloat%5D%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">`!=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;(# != #)&quot;</span><span class="Other">,</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="toComplex,CppComplex[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#toComplex%2CCppComplex%5BT%5D"><span class="Identifier">toComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Complex</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="toCppComplex,Complex[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#toCppComplex%2CComplex%5BT%5D"><span class="Identifier">toCppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">Complex</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="$,CppComplex[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%24%2CCppComplex%5BT%5D"><span class="Identifier">`$`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
 
 
@@ -301,14 +347,22 @@ function main() {
 <dl class="item">
 <a id="initCppComplex,T,T"></a>
 <dt><pre><span class="Keyword">func</span> <a href="#initCppComplex%2CT%2CT"><span class="Identifier">initCppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">re</span><span class="Other">,</span> <span class="Identifier">im</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::complex&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::complex&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="polar,T,T"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#polar%2CT%2CT"><span class="Identifier">polar</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">,</span> <span class="Identifier">theta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::polar&lt;\'*0&gt;(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 
 </dd>
 <a id="real,CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">func</span> <a href="#real%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">real</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;#.real()&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">func</span> <a href="#real%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">real</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;#.real()&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
@@ -316,7 +370,7 @@ function main() {
 
 </dd>
 <a id="imag,CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">func</span> <a href="#imag%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">imag</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;#.imag()&quot;</span><span class="Other">,</span> <span class="Identifier">cdecl</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">func</span> <a href="#imag%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">imag</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;#.imag()&quot;</span><span class="Other">,</span>
     <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
@@ -325,15 +379,7 @@ function main() {
 </dd>
 <a id="abs,CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">func</span> <a href="#abs%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">abs</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::abs(@)&quot;</span><span class="Other">,</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-
-
-</dd>
-<a id="arg,CppComplex[T: SomeFloat]"></a>
-<dt><pre><span class="Keyword">func</span> <a href="#arg%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">arg</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::arg(@)&quot;</span><span class="Other">,</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -341,7 +387,23 @@ function main() {
 </dd>
 <a id="norm,CppComplex[T: SomeFloat]"></a>
 <dt><pre><span class="Keyword">func</span> <a href="#norm%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">norm</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::norm(@)&quot;</span><span class="Other">,</span>
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="arg,CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#arg%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">arg</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::arg(@)&quot;</span><span class="Other">,</span>
+    <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="conj,CppComplex[T: SomeFloat]"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#conj%2CCppComplex%5BT%3A+SomeFloat%5D"><span class="Identifier">conj</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="std_complex.html#CppComplex"><span class="Identifier">CppComplex</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">importcpp</span><span class="Other">:</span> <span class="StringLit">&quot;std::conj(@)&quot;</span><span class="Other">,</span> <span class="Identifier">header</span><span class="Other">:</span> <span class="StringLit">&quot;&lt;complex&gt;&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -357,7 +419,7 @@ function main() {
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-07 16:19:03 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-07 16:49:44 UTC</small>
       </div>
     </div>
   </div>
