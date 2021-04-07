@@ -5,6 +5,7 @@ type
   CppComplex*[T: SomeFloat] {.importcpp: "std::complex".} = object
 
 func initCppComplex*[T: SomeFloat](re, im: T): CppComplex[T] {.importcpp: "std::complex<'*0>(@)".}
+func polar*[T: SomeFloat](r, theta: T): CppComplex[T] {.importcpp: "std::polar<'*0>(@)".}
 
 func real*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "#.real()".}
 func imag*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "#.imag()".}
@@ -23,8 +24,9 @@ proc `==`*[T: SomeFloat](a, b: CppComplex[T]): bool {.importcpp: "(# == #)".}
 proc `!=`*[T: SomeFloat](a, b: CppComplex[T]): bool {.importcpp: "(# != #)".}
 
 func abs*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "std::abs(@)".}
-func arg*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "std::arg(@)".}
 func norm*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "std::norm(@)".}
+func arg*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "std::arg(@)".}
+func conj*[T: SomeFloat](self: CppComplex[T]): CppComplex[T] {.importcpp: "std::conj(@)".}
 
 {.pop.}
 

@@ -11,19 +11,24 @@ suite "CppComplex":
     check refa.im == a.imag
 
   test "+":
-    var a = initCppComplex[float64](0.77, 3.6)
-    var b = initCppComplex[float64](1.23, 0.4)
-    var res = a+b
-    check res == initCppComplex(2.0, 4.0)
-    check res.real == 2.0
-    check res.imag == 4.0
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      b = initCppComplex[float64](22.17843, 0.523)
+      refa = toComplex(a)
+      refb = toComplex(b)
+      refres = refa+refb
+      res = a+b
+    check res == toCppComplex(refres)
+
   test "-":
-    var a = initCppComplex[float64](1.77, 3.6)
-    var b = initCppComplex[float64](0.50, 0.4)
-    var res = a-b
-    check res == initCppComplex(1.27, 3.2)
-    check res.real == 1.27
-    check res.imag == 3.2
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      b = initCppComplex[float64](22.17843, 0.523)
+      refa = toComplex(a)
+      refb = toComplex(b)
+      refres = refa-refb
+      res = a-b
+    check res == toCppComplex(refres)
 
   test "*":
     var
@@ -35,3 +40,37 @@ suite "CppComplex":
       res = a*b
     check res == toCppComplex(refres)
 
+  test "/":
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      b = initCppComplex[float64](22.17843, 0.523)
+      refa = toComplex(a)
+      refb = toComplex(b)
+      refres = refa/refb
+      res = a/b
+    check res == toCppComplex(refres)
+
+  test "abs":
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      refa = toComplex(a)
+
+    check abs(a) == abs(refa)
+
+  test "conj":
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      refa = toComplex(a)
+
+    check conj(a) == conjugate(refa).toCppComplex()
+
+  test "polar":
+    var
+      a = initCppComplex[float64](141.571, 124.412)
+      refa = toComplex(a)
+      # Use Nim to calculate polar coordinate of refa
+      polcoord = polar(refa)
+      b = polar(polcoord.r, polcoord.phi)
+
+    check (a - b).real < 1e-12
+    check (a - b).imag < 1e-12
