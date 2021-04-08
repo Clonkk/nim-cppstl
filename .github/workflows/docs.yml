@@ -17,14 +17,12 @@ jobs:
         id: install_nim
         uses: iffy/install-nim@v3
       - run: nimble install -y
-      - name: Github Action gendoc
-        run: nimble gendoc
-      - name: Fetch & rebase
-        run: |
-          git fetch
-          git status
+      - name: Fetch
+        run: git fetch
       - name: Rebase
         run: git rebase origin/master
+      - name: Gendoc
+        run: nimble gendoc
       - name: Commit files
         run: |
           echo ${{ github.ref }}
