@@ -13,8 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: "gh-pages"
-      - name: "Git Status check"
-        run: git status
       - name: "install_nim"
         id: install_nim
         uses: iffy/install-nim@v3
@@ -22,7 +20,7 @@ jobs:
         run: nimble gendoc
       - name: Commit files
         run: |
-          git rebase origin/master
+          git rebase master
           echo ${{ github.ref }}
           git add docs
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -31,12 +29,7 @@ jobs:
       - name: Force push to destination branch
         uses: ad-m/github-push-action@v0.5.0
         with:
-          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Destination branch to push changes
           branch: gh-pages
-          # Use force push to fully overwrite the destination branch
           force: true
-          # We have to push from the folder where files were generated.
-          # Same were the new repo was initialized in the previous step
           directory: ./docs
