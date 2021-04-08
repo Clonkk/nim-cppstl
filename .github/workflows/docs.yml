@@ -33,5 +33,3 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "CI: Automated build push" -a | exit 0
           git push
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
