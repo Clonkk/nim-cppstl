@@ -20,7 +20,8 @@ jobs:
         run: nimble gendoc
       - name: Commit files
         run: |
-          git rebase master
+          git fetch
+          git rebase origin/master
           echo ${{ github.ref }}
           git add docs
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
