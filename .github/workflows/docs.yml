@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: "gh-docs"
       - name: "install_nim"
         id: install_nim
         uses: iffy/install-nim@v3
@@ -24,7 +26,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "CI: Automated build push" -a | exit 0
       - name: Push changes
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/gh-docs'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
