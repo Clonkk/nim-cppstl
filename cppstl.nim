@@ -7,10 +7,12 @@ export std_smartptrs
 import cppstl/std_complex
 export std_complex
 
-## Nim wrapper for C++ STL ``std::string`` and ``std::vector``
+## Nim wrapper for C++ STL :
 ##   * ``std::vector`` mapped to ``CppVector``
-##   * ``std::string`` mapped to ``CppString`` to avoid name conflict (String was too close to ``string``)
-##
+##   * ``std::string`` mapped to ``CppString``
+##   * ``std::complex`` mapped to ``CppComplex``
+##   * ``std::shared_ptr`` mapped to ``CppSharedPtr``
+##   * ``std::unique_ptr`` mapped to ``CppUniquePtr``
 
 runnableExamples:
   import cppstl
@@ -34,6 +36,14 @@ runnableExamples:
   assert vec[1] == sqrt 1.0
   assert vec[2] == sqrt 2.0
   assert vec[3] == sqrt 3.0
+
+runnableExamples:
+  import cppstl
+  import complex
+  var z = initCppComplex[float32](41.0, 31.0)
+  var conj_z = z.conj()
+  assert conj_z.real == z.real
+  assert conj_z.imag == -z.imag
 
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
