@@ -40,7 +40,7 @@ If there is a missing function or class, that you need, don't be shy and open an
 
 ## Usage
 
-The documentation is here : https://clonkk.github.io/nim-cppstl/
+The documentation is here : https://clonkk.github.io/nim-cppstl/cppstl.html
 
 You can find more use-case in the ``tests`` folder.
 
