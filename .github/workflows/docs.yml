@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+    - name: "install_nim"
+        id: install_nim
+        uses: iffy/install-nim@v3
       - name: Github Action gendoc
         run: nimble gendoc
       - name: Commit files
