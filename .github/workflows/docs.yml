@@ -21,10 +21,10 @@ jobs:
       - name: Github Action gendoc
         run: nimble gendoc
       - name: rebase gh-pages
-        run:
-          # TODO fix_focs -> master
+        run: |
           git rebase fix_focs
           git push origin gh-pages
+          # TODO fix_focs -> master
       - name: Commit files
         run: |
           echo ${{ github.ref }}
