@@ -110,9 +110,12 @@ function main() {
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
-  <p class="module-desc"><dl class="docutils"><dt>Nim wrapper for C++ STL <tt class="docutils literal"><span class="pre">std::string</span></tt> and <tt class="docutils literal"><span class="pre">std::vector</span></tt></dt>
+  <p class="module-desc"><dl class="docutils"><dt>Nim wrapper for C++ STL :</dt>
 <dd><ul class="simple"><li><tt class="docutils literal"><span class="pre">std::vector</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppVector</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">std::string</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppString</span></tt> to avoid name conflict (String was too close to <tt class="docutils literal"><span class="pre">string</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">std::string</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppString</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">std::complex</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppComplex</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">std::shared_ptr</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppSharedPtr</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">std::unique_ptr</span></tt> mapped to <tt class="docutils literal"><span class="pre">CppUniquePtr</span></tt></li>
 </ul>
 </dd>
 </dl>
@@ -137,7 +140,14 @@ function main() {
 </span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">vec</span><span class="Punctuation">[</span><span class="DecNumber">0</span><span class="Punctuation">]</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">sqrt</span><span class="Whitespace"> </span><span class="FloatNumber">0.0</span><span class="Whitespace">
 </span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">vec</span><span class="Punctuation">[</span><span class="DecNumber">1</span><span class="Punctuation">]</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">sqrt</span><span class="Whitespace"> </span><span class="FloatNumber">1.0</span><span class="Whitespace">
 </span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">vec</span><span class="Punctuation">[</span><span class="DecNumber">2</span><span class="Punctuation">]</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">sqrt</span><span class="Whitespace"> </span><span class="FloatNumber">2.0</span><span class="Whitespace">
-</span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">vec</span><span class="Punctuation">[</span><span class="DecNumber">3</span><span class="Punctuation">]</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">sqrt</span><span class="Whitespace"> </span><span class="FloatNumber">3.0</span></pre></p>
+</span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">vec</span><span class="Punctuation">[</span><span class="DecNumber">3</span><span class="Punctuation">]</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">sqrt</span><span class="Whitespace"> </span><span class="FloatNumber">3.0</span></pre>
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Keyword">import</span><span class="Whitespace"> </span><span class="Identifier">cppstl</span><span class="Whitespace">
+</span><span class="Keyword">import</span><span class="Whitespace"> </span><span class="Identifier">complex</span><span class="Whitespace">
+</span><span class="Keyword">var</span><span class="Whitespace"> </span><span class="Identifier">z</span><span class="Whitespace"> </span><span class="Operator">=</span><span class="Whitespace"> </span><span class="Identifier">initCppComplex</span><span class="Punctuation">[</span><span class="Identifier">float32</span><span class="Punctuation">]</span><span class="Punctuation">(</span><span class="FloatNumber">41.0</span><span class="Punctuation">,</span><span class="Whitespace"> </span><span class="FloatNumber">31.0</span><span class="Punctuation">)</span><span class="Whitespace">
+</span><span class="Keyword">var</span><span class="Whitespace"> </span><span class="Identifier">conj_z</span><span class="Whitespace"> </span><span class="Operator">=</span><span class="Whitespace"> </span><span class="Identifier">z</span><span class="Operator">.</span><span class="Identifier">conj</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Whitespace">
+</span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">conj_z</span><span class="Operator">.</span><span class="Identifier">real</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Identifier">z</span><span class="Operator">.</span><span class="Identifier">real</span><span class="Whitespace">
+</span><span class="Identifier">assert</span><span class="Whitespace"> </span><span class="Identifier">conj_z</span><span class="Operator">.</span><span class="Identifier">imag</span><span class="Whitespace"> </span><span class="Operator">==</span><span class="Whitespace"> </span><span class="Operator">-</span><span class="Identifier">z</span><span class="Operator">.</span><span class="Identifier">imag</span></pre></p>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
@@ -156,7 +166,7 @@ function main() {
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-08 08:26:31 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2021-04-08 08:39:02 UTC</small>
       </div>
     </div>
   </div>

@@ -37,6 +37,14 @@ runnableExamples:
   assert vec[2] == sqrt 2.0
   assert vec[3] == sqrt 3.0
 
+runnableExamples:
+  import cppstl
+  import complex
+  var z = initCppComplex[float32](41.0, 31.0)
+  var conj_z = z.conj()
+  assert conj_z.real == z.real
+  assert conj_z.imag == -z.imag
+
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 # std=c++11 at least needed
