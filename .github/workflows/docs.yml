@@ -12,12 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: "gh-docs"
+          ref: "gh-pages"
+      - name: "Git Status check"
+        run: git status
       - name: "install_nim"
         id: install_nim
         uses: iffy/install-nim@v3
       - name: Github Action gendoc
         run: nimble gendoc
+      - name: rebase gh-pages
+        run:
+          # TODO fix_focs -> master
+          git rebase fix_focs
+          git push origin gh-pages
       - name: Commit files
         run: |
           echo ${{ github.ref }}
@@ -26,7 +33,8 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "CI: Automated build push" -a | exit 0
       - name: Push changes
-        if: github.ref == 'refs/heads/gh-docs'
+        if: github.ref == 'refs/heads/gh-pages'
         uses: ad-m/github-push-action@master
+        run: git push
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
