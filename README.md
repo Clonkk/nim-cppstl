@@ -4,14 +4,13 @@
 
 ## Introduction
 
-This library is a Nim wrapper for ``std::vector`` and ``std::string`` C++ Standard Template Library (STL). 
+This library is a Nim wrapper for C++ Standard Template Library (STL) class. 
 **This library is obviously only compatible with the C++ backend**
 
 I recommand using this bindings only in two cases:
 * When wrapping a C++ library (But make sure to offer a Nim idomatic API that does not expose the STL to the user if possible).
 * In some performance critical code where the cost of converting Nim types to c++ types is problematic (like embeded devices).
 
-If you need another STL type wrapped, don't be shy and open an issue or, even better, a PR !
 
 ## Installation
 
@@ -22,6 +21,22 @@ Add the following lines to your `.nimble`:
 backend = "cpp"
 requires "cppstl"
 ```
+
+## Limitations
+
+``cppstl`` currently wraps : 
+
+* ``std::string``
+* ``std::std_vector``
+* ``std::complex``
+* Smart pointers are partially supported:
+* ``std::unique_ptr``
+* ``std::shared_ptr``
+
+## Contributions
+
+All contributions are welcome ! 
+If there is a missing function or class, that you need, don't be shy and open an issue (or a even better a PR ;) ). 
 
 ## Usage
 
