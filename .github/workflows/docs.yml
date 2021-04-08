@@ -20,11 +20,9 @@ jobs:
         uses: iffy/install-nim@v3
       - name: Github Action gendoc
         run: nimble gendoc
-      - name: rebase gh-pages
-        run: git rebase origin/fix_focs
-        # TODO fix_focs -> master
       - name: Commit files
         run: |
+          git rebase origin/master
           echo ${{ github.ref }}
           git add docs
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
