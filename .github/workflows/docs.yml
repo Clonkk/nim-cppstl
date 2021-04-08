@@ -21,7 +21,7 @@ jobs:
       - name: Fetch
         run: git fetch
       - name: Rebase
-        run: git rebase origin/master
+        run: git rebase -Xours origin/master
       - name: Gendoc
         run: nimble gendoc
       - name: Commit files
