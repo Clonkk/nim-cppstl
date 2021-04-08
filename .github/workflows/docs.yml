@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Github Action genshdoc
-      - run: nimble gendoc
+      - name: Github Action gendoc
+        run: nimble gendoc
       - name: Commit files
         run: |
           echo ${{ github.ref }}
