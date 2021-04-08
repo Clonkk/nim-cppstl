@@ -16,12 +16,17 @@ jobs:
       - name: "install_nim"
         id: install_nim
         uses: iffy/install-nim@v3
+      - run: nimble install -y
       - name: Github Action gendoc
         run: nimble gendoc
-      - name: Commit files
+      - name: Fetch & rebase
         run: |
           git fetch
-          git rebase origin/master
+          git status
+      - name: Rebase
+        run: git rebase origin/master
+      - name: Commit files
+        run: |
           echo ${{ github.ref }}
           git add docs
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
