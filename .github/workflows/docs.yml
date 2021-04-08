@@ -22,7 +22,7 @@ jobs:
         run: nimble gendoc
       - name: rebase gh-pages
         run: |
-          git rebase fix_focs
+          git rebase origin/fix_focs
           git push origin gh-pages
           # TODO fix_focs -> master
       - name: Commit files
