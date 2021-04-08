@@ -10,9 +10,8 @@ jobs:
   gh-docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-    - name: "install_nim"
+      - uses: actions/checkout@v2
+      - name: "install_nim"
         id: install_nim
         uses: iffy/install-nim@v3
       - name: Github Action gendoc
