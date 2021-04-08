@@ -1,6 +1,7 @@
 # Nim bindings for the C++ STL
 
 ![workflow](https://github.com/SciNim/nimfftw3/actions/workflows/ci.yml/badge.svg)
+![workflow](https://github.com/SciNim/nimfftw3/actions/workflows/docs.yml/badge.svg)
 
 ## Introduction
 
