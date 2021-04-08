@@ -7,10 +7,12 @@ export std_smartptrs
 import cppstl/std_complex
 export std_complex
 
-## Nim wrapper for C++ STL ``std::string`` and ``std::vector``
+## Nim wrapper for C++ STL :
 ##   * ``std::vector`` mapped to ``CppVector``
-##   * ``std::string`` mapped to ``CppString`` to avoid name conflict (String was too close to ``string``)
-##
+##   * ``std::string`` mapped to ``CppString``
+##   * ``std::complex`` mapped to ``CppComplex``
+##   * ``std::shared_ptr`` mapped to ``CppSharedPtr``
+##   * ``std::unique_ptr`` mapped to ``CppUniquePtr``
 
 runnableExamples:
   import cppstl
