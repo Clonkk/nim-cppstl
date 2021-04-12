@@ -38,7 +38,7 @@ requires "cppstl"
 ## Contributions
 
 All contributions are welcome ! 
-If there is a missing function or class, that you need, don't be shy and open an issue (or a even better a PR ;) ). 
+If there is a missing function or class, that you need, don't be shy to open an issue or a PR. 
 
 ## Usage
 
