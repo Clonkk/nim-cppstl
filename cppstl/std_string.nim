@@ -14,18 +14,18 @@ type
   CppStrIterator* {.importcpp: "std::string::iterator".} = object
   CppStrConstIterator* {.importcpp: "std::string::const_iterator".} = object
 
-# std_npos is declared as the highest possible value of csize_t
+# std::string::npos is declared as the highest possible value of csize_t
 # In C++ it is -1 due how overflow works
 const std_npos*: csize_t = high(typedesc[csize_t])
 
 #Constructor
-proc initCppString*(): CppString {.importcpp: "std::string()".}
-proc initCppString*(str: CppString): CppString {.importcpp: "std::string(@)".}
-proc initCppString*(str: CppString, pos: csize_t): CppString {.importcpp: "std::string(@)".}
-proc initCppString*(str: CppString, pos, len: csize_t): CppString {.importcpp: "std::string(@)".}
-proc initCppString*(s: cstring): CppString {.importcpp: "std::string(@)".}
-proc initCppString*(s: cstring, n: csize_t): CppString {.importcpp: "std::string(@)".}
-proc initCppString*(first, last: CppStrConstIterator): CppString {.importcpp: "std::string(@)".}
+proc initCppString*(): CppString {.constructor, importcpp: "std::string()".}
+proc initCppString*(str: CppString): CppString {.constructor, importcpp: "std::string(@)".}
+proc initCppString*(str: CppString, pos: csize_t): CppString {.constructor, importcpp: "std::string(@)".}
+proc initCppString*(str: CppString, pos, len: csize_t): CppString {.constructor, importcpp: "std::string(@)".}
+proc initCppString*(s: cstring): CppString {.constructor, importcpp: "std::string(@)".}
+proc initCppString*(s: cstring, n: csize_t): CppString {.constructor, importcpp: "std::string(@)".}
+proc initCppString*(first, last: CppStrConstIterator): CppString {.constructor, importcpp: "std::string(@)".}
 
 # Iterators
 proc begin*(x: CppString): CppStrIterator {.importcpp: "begin".}

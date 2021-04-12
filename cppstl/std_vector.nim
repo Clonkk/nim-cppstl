@@ -15,11 +15,11 @@ type
   CppVectorConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = object
 
 # Constructors
-proc initCppVector*[T](): CppVector[T] {.importcpp: "std::vector<'*0>(@)".}
-proc initCppVector*[T](n: csize_t): CppVector[T] {.importcpp: "std::vector<'*0>(@)".}
-proc initCppVector*[T](n: csize_t, val: T): CppVector[T] {.importcpp: "std::vector<'*0>(@)".}
-proc initCppVector*[T](x: CppVector[T]): CppVector[T] {.importcpp: "std::vector<'*0>(@)".}
-proc initCppVector*[T](first, last: CppVectorConstIterator[T]): CppVector[T] {.importcpp: "std::vector<'*0>(@)".}
+proc initCppVector*[T](): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
+proc initCppVector*[T](n: csize_t): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
+proc initCppVector*[T](n: csize_t, val: T): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
+proc initCppVector*[T](x: CppVector[T]): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
+proc initCppVector*[T](first, last: CppVectorConstIterator[T]): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
 
 # Iterators
 proc begin*[T](x: CppVector[T]): CppVectorIterator[T] {.importcpp: "begin".}

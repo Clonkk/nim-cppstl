@@ -4,7 +4,7 @@
 type
   CppComplex*[T: SomeFloat] {.importcpp: "std::complex".} = object
 
-func initCppComplex*[T: SomeFloat](re, im: T): CppComplex[T] {.importcpp: "std::complex<'*0>(@)".}
+func initCppComplex*[T: SomeFloat](re, im: T): CppComplex[T] {.constructor, importcpp: "std::complex<'*0>(@)".}
 func polar*[T: SomeFloat](r, theta: T): CppComplex[T] {.importcpp: "std::polar<'*0>(@)".}
 
 func real*[T: SomeFloat](self: CppComplex[T]): T {.importcpp: "#.real()".}
