@@ -30,9 +30,10 @@ requires "cppstl"
 * ``std::string``
 * ``std::std_vector``
 * ``std::complex``
+
 * Smart pointers are partially supported:
-* ``std::unique_ptr``
-* ``std::shared_ptr``
+  * ``std::unique_ptr``
+  * ``std::shared_ptr``
 
 ## Contributions
 
