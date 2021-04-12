@@ -30,14 +30,15 @@ requires "cppstl"
 * ``std::string``
 * ``std::std_vector``
 * ``std::complex``
+
 * Smart pointers are partially supported:
-* ``std::unique_ptr``
-* ``std::shared_ptr``
+  * ``std::unique_ptr``
+  * ``std::shared_ptr``
 
 ## Contributions
 
 All contributions are welcome ! 
-If there is a missing function or class, that you need, don't be shy and open an issue (or a even better a PR ;) ). 
+If there is a missing function or class, that you need, don't be shy to open an issue or a PR. 
 
 ## Usage
 

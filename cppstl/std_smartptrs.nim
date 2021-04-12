@@ -1,5 +1,7 @@
 import std/macros
 
+when not defined(cpp):
+  {.error: "C++ backend required to use STL wrapper".}
 # std::shared_ptr<T>
 # -----------------------------------------------------------------------
 {.push header: "<memory>".}
