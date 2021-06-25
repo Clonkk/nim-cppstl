@@ -1,3 +1,15 @@
+# Trick to ignore extension-less binaries
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+htmldocs
+
 bin
 testresults/
 nimcache/
