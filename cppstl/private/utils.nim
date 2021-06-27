@@ -4,8 +4,5 @@
 
 # Define arithmetic for iterators
 template iteratorsArithmetics*(name: untyped):untyped =
-    proc `+`*[T: name](it: T, offset: int) : T
-        {.importcpp: "# + #"}
-
-    proc `-`*[T: name](it: T, offset: int) : T
-        {.importcpp: "# - #"}
+  proc `+`*[T: name](it: T, offset: int) : T {.importcpp: "# + #"}
+  proc `-`*[T: name](it: T, offset: int) : T {.importcpp: "# - #"}
