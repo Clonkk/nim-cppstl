@@ -1,11 +1,11 @@
 # Nim bindings for the C++ STL
 
-![workflow](https://github.com/SciNim/nimfftw3/actions/workflows/ci.yml/badge.svg)
-![workflow](https://github.com/SciNim/nimfftw3/actions/workflows/docs.yml/badge.svg)
+![workflow](https://github.com/Clonkk/nim-cppstl/actions/workflows/ci.yml/badge.svg)
+![workflow](https://github.com/Clonkk/nim-cppstl/actions/workflows/docs.yml/badge.svg)
 
 ## Introduction
 
-This library is a Nim wrapper for C++ Standard Template Library (STL) class. 
+This library is a Nim wrapper for C++ Standard Template Library (STL) class.
 **This library is obviously only compatible with the C++ backend**
 
 I recommand using this bindings only in two cases:
@@ -15,7 +15,9 @@ I recommand using this bindings only in two cases:
 
 ## Installation
 
-``nimble install cppstl``
+```
+nimble install cppstl
+```
 
 Add the following lines to your `.nimble`:
 ```
@@ -25,7 +27,7 @@ requires "cppstl"
 
 ## Limitations
 
-``cppstl`` currently wraps : 
+``cppstl`` currently wraps :
 
 * ``std::string``
 * ``std::std_vector``
@@ -37,15 +39,28 @@ requires "cppstl"
 
 ## Contributions
 
-All contributions are welcome ! 
-If there is a missing function or class, that you need, don't be shy to open an issue or a PR. 
+All contributions are welcome!
+
+If there is a missing function or class, that you need, don't be shy to open an issue or a PR.
+
+### Running Tests
+
+```
+nimble test
+```
+
+or
+
+```
+testament p "tests/t*.nim"
+```
 
 ## Usage
 
 The documentation is here : https://clonkk.github.io/nim-cppstl/cppstl.html
 
-You can find more use-case in the ``tests`` folder.
+You can find more use-case in the `tests` folder.
 
 ## License
 
-This code is licensed under MIT license (see LICENSE.txt for details)
+This code is licensed under MIT license (see [LICENSE.txt](./LICENSE.txt) for details)
