@@ -31,11 +31,11 @@ func conj*[T: SomeFloat](self: CppComplex[T]): CppComplex[T] {.importcpp: "std::
 {.pop.}
 
 import complex
-proc toComplex*[T](c: CppComplex[T]) : Complex[T] =
+proc toComplex*[T](c: CppComplex[T]): Complex[T] =
   result.re = c.real()
   result.im = c.imag()
 
-proc toCppComplex*[T](c: Complex[T]) : CppComplex[T] =
+proc toCppComplex*[T](c: Complex[T]): CppComplex[T] =
   result = initCppComplex(c.re, c.im)
 
 proc `$`*[T](c: CppComplex[T]): string =

@@ -483,7 +483,7 @@ proc last*[T](v: CppVector[T]): T {.inline.} =
 
 # Nim Iterators
 
-iterator items*[T](v: CppVector[T]): T=
+iterator items*[T](v: CppVector[T]): T =
   ## Iterate over all the elements in CppVector `v`.
   runnableExamples:
     var
