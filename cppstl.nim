@@ -18,12 +18,12 @@ runnableExamples:
   import cppstl
   var stdstr = initCppString("AZERTY")
   assert stdstr == "AZERTY"
-  discard stdstr.append("UIOP")
+  stdstr.append("UIOP")
   assert stdstr == "AZERTYUIOP"
   let startportion = stdstr.find("AZ")
   if startportion != std_npos:
     let endportion = startportion + len("AZ")
-    discard stdstr.replace(startportion, endportion, "QW")
+    stdstr.replace(startportion, endportion, "QW")
     assert stdstr == "QWERTYUIOP"
 
 runnableExamples:
