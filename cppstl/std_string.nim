@@ -287,7 +287,7 @@ proc last*(v: CppString): cchar {.inline.} =
   v.back()
 
 # Nim Iterators
-iterator items*(v: CppString): cchar=
+iterator items*(v: CppString): cchar =
   ## Iterate over all the elements in CppString `v`.
   for idx in 0.csize_t ..< v.len():
     yield v[idx]
@@ -297,7 +297,7 @@ iterator pairs*(v: CppString): (csize_t, cchar) =
   for idx in 0.csize_t ..< v.len():
     yield (idx, v[idx])
 
-iterator mitems*(v: var CppString): var cchar=
+iterator mitems*(v: var CppString): var cchar =
   ## Iterate over all the elements in CppString `v`.
   for idx in 0.csize_t ..< v.len():
     yield v[idx]
