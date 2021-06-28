@@ -95,148 +95,148 @@ suite "CppString":
         discard s.at(100)
 
   test "test string modifiers":
-    var s: CppString = initCppString("Hello")
-    var s2 = initCppString(" Nim!")
-    discard s += s2
+    var s: CppString = toCppString("Hello")
+    var s2 = toCppString(" Nim!")
+    s += s2
 
     check s == "Hello Nim!".cstring
-    discard s += " Welcome!".cstring
+    s += " Welcome!".cstring
     check s == "Hello Nim! Welcome!".cstring
-    discard s += '!'
+    s += '!'
     check s == "Hello Nim! Welcome!!".cstring
 
     s = initCppString("Hello")
-    discard s.append s2
+    s.append s2
     check s == "Hello Nim!".cstring
-    discard s.append " Welcome!".cstring
+    s.append " Welcome!".cstring
     check s == "Hello Nim! Welcome!".cstring
-    discard s.append(1, '!')
+    s.append(1, '!')
     check s == "Hello Nim! Welcome!!".cstring
-    discard s.append(3, '!')
+    s.append(3, '!')
     check s == "Hello Nim! Welcome!!!!!".cstring
 
     s2 = initCppString "!!! :)"
-    discard s.append(s2, 3, 3)
+    s.append(s2, 3, 3)
     check s == "Hello Nim! Welcome!!!!! :)".cstring
-    discard s.append(" :)...........".cstring, 4)
+    s.append(" :)...........".cstring, 4)
     check s == "Hello Nim! Welcome!!!!! :) :).".cstring
 
     s2 = initCppString "I say Bye!"
-    discard s.append(s2.cbegin+5, s2.cend)
+    s.append(s2.cbegin+5, s2.cend)
     check s == "Hello Nim! Welcome!!!!! :) :). Bye!".cstring
-    discard s.push_back '!'
+    s.push_back '!'
     check s == "Hello Nim! Welcome!!!!! :) :). Bye!!".cstring
 
     s = initCppString ""
     s2 = initCppString "Hello"
-    discard s.assign(s2)
+    s.assign(s2)
     check s == s2
-    discard s.assign(s2, 1, 3)
+    s.assign(s2, 1, 3)
     check s == "ell".cstring
-    discard s.assign("hi".cstring)
+    s.assign("hi".cstring)
     check s == "hi".cstring
-    discard s.assign("hello".cstring, 4)
+    s.assign("hello".cstring, 4)
     check s == "hell".cstring
-    discard s.assign(3, '6')
+    s.assign(3, '6')
     check s == "666".cstring
 
     s = initCppString "H!!!"
     s2 = initCppString "ello "
-    discard s.insert(1, s2)
+    s.insert(1, s2)
     check s == "Hello !!!".cstring
 
     s = initCppString "H!!!"
     s2 = initCppString "Hello !!!"
-    discard s.insert(1, s2, 1, 5)
+    s.insert(1, s2, 1, 5)
     check s == "Hello !!!".cstring
 
     s = initCppString "H!!!"
-    discard s.insert(1, "ello ".cstring)
+    s.insert(1, "ello ".cstring)
     check s == "Hello !!!".cstring
 
     s = initCppString "H!!!"
-    discard s.insert(1, "ello ???".cstring, 5)
+    s.insert(1, "ello ???".cstring, 5)
     check s == "Hello !!!".cstring
 
     s = initCppString "Heo !!!"
-    discard s.insert(2, 2, 'l')
+    s.insert(2, 2, 'l')
     check s == "Hello !!!".cstring
 
     s = initCppString "Heo !!!"
-    discard s.insert(s.begin+2, 2, 'l')
+    s.insert(s.begin+2, 2, 'l')
     check s == "Hello !!!".cstring
 
     s = initCppString "Hllo !!!"
-    discard s.insert(s.begin+1, 'e')
+    s.insert(s.begin+1, 'e')
     check s == "Hello !!!".cstring
 
     s = initCppString "H!!!"
     s2 = initCppString "Hello !!!"
-    discard s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
+    s.insert(s.begin+1, s2.cbegin+1, s2.cend-3)
     check s == "Hello !!!".cstring
 
     s = initCppString "Hello"
-    discard s.erase()
+    s.erase()
     check s.empty
 
     s = initCppString "Hello"
-    discard s.erase(1)
+    s.erase(1)
     check s == "H".cstring
 
     s = initCppString "Hello"
-    discard s.erase(1, 3)
+    s.erase(1, 3)
     check s == "Ho".cstring
 
     s = initCppString "Hello"
-    discard s.erase(s.begin+1)
+    s.erase(s.begin+1)
     check s == "Hllo".cstring
 
     s = initCppString "Hello"
-    discard s.erase(s.begin+1, s.`end`)
+    s.erase(s.begin+1, s.`end`)
     check s == "H".cstring
 
     s = initCppString "HELLO !"
     s2 = initCppString "ello"
-    discard s.replace(1, 4, s2)
+    s.replace(1, 4, s2)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
     s2 = initCppString "ello"
-    discard s.replace(s.cbegin+1, s.cend-2, s2)
+    s.replace(s.cbegin+1, s.cend-2, s2)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
     s2 = initCppString "hhhello there"
-    discard s.replace(1, 4, s2, 3, 4)
+    s.replace(1, 4, s2, 3, 4)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
-    discard s.replace(1, 4, "ello".cstring)
+    s.replace(1, 4, "ello".cstring)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
-    discard s.replace(s.cbegin+1, s.cend-2, "ello".cstring)
+    s.replace(s.cbegin+1, s.cend-2, "ello".cstring)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
-    discard s.replace(1, 4, "ello....".cstring, 4)
+    s.replace(1, 4, "ello....".cstring, 4)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
-    discard s.replace(s.cbegin+1, s.cend-2, "ello....".cstring, 4)
+    s.replace(s.cbegin+1, s.cend-2, "ello....".cstring, 4)
     check s == "Hello !".cstring
 
     s = initCppString "Hejjo !"
-    discard s.replace(2, 2, 4, 'l')
+    s.replace(2, 2, 4, 'l')
     check s == "Hellllo !".cstring
 
     s = initCppString "Hejjo !"
-    discard s.replace(s.cbegin+2, s.cbegin+4, 4, 'l')
+    s.replace(s.cbegin+2, s.cbegin+4, 4, 'l')
     check s == "Hellllo !".cstring
 
     s = initCppString "HELLO !"
     s2 = initCppString "hello"
-    discard s.replace(s.cbegin+1, s.cend-2, s2.cbegin+1, s2.cend)
+    s.replace(s.cbegin+1, s.cend-2, s2.cbegin+1, s2.cend)
     check s == "Hello !".cstring
 
     s = initCppString "HELLO !"
@@ -367,7 +367,7 @@ suite "CppString":
     check s1+'!' == "Hello !".cstring
     check '!'+s1+'!' == "!Hello !".cstring
 
-    discard s1 += s2
+    s1 += s2
 
     check s1 == "Hello Nim".cstring
 
