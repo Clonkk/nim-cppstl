@@ -109,7 +109,7 @@ proc shrinkToFit*[T](self: var CppVector[T]) {.importcpp: "shrink_to_fit".}
 
 # Internal utility functions
 proc unsafeIndex[T](self: var CppVector[T], i: csize_t): var T {.importcpp: "#[#]".}
-proc unsafeIndex[T](self: CppVector[T], i: csize_t): T {.importcpp: "#[#]".}
+proc unsafeIndex[T](self: CppVector[T], i: csize_t): lent T {.importcpp: "#[#]".}
 
 proc at*[T](self: var CppVector[T], n: csize_t): var T {.importcpp: "at".}
 proc at*[T](self: CppVector[T], n: csize_t): T {.importcpp: "at".}
@@ -355,7 +355,7 @@ proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
 # Element access
-proc `[]`*[T](self: CppVector[T], idx: Natural): T {.inline.} =
+proc `[]`*[T](self: CppVector[T], idx: Natural): lent T {.inline.} =
   ## Return the reference to `self[idx]`.
   let i = csize_t(idx)
   when compileOption("boundChecks"): self.checkIndex(i)
