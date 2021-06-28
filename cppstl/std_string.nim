@@ -63,7 +63,7 @@ proc back*(self: var CppString): var cchar {.importcpp: "back".}
 
 # Internal utility functions
 proc unsafeIndex(self: var CppString, i: csize_t): var cchar {.importcpp: "#[#]".}
-proc unsafeIndex(self: CppString, i: csize_t): cchar {.importcpp: "#[#]".}
+proc unsafeIndex(self: CppString, i: csize_t): lent cchar {.importcpp: "#[#]".}
 
 # Modifiers
 proc `+=`*(self: var CppString, str: CppString): var CppString {.importcpp: "# += #".}
@@ -251,7 +251,7 @@ proc `[]`*(self: var CppString, idx: Natural): var cchar =
   when compileOption("boundChecks"): self.checkIndex(i)
   # TODO : find Nim bugs # associated
   # This strange syntax is to avoid a bug in the Nim c++ code generator
-  (addr self.unsafeIndex(i))[]
+  (unsafeAddr self.unsafeIndex(i))[]
 
 proc `[]=`*(self: var CppString, idx: Natural, val: cchar) =
   let i = csize_t(idx)
