@@ -144,6 +144,7 @@ suite "CppVector":
   test "push/add, pop, front/first, back/last":
     var
       v = initCppVector[int]()
+      refSeq = @[100, 300, 400, 500] # This test will create the following Vector
 
     v.pushBack(100)
     check v.len() == 1.csize_t
@@ -159,7 +160,7 @@ suite "CppVector":
     v.add(500)
 
     for idx in 0.csize_t ..< v.len():
-      echo &"  v[{idx}] = {v[idx]}"
+      check v[idx] == refSeq[idx]
 
     check v.len() == 4.csize_t
 
@@ -309,7 +310,7 @@ suite "CppVector":
       check v1 < v3
       check v3 < v2
 
-  test "display":
+  test "display, $":
     block:
       var v = initCppVector[int]()
       check $v == "[]"
@@ -320,28 +321,29 @@ suite "CppVector":
       check (v.size() == 3)
 
     block:
+      var v = initCppVector[string]()
+      v.add "hi"
+      v.add "there"
+      v.add "bye"
+      check $v == "[hi, there, bye]"
+
+    block:
       var v = initCppVector[float](5, 0.0'f64)
       check $v == "[0.0, 0.0, 0.0, 0.0, 0.0]"
       check v.size() == 5
 
-  test "iterators, $":
+  test "iterators":
     var
-      v = initCppVector[cstring]()
+      refSeq = @["hi", "there", "bye"]
+      v = toCppVector(refSeq)
 
-    v.add("hi")
-    v.add("there")
-    v.add("bye")
-
-    echo "Testing items iterator:"
+    var i = 0
     for elem in v:
-      echo &" {elem}"
-    echo ""
+      check elem == refSeq[i]
+      inc(i)
 
-    echo "Testing pairs iterator:"
     for idx, elem in v:
-      echo &" v[{idx}] = {elem}"
-
-    check $v == "[hi, there, bye]"
+      check elem == refSeq[idx]
 
   test "converting to/from a CppVector/mutable sequence":
     var
