@@ -53,7 +53,7 @@ proc shrink_to_fit*(self: var CppString) {.importcpp: "shrink_to_fit".}
 
 # Element access
 proc at*(self: var CppString, n: csize_t): var cchar {.importcpp: "at".}
-proc at*(self: CppString, n: csize_t): lent cchar {.importcpp: "at".}
+proc at*(self: CppString, n: csize_t): cchar {.importcpp: "at".}
 
 proc front*(self: CppString): cchar {.importcpp: "front".}
 proc front*(self: var CppString): var cchar {.importcpp: "front".}
@@ -63,7 +63,7 @@ proc back*(self: var CppString): var cchar {.importcpp: "back".}
 
 # Internal utility functions
 proc unsafeIndex(self: var CppString, i: csize_t): var cchar {.importcpp: "#[#]".}
-proc unsafeIndex(self: CppString, i: csize_t): cchar {.importcpp: "#[#]".}
+proc unsafeIndex(self: CppString, i: csize_t): lent cchar {.importcpp: "#[#]".}
 
 # Modifiers
 proc `+=`*(self: var CppString, str: CppString): var CppString {.importcpp: "# += #".}
@@ -239,7 +239,7 @@ proc checkIndex(self: CppString, i: csize_t) =
   if i > self.size:
     raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
 
-proc `[]`*(self: CppString, idx: Natural): lent cchar =
+proc `[]`*(self: CppString, idx: Natural): cchar =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
   when compileOption("boundChecks"): self.checkIndex(i)
@@ -251,7 +251,7 @@ proc `[]`*(self: var CppString, idx: Natural): var cchar =
   when compileOption("boundChecks"): self.checkIndex(i)
   # TODO : find Nim bugs # associated
   # This strange syntax is to avoid a bug in the Nim c++ code generator
-  (addr self.unsafeIndex(i))[]
+  (unsafeAddr self.unsafeIndex(i))[]
 
 proc `[]=`*(self: var CppString, idx: Natural, val: cchar) =
   let i = csize_t(idx)
