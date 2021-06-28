@@ -387,3 +387,17 @@ suite "CppString":
     check not (s1 >= s2)
     check s1 >= "aaaaaaaaaaaaa".cstring
 
+  test "iterators native":
+    var s1 = toCppString("123456789")
+    block:
+      var i = 0
+      for c in s1:
+        inc(i)
+        check cchar(i.uint8+uint8('0')) == c
+    block:
+      var i = 0
+      for idx, c in s1.pairs:
+        check idx == i.csize_t
+        inc(i)
+        check cchar(i.uint8+uint8('0')) == c
+

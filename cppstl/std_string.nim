@@ -243,7 +243,7 @@ proc `[]`*(self: CppString, idx: Natural): cchar =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
   when compileOption("boundChecks"): self.checkIndex(i)
-  self.unsafeIndex(i)
+  (unsafeAddr self.unsafeIndex(i))[]
 
 proc `[]`*(self: var CppString, idx: Natural): var cchar =
   let i = csize_t(idx)
