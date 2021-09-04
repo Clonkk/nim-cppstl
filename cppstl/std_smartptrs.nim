@@ -26,8 +26,8 @@ func make_unique*(T: typedesc): CppUniquePtr[T] {.importcpp: "std::make_unique<'
 
 when defined(gcDestructors):
   proc `=copy`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]) {.error: "A unique ptr cannot be copied".}
-  proc `=destroy`*(dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
-  # proc `=sink`*(dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
+  proc `=destroy`*[T](dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
+  # proc `=sink`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
 
 {.pop.}
 
