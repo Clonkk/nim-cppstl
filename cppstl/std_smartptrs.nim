@@ -11,11 +11,13 @@ type
 
 func make_shared*(T: typedesc): CppSharedPtr[T] {.importcpp: "std::make_shared<'*0>()".}
 
+func make_shared*[T](p: CppSharedPtr[T]): CppSharedPtr[T] {.importcpp: "std::make_shared<'*0>(#)".}
+
 when defined(gcDestructors):
   # TODO Fix copy on shared_ptr
   proc `=copy`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]) {.error: "A shared_ptr cannot be copied".}
-  proc `=destroy`*[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
-  # proc `=sink`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]){.importcpp: "# = std::move(#)".}
+  proc `=sink`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]){.importcpp: "# = std::move(#)".}
+  proc destructor[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
 
 # std::unique_ptr<T>
 # -----------------------------------------------------------------------
@@ -26,8 +28,8 @@ func make_unique*(T: typedesc): CppUniquePtr[T] {.importcpp: "std::make_unique<'
 
 when defined(gcDestructors):
   proc `=copy`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]) {.error: "A unique ptr cannot be copied".}
-  proc `=destroy`*[T](dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
-  # proc `=sink`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
+  proc `=sink`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
+  proc destructor[T](dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
 
 {.pop.}
 
@@ -37,6 +39,14 @@ when defined(gcDestructors):
 
 # This returns var T but with strictFunc it shouldn't
 func deref*[T](p: CppUniquePtr[T] or CppSharedPtr[T]): var T {.noInit, importcpp: "(* #)", header: "<memory>".}
+
+func get*[T](p: CppUniquePtr[T] or CppSharedPtr[T]): ptr T {.noInit, importcpp: "(#.get())", header: "<memory>".}
+
+func `$`*[T](p: CppUniquePtr[T]): string =
+  result = "CppUnique " & repr(get(p))
+
+func `$`*[T](p: CppSharedPtr[T]): string =
+  result = "CppShared " & repr(get(p))
 
 macro `.()`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: varargs[untyped]): untyped =
   result = nnkCall.newTree(
@@ -65,3 +75,12 @@ macro `.=`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args
   )
   #echo result.repr
   #copyChildrenTo(args, result)
+
+when defined(gcDestructors):
+  proc `=destroy`*[T](dst: var CppUniquePtr[T]) =
+    `=destroy`(dst.deref())
+    destructor(dst)
+
+  proc `=destroy`*[T](dst: var CppSharedPtr[T]) =
+    `=destroy`(dst.deref())
+    destructor(dst)
