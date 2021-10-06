@@ -15,9 +15,13 @@ func make_shared*[T](p: CppSharedPtr[T]): CppSharedPtr[T] {.importcpp: "std::mak
 
 when defined(gcDestructors):
   # TODO Fix copy on shared_ptr
-  proc `=copy`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]) {.error: "A shared_ptr cannot be copied".}
+  # proc `=copy`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]) {.error: "A shared_ptr cannot be copied".}
+
+  proc `=copy`*[T](p: var CppSharedPtr[T], o: CppSharedPtr[T]) {.noInit, importcpp: "# = #".}
+
   proc `=sink`*[T](dst: var CppSharedPtr[T], src: CppSharedPtr[T]){.importcpp: "# = std::move(#)".}
-  proc destructor[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
+
+  proc `=destroy`[T](dst: var CppSharedPtr[T]){.importcpp: "#.~'*1()".}
 
 # std::unique_ptr<T>
 # -----------------------------------------------------------------------
@@ -28,8 +32,10 @@ func make_unique*(T: typedesc): CppUniquePtr[T] {.importcpp: "std::make_unique<'
 
 when defined(gcDestructors):
   proc `=copy`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]) {.error: "A unique ptr cannot be copied".}
+
   proc `=sink`*[T](dst: var CppUniquePtr[T], src: CppUniquePtr[T]){.importcpp: "# = std::move(#)".}
-  proc destructor[T](dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
+
+  proc `=destroy`[T](dst: var CppUniquePtr[T]){.importcpp: "#.~'*1()".}
 
 {.pop.}
 
@@ -42,8 +48,12 @@ func deref*[T](p: CppUniquePtr[T] or CppSharedPtr[T]): var T {.noInit, importcpp
 
 func get*[T](p: CppUniquePtr[T] or CppSharedPtr[T]): ptr T {.noInit, importcpp: "(#.get())", header: "<memory>".}
 
-func `$`*[T](p: CppUniquePtr[T]): string =
-  result = "CppUnique " & repr(get(p))
+# This proc creates a codegen bug if called through echo...
+# Error is :  error: use of deleted function ‘std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = tyObject_Obj__70PN2hunvjEfQY9agV9b8VOg; _Dp = std::default_delete<tyObject_Obj__70PN2hunvjEfQY9agV9b8VOg>]’
+#  colontmpD__4 = dollar__tdestructor95codegen95bug_263(o);
+proc `$`*[T](p: CppUniquePtr[T]): string =
+  let pU = get(p)
+  result = "CppUnique " & repr(pU)
 
 func `$`*[T](p: CppSharedPtr[T]): string =
   result = "CppShared " & repr(get(p))
@@ -76,11 +86,3 @@ macro `.=`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args
   #echo result.repr
   #copyChildrenTo(args, result)
 
-when defined(gcDestructors):
-  proc `=destroy`*[T](dst: var CppUniquePtr[T]) =
-    `=destroy`(dst.deref())
-    destructor(dst)
-
-  proc `=destroy`*[T](dst: var CppSharedPtr[T]) =
-    `=destroy`(dst.deref())
-    destructor(dst)

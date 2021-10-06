@@ -11,9 +11,11 @@ type
   UniquePtrObj = CppUniquePtr[Obj]
 
 proc `=destroy`*(x: var Obj) =
+  echo "---------------------------"
   echo "=destroy : ", x.id
   echo "=destroy : ", x.isDestroyed
   x.isDestroyed = true
+  echo "---------------------------"
 
 proc init*(T: type SharedPtrObj, id: string): SharedPtrObj =
   result = make_shared(Obj)
@@ -27,23 +29,20 @@ proc init*(T: type UniquePtrObj, id: string): UniquePtrObj=
 
 proc main() =
   echo "BEGIN"
-  var o1 = SharedPtrObj.init("123456")
+  var o1 = SharedPtrObj.init("shared_o1")
   echo "o1>", o1
 
   var o2 = o1
-  o2.id = "o2 indaplace"
+  o2.id = "shared_o2"
   echo "o1>", o1
   echo "o2>", o2
   echo "----"
 
-  # var o2 = make_shared(o1)
-  # echo o2
-  # o2.id = "shared1"
-  # echo o1.id
-  #
-  # var o = UniquePtrObj.init()
-  # echo o.id
-  # echo o2
+  var o = UniquePtrObj.init("unique_o")
+  # Create a codegen bug
+  # echo o
+  echo o.id
+
 
   echo "END"
 
