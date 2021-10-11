@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.4.1"
+version       = "0.5.0"
 author        = "Clonkk"
 description   = "Bindings for the C++ Standard Template Library (STL)"
 license       = "MIT"
