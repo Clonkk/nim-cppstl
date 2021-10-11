@@ -24,7 +24,6 @@ proc init*(T: type UniquePtrObj, name: string): UniquePtrObj =
   result.name = name
   result.id = guid
 
-
 proc testShared() =
   test "SharedPtr":
     var sp1 = SharedPtrObj.init("ptr_1")
@@ -42,6 +41,7 @@ proc testShared() =
 
     sp2.name = "ptr_3"
     check: sp1.name == "ptr_3"
+    check sp1.name.len() == 5
 
     check: $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"
 
@@ -55,7 +55,9 @@ proc testUnique() =
 
     up1.name = "ptr_2"
     check: up1.name == "ptr_2"
-    check: $(up1) == "CppUnique ptr Obj(id: 2, name: \"ptr_2\")"
+    # Create a codegen bug
+    # See https://github.com/nim-lang/Nim/issues/18982
+    # check: $(up1) == "CppUnique ptr Obj(id: 2, name: \"ptr_2\")"
 
 
 when isMainModule:

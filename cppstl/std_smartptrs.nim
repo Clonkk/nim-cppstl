@@ -60,19 +60,17 @@ macro `.()`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, arg
     )
   )
   copyChildrenTo(args, result)
+  # echo result.repr
 
-macro dotExpr[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: varargs[untyped]): untyped =
+macro `.`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped): untyped =
   result = nnkDotExpr.newTree(
       newCall(bindSym"deref", p),
       fieldOrFunc
     )
-  #echo result.repr
-  #copyChildrenTo(args, result)
+  # echo result.repr
 
-template `.`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: varargs[untyped]): untyped =
-  dotExpr(p, fieldOrFunc, args)
+macro `.=`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: untyped): untyped =
 
-macro dotAssignExpr[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: untyped): untyped =
   result = newAssignment(
     nnkDotExpr.newTree(
       newCall(bindSym"deref", p),
@@ -80,8 +78,4 @@ macro dotAssignExpr[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyp
     ),
     args
   )
-  #echo result.repr
-  #copyChildrenTo(args, result)
-
-template `.=`*[T](p: CppUniquePtr[T] or CppSharedPtr[T], fieldOrFunc: untyped, args: untyped) =
-  dotAssignExpr(p, fieldOrFunc, args)
+  # echo result.repr
