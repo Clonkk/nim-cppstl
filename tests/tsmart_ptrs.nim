@@ -1,5 +1,6 @@
 import cppstl/std_smartptrs
 import std/unittest
+import std/strutils
 
 type
   Obj = object
@@ -43,7 +44,13 @@ proc testShared() =
     check: sp1.name == "ptr_3"
     check sp1.name.len() == 5
 
-    check: $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"
+    when defined(gcArc) or defined(gcOrc):
+      check: $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"
+    else:
+      check: contains($(sp1), """CppShared ptr""")
+      check: contains($(sp1), """[id = 1,
+name =""")
+      check: contains($(sp1), """"ptr_3"]""" )
 
 proc testUnique() =
   test "UniquePtr":
