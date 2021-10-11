@@ -40,6 +40,7 @@ proc main() =
 
   var o = UniquePtrObj.init("unique_o")
   # Create a codegen bug
+  # See https://github.com/nim-lang/Nim/issues/18982
   # echo o
   echo o.id
 
