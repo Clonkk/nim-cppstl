@@ -33,6 +33,7 @@ requires "cppstl"
 * ``std::basic_string``
 * ``std::vector``
 * ``std::complex``
+* ``std::pair``
 
 * Smart pointers are partially supported:
   * ``std::unique_ptr``
