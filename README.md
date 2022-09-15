@@ -30,7 +30,8 @@ requires "cppstl"
 ``cppstl`` currently wraps :
 
 * ``std::string``
-* ``std::std_vector``
+* ``std::basic_string``
+* ``std::vector``
 * ``std::complex``
 
 * Smart pointers are partially supported:
