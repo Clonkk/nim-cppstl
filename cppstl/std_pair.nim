@@ -1,5 +1,8 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
 
+when not defined(cpp):
+  {.error: "C++ backend required to use STL wrapper".}
+
 {.push header: "<utility>".}
 
 type
