@@ -26,11 +26,16 @@ proc `<=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# <= #".}
 proc `>`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# > #".}
 proc `>=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# >= #".}
 
-proc get*[T1, T2](T: typedesc, p: CppPair[T1, T2]): T {.importcpp: "std::get<'0>(@)".}
+proc getImpl[T1, T2](p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<'0>(@)".}
 
-proc getImpl[T1, T2](n: int, p: CppPair[T1, T2], T: typedesc): T {.importcpp: "std::get<#>(@)".}
+proc getImpl[T1, T2](n: int, p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<#>(@)".}
 
 {.pop.} # header
+
+proc get*[T1, T2](T: typedesc, p: CppPair[T1, T2]): auto =
+  when T1 is T2:
+    {.error: "ambiguous call to get with a pair whose two elements are the of the same type".}
+  getImpl(p, T)
 
 proc get*[T1, T2](n: static int, p: CppPair[T1, T2]): auto =
   when n == 0:
