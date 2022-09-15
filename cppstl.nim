@@ -8,6 +8,8 @@ import cppstl/std_smartptrs
 export std_smartptrs
 import cppstl/std_complex
 export std_complex
+import cppstl/std_pair
+export std_pair
 
 ## Nim wrapper for C++ STL :
 ##   * ``std::vector`` mapped to ``CppVector``
@@ -16,6 +18,7 @@ export std_complex
 ##   * ``std::complex`` mapped to ``CppComplex``
 ##   * ``std::shared_ptr`` mapped to ``CppSharedPtr``
 ##   * ``std::unique_ptr`` mapped to ``CppUniquePtr``
+##   * ``std::pair` mapped to ``CppPair``
 
 runnableExamples:
   import cppstl
