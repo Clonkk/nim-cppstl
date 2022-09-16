@@ -10,7 +10,7 @@ when not defined(cpp):
 {.push header: "<string>".}
 
 type
-  CppBasicString*[T] {.importcpp: "std::basic_string<'0>".} = object
+  CppBasicString*[T] {.importcpp: "std::basic_string".} = object
   CppBasicStringIterator*[T] {.importcpp: "std::basic_string<'0>::iterator".} = object
   CppBasicStringConstIterator*[T] {.importcpp: "std::basic_string<'0>::const_iterator".} = object
 
@@ -19,11 +19,13 @@ type
 const std_npos*: csize_t = high(typedesc[csize_t])
 
 # Constructor
-proc initCppBasicString*[T](): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'0>()".}
-proc initCppBasicString*[T](str: CppBasicString[T]): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'0>(@)".}
-proc initCppBasicString*[T](str: CppBasicString[T], pos: csize_t): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'0>(@)".}
-proc initCppBasicString*[T](str: CppBasicString[T], pos, len: csize_t): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'0>(@)".}
-proc initCppBasicString*[T](first, last: CppBasicStringConstIterator): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'0>(@)".}
+proc initCppBasicString*[T](): CppBasicString[T] {.constructor, importcpp: "'0()".}
+proc initCppBasicString*[T](str: CppBasicString[T]): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
+proc initCppBasicString*[T](str: CppBasicString[T], pos: csize_t): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
+proc initCppBasicString*[T](str: CppBasicString[T], pos, len: csize_t): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
+proc initCppBasicString*[T](s: ptr UncheckedArray[T]): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
+proc initCppBasicString*[T](s: ptr UncheckedArray[T], n: csize_t): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
+proc initCppBasicString*[T](first, last: CppBasicStringConstIterator): CppBasicString[T] {.constructor, importcpp: "'0(@)".}
 
 # Iterators
 proc begin*[T](x: CppBasicString[T]): CppBasicStringIterator[T] {.importcpp: "begin".}
