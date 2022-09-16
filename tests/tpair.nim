@@ -63,3 +63,7 @@ suite "CppPair":
       check get(0, p) == initCppString("hello")
       check get(1, p) == 42.cint
       check not compiles(get(2, p))
+
+  test "$":
+    var p = initCppPair(initCppString("hello"), 42.cint)
+    check $p == "(hello, 42)"

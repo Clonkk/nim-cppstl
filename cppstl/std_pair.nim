@@ -52,3 +52,8 @@ proc get*[T1, T2](n: static int, p: CppPair[T1, T2]): auto =
   else:
     {.error: "index in pair must be 0 or 1".}
   getImpl(n, p, ResultType)
+
+# Nim niceties
+
+proc `$`*[T1, T2](p: CppPair[T1, T2]): string =
+  "(" & $p.first & ", " & $p.second & ")"
