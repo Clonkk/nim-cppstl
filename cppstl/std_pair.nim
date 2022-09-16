@@ -41,7 +41,7 @@ proc getImpl[T1, T2](n: int, p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.imp
 
 proc get*[T1, T2](T: typedesc, p: CppPair[T1, T2]): auto =
   when T1 is T2:
-    {.error: "ambiguous call to get with a pair whose two elements are the of the same type".}
+    {.error: "ambiguous call to `get` with a pair whose two elements are of the same type".}
   getImpl(p, T)
 
 proc get*[T1, T2](n: static int, p: CppPair[T1, T2]): auto =
