@@ -421,8 +421,12 @@ proc `$`*[T](v: CppVector[T]): string =
     result.add($v.last() & "]")
 
 # Iterators operators
-iteratorsOperators(CppVectorIterator, isConst = false)
-iteratorsOperators(CppVectorConstIterator, isConst = true)
+
+iteratorsOperators(CppVectorIterator)
+iteratorsOperators(CppVectorConstIterator)
+
+proc `[]`*[T](it: CppVectorIterator[T]): var T {.importcpp: "*#".}
+proc `[]`*[T](it: CppVectorConstIterator[T]): T {.importcpp: "*#".}
 
 # Aliases
 
