@@ -11,8 +11,13 @@ type
 # Fields
 # Codegen breaks if you try to declare these as actual fields on the CppPair object -- Nim generates functions (incl. =destroy) that take std::pair without template parameters, which don't compile.
 
+# TODO macroize generation of public field getters and setters?
 proc first*[T1, T2](this: CppPair[T1, T2]): T1 {.importcpp: "#.first".}
+proc first*[T1, T2](this: var CppPair[T1, T2]): var T1 {.importcpp: "#.first".}
+proc `first=`*[T1, T2](this: var CppPair[T1, T2], val: T1) {.importcpp: "#.first = #".}
 proc second*[T1, T2](this: CppPair[T1, T2]): T2 {.importcpp: "#.second".}
+proc second*[T1, T2](this: var CppPair[T1, T2]): var T2 {.importcpp: "#.second".}
+proc `second=`*[T1, T2](this: var CppPair[T1, T2], val: T2) {.importcpp: "#.second = #".}
 
 # Constructor
 
