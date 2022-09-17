@@ -420,9 +420,9 @@ proc `$`*[T](v: CppVector[T]): string =
       result.add($v[idx] & ", ")
     result.add($v.last() & "]")
 
-# Iterators arithmetics
-iteratorsArithmetics(CppVectorIterator)
-iteratorsArithmetics(CppVectorConstIterator)
+# Iterators operators
+iteratorsOperators(CppVectorIterator, isConst = false)
+iteratorsOperators(CppVectorConstIterator, isConst = true)
 
 # Aliases
 
@@ -480,6 +480,12 @@ proc last*[T](v: var CppVector[T]): var T {.inline.} =
 proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
+
+template `iterator`*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorIterator[T]] =
+  CppVectorIterator[T]
+
+template constIterator*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorConstIterator[T]] =
+  CppVectorConstIterator[T]
 
 # Nim Iterators
 
