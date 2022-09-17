@@ -1,7 +1,8 @@
 # self code is licensed under MIT license (see LICENSE.txt for details)
 
 import std/[strformat]
-import ./private/utils
+import ./private/iterators
+export iterators
 import ./std_exception
 export std_exception
 
@@ -13,8 +14,8 @@ when not defined(cpp):
 type
   CppVector*[T] {.importcpp: "std::vector".} = object
   # https://nim-lang.github.io/Nim/manual.html#importcpp-pragma-importcpp-for-objects
-  CppVectorIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = object
-  CppVectorConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = object
+  CppVectorIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = CppIterator[T]
+  CppVectorConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = CppConstIterator[T]
 
 # Constructors
 # https://nim-lang.github.io/Nim/manual.html#importcpp-pragma-importcpp-for-procs
@@ -419,14 +420,6 @@ proc `$`*[T](v: CppVector[T]): string =
     for idx in 0.csize_t ..< v.size()-1:
       result.add($v[idx] & ", ")
     result.add($v.last() & "]")
-
-# Iterators operators
-
-iteratorsOperators(CppVectorIterator)
-iteratorsOperators(CppVectorConstIterator)
-
-proc `[]`*[T](it: CppVectorIterator[T]): var T {.importcpp: "*#".}
-proc `[]`*[T](it: CppVectorConstIterator[T]): T {.importcpp: "*#".}
 
 # Aliases
 

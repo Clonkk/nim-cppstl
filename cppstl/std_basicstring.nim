@@ -1,7 +1,8 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
 
 import strformat
-import ./private/utils
+import ./private/iterators
+export iterators
 import ./std_exception
 export std_exception
 when not defined(cpp):
@@ -11,8 +12,8 @@ when not defined(cpp):
 
 type
   CppBasicString*[T] {.importcpp: "std::basic_string".} = object
-  CppBasicStringIterator*[T] {.importcpp: "std::basic_string<'0>::iterator".} = object
-  CppBasicStringConstIterator*[T] {.importcpp: "std::basic_string<'0>::const_iterator".} = object
+  CppBasicStringIterator*[T] {.importcpp: "std::basic_string<'0>::iterator".} = CppIterator[T]
+  CppBasicStringConstIterator*[T] {.importcpp: "std::basic_string<'0>::const_iterator".} = CppConstIterator[T]
 
 # npos is declared as the highest possible value of csize_t
 # In C++ it is -1 due how overflow works
@@ -304,8 +305,3 @@ iterator mpairs*[T](v: var CppBasicString[T]): (csize_t, var T) =
   ## Iterate over `(index, value)` for all the elements in CppBasicString[T] `v`.
   for idx in 0.csize_t ..< v.len():
     yield (idx, v[idx])
-
-
-# Iterators arithmetics
-iteratorsArithmetics(CppBasicStringIterator)
-iteratorsArithmetics(CppBasicStringConstIterator)
