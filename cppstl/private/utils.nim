@@ -9,8 +9,7 @@ template iteratorsArithmetics*(name: untyped):untyped =
 
 # Define operators for iterators
 template iteratorsOperators*(name: untyped, isConst: static bool): untyped =
-  proc `+`*[T](it: name[T], offset: int): T {.importcpp: "# + #"}
-  proc `-`*[T](it: name[T], offset: int): T {.importcpp: "# - #"}
+  iteratorsArithmetics(name)
 
   proc inc*[T](it: name[T]) {.importcpp: "(void)(++#)".}
   proc inc*[T](it: name[T], offset: int) {.importcpp: "(void)(# += #)".}
