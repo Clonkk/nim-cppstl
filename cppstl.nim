@@ -6,6 +6,8 @@ import cppstl/std_smartptrs
 export std_smartptrs
 import cppstl/std_complex
 export std_complex
+import cppstl/std_utility
+export std_utility
 
 ## Nim wrapper for C++ STL :
 ##   * ``std::vector`` mapped to ``CppVector``
