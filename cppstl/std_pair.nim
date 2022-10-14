@@ -3,7 +3,8 @@
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 
-{.push header: "<utility>".}
+{.push header:"<utility>".}
+# https://cplusplus.com/reference/utility/pair/
 
 type
   CppPair*[T1, T2] {.importcpp: "std::pair".} = object
@@ -30,6 +31,9 @@ proc initCppPair*[T1, T2](p: CppPair[T1, T2]): CppPair[T1, T2] {.constructor, im
 proc swap*[T1, T2](this, other: var CppPair[T1, T2]) {.importcpp: "#.swap(@)".}
 
 # Non-member functions
+
+#https://en.cppreference.com/w/cpp/utility/pair/make_pair
+proc makePair*[F,S](a:F; b:S):CppPair[F,S] {.importcpp:"std::make_pair(@)" .}
 
 proc `==`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# == #".}
 proc `!=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# != #".}
@@ -58,7 +62,20 @@ proc get*[T1, T2](n: static int, p: CppPair[T1, T2]): auto =
     {.error: "index in pair must be 0 or 1".}
   getImpl(n, p, ResultType)
 
-# Nim niceties
+#-----------
+# Some sugar
+#-----------
+import std/strformat
 
-proc `$`*[T1, T2](p: CppPair[T1, T2]): string =
-  "(" & $p.first & ", " & $p.second & ")"
+proc `$`*[F,S](val:CppPair[F,S]):string =
+  ## provides stdout for CppPair
+  &"CppPair(first: {val.first}, second: {val.second})"
+   
+proc toTuple*[F,S](val:CppPair[F,S]):tuple[first:F, second:S] =
+  ## converts a CppPair into a Nim's tuple
+  (val.first, val.second)
+
+proc makePair*[F, S](t: tuple[first: F, second: S]) : CppPair[F, S] = 
+  result = initCppPair[F, S]()
+  result.first = t.first
+  result.second = t.second

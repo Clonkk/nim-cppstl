@@ -1,5 +1,5 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
-import unittest
+import std/unittest
 import cppstl/std_pair
 import cppstl/std_string
 
@@ -66,4 +66,14 @@ suite "CppPair":
 
   test "$":
     var p = initCppPair(initCppString("hello"), 42.cint)
-    check $p == "(hello, 42)"
+    check $p == "CppPair(first: hello, second: 42)"
+
+  test "toTuple and back":
+    let 
+      f = "hi"
+      s = 144
+    var pair : CppPair[string,int] = makePair(f, s)
+    var tup = pair.toTuple()
+    check tup == (first: f, second: s)
+    check tup.makePair() == pair
+
