@@ -1,7 +1,8 @@
 # self code is licensed under MIT license (see LICENSE.txt for details)
 
 import std/[strformat]
-import ./private/utils
+import ./private/iterators
+export iterators
 import ./std_exception
 export std_exception
 
@@ -13,8 +14,8 @@ when not defined(cpp):
 type
   CppVector*[T] {.importcpp: "std::vector".} = object
   # https://nim-lang.github.io/Nim/manual.html#importcpp-pragma-importcpp-for-objects
-  CppVectorIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = object
-  CppVectorConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = object
+  CppVectorIterator*[T] {.importcpp: "std::vector<'0>::iterator".} = CppIterator[T]
+  CppVectorConstIterator*[T] {.importcpp: "std::vector<'0>::const_iterator".} = CppConstIterator[T]
 
 # Constructors
 # https://nim-lang.github.io/Nim/manual.html#importcpp-pragma-importcpp-for-procs
@@ -420,10 +421,6 @@ proc `$`*[T](v: CppVector[T]): string =
       result.add($v[idx] & ", ")
     result.add($v.last() & "]")
 
-# Iterators arithmetics
-iteratorsArithmetics(CppVectorIterator)
-iteratorsArithmetics(CppVectorConstIterator)
-
 # Aliases
 
 proc len*(v: CppVector): csize_t {.inline.} =
@@ -480,6 +477,12 @@ proc last*[T](v: var CppVector[T]): var T {.inline.} =
 proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
+
+template `iterator`*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorIterator[T]] =
+  CppVectorIterator[T]
+
+template constIterator*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorConstIterator[T]] =
+  CppVectorConstIterator[T]
 
 # Nim Iterators
 
