@@ -18,7 +18,6 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git config --global --add safe.directory /github/workspace
       - name: Fetch
         run: git fetch
       - name: Rebase
@@ -28,6 +27,7 @@ jobs:
       - name: Commit files
         run: |
           echo ${{ github.ref }}
+          git config --global --add safe.directory /github/workspace
           git add docs
           git commit -m "CI: Automated build push" -a | exit 0
       - name: Force push to destination branch
