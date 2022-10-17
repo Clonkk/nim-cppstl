@@ -34,6 +34,9 @@ suite "CppPair":
       var
         p1 = initCppPair(initCppString("hello"), 42.cint)
         p2 = initCppPair(initCppString("hello"), 50.cint)
+        p3 = initCppPair(initCppString("0hello"), 50.cint)
+        p4 = initCppPair(initCppString("zhello"), 50.cint)
+
       check not (p1 == p2)
       check not (p2 == p1)
       check p1 != p2
@@ -46,6 +49,35 @@ suite "CppPair":
       check p2 > p1
       check not (p1 >= p2)
       check p2 >= p1
+      check p3 < p1
+      check not (p3 >= p1)
+      check p4 > p1
+      check not (p4 <= p1)
+
+    block:
+      var
+        p1 = initCppPair("hello", 42.cint)
+        p2 = initCppPair("hello", 50.cint)
+        p3 = initCppPair("0hello", 50.cint)
+        p4 = initCppPair("zhello", 50.cint)
+
+      check not (p1 == p2)
+      check not (p2 == p1)
+      check p1 != p2
+      check p2 != p1
+      check p1 < p2
+      check not (p2 < p1)
+      check p1 <= p2
+      check not (p2 <= p1)
+      check not (p1 > p2)
+      check p2 > p1
+      check not (p1 >= p2)
+      check p2 >= p1
+      check p3 < p1
+      check not (p3 >= p1)
+      check p4 > p1
+      check not (p4 <= p1)
+
 
   test "other non-member functions":
     block:
@@ -70,10 +102,10 @@ suite "CppPair":
 
   test "toTuple and back":
     let 
-      f = "hi"
+      f = "Hello world"
       s = 144
     var pair : CppPair[string,int] = makePair(f, s)
     var tup = pair.toTuple()
     check tup == (first: f, second: s)
-    check tup.makePair() == pair
+    check makePair(tup) == pair
 
