@@ -17,7 +17,7 @@ type
 
 # npos is declared as the highest possible value of csize_t
 # In C++ it is -1 due how overflow works
-const std_npos*: csize_t = high(typedesc[csize_t])
+const stdNpos*: csize_t = high(typedesc[csize_t])
 
 # Constructor
 proc initCppBasicString*[T](): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>()".}
