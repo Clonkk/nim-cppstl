@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.5.0"
+version       = "0.6.0"
 author        = "Clonkk"
 description   = "Bindings for the C++ Standard Template Library (STL)"
 license       = "MIT"
@@ -25,8 +25,9 @@ task test, "Run the tests":
   exec "nim cpp -r --gc:arc tests/tstring.nim"
   exec "nim cpp -r tests/tcomplex.nim"
   exec "nim cpp -r --gc:arc tests/tcomplex.nim"
-  #exec "nim cpp -r tests/tutility.nim"   # Why is this failing
-  exec "nim cpp -r --gc:arc tests/tutility.nim"  
+  exec "nim cpp -r tests/tpair.nim"  
+  exec "nim cpp -r --gc:arc tests/tpair.nim"  
+
   # the following should compile and *not* produce a codegen error
   exec "nim cpp --gc:arc -r tests/tdestructor_codegen_bug.nim"
   exec "nim cpp -r tests/tdestructor_codegen_bug.nim"
