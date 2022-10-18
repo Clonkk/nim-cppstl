@@ -18,7 +18,7 @@ export std_pair
 ##   * ``std::complex`` mapped to ``CppComplex``
 ##   * ``std::shared_ptr`` mapped to ``CppSharedPtr``
 ##   * ``std::unique_ptr`` mapped to ``CppUniquePtr``
-##   * ``std::pair` mapped to ``CppPair``
+##   * ``std::pair`` mapped to ``CppPair``
 
 runnableExamples:
   import cppstl

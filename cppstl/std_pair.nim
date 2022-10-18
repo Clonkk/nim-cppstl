@@ -10,7 +10,7 @@ when not defined(cpp):
 type
   CppPair*[F,S] {.importcpp:"std::pair <'0,'1>"} = object
 
-## procs 
+# procs
 proc first*[T1, T2](this: CppPair[T1, T2]): T1 {.importcpp: "#.first".}
 proc first*[T1, T2](this: var CppPair[T1, T2]): var T1 {.importcpp: "#.first".}
 proc `first=`*[T1, T2](this: var CppPair[T1, T2], val: T1) {.importcpp: "#.first = #".}
