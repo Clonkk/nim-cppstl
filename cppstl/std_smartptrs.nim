@@ -9,6 +9,9 @@ when not defined(cpp):
 type
   CppSharedPtr*[T]{.importcpp: "std::shared_ptr", bycopy.} = object
 
+proc newCppSharedPtr[T](p: ptr T): CppSharedPtr[T] {.constructor, 
+  importcpp: "std::shared_ptr<'*0>(#)".}
+
 func makeShared*(T: typedesc): CppSharedPtr[T] {.importcpp: "std::make_shared<'*0>()".}
 
 func makeShared*[T](p: CppSharedPtr[T]): CppSharedPtr[T] {.importcpp: "std::make_shared<'*0>(#)".}
