@@ -25,6 +25,8 @@ proc init*(T: type UniquePtrObj, name: string): UniquePtrObj =
   result.name = name
   result.id = guid
 
+proc cppNew[T](x: typedesc[T]): ptr T {.importcpp: "(new '1)", nodecl.}
+
 proc testShared() =
   test "SharedPtr":
     var sp1 = SharedPtrObj.init("ptr_1")
@@ -43,6 +45,12 @@ proc testShared() =
     sp2.name = "ptr_3"
     check: sp1.name == "ptr_3"
     check sp1.name.len() == 5
+
+    var sp3 = block:
+      let p = cppNew(Obj)
+      p[] = sp1.deref
+      newCppSharedPtr(p)
+    check sp3.deref == sp1.deref
 
     when defined(gcArc) or defined(gcOrc):
       check: $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"

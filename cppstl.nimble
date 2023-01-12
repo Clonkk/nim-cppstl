@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.6.1"
+version       = "0.6.2"
 author        = "Clonkk"
 description   = "Bindings for the C++ Standard Template Library (STL)"
 license       = "MIT"
@@ -27,6 +27,8 @@ task test, "Run the tests":
   exec "nim cpp -r --gc:arc tests/tcomplex.nim"
   exec "nim cpp -r tests/tpair.nim"  
   exec "nim cpp -r --gc:arc tests/tpair.nim"  
+  exec "nim cpp -r tests/tsmart_ptrs.nim"
+  exec "nim cpp -r --gc:arc tests/tsmart_ptrs.nim"
 
   # the following should compile and *not* produce a codegen error
   exec "nim cpp --gc:arc -r tests/tdestructor_codegen_bug.nim"
