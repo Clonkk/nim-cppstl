@@ -418,7 +418,9 @@ proc `$`*[T](v: CppVector[T]): string =
   else:
     result = "["
     for idx in 0.csize_t ..< v.size()-1:
-      result.add($v[idx] & ", ")
+      result.add($v[idx])
+      if idx < v.size() - 1:
+        result.add(", ")
     result.add($v.last() & "]")
 
 # Aliases
