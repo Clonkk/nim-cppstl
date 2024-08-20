@@ -1,9 +1,8 @@
 # self code is licensed under MIT license (see LICENSE.txt for details)
 
-import std/[strformat]
 import ./private/iterators
-export iterators
 import ./std_exception
+export iterators
 export std_exception
 
 when not defined(cpp):
@@ -246,7 +245,7 @@ proc erase*[T](self: var CppVector[T], first, last: CppVectorConstIterator[T]): 
 proc clear*[T](self: var CppVector[T]) {.importcpp: "clear".}
 
 # Relational operators
-proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# == #".} =
+proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# == #)".} =
   ## Return `true` if the contents of lhs and rhs are equal, that is,
   ## they have the same number of elements and each element in lhs compares
   ## equal with the element in rhs at the same position.
@@ -258,7 +257,7 @@ proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# == #".} =
       v2 = v1
     doAssert v1 == v2
 
-proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# != #".} =
+proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# != #)".} =
   ## Return `true` if the contents of lhs and rhs are not equal, that is,
   ## either they do not have the same number of elements, or one of the elements
   ## in lhs does not compare equal with the element in rhs at the same position.
@@ -276,7 +275,7 @@ proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# != #".} =
     v3[0] = 100
     doAssert v3 != v1
 
-proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# < #".} =
+proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# < #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## less than `b`.
   ##
@@ -294,7 +293,7 @@ proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# < #".} =
     v2[2] = 0
     doAssert v2 < v1
 
-proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# <= #".} =
+proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# <= #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## less than or equal to `b`.
   ##
@@ -312,7 +311,7 @@ proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# <= #".} =
     v2[2] = 0
     doAssert v2 <= v1
 
-proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# > #".} =
+proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# > #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## greater than `b`.
   ##
@@ -330,7 +329,7 @@ proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# > #".} =
     v2[2] = 0
     doAssert v1 > v2
 
-proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# >= #".} =
+proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# >= #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## greater than or equal to `b`.
   ##
@@ -351,9 +350,14 @@ proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# >= #".} =
 {.pop.} # {.push header: "<vector>".}
 
 # Nim specifics
-proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
-  if i >= self.size:
-    raise newException(IndexDefect, &"index out of bounds: (i:{i}) <= (n:{self.size})")
+template checkIndex[T](self: CppVector[T], i: csize_t) =
+  let 
+    maxLen = uint(self.size())
+    i = uint(i)
+
+  if unlikely i >= maxLen:
+    let msg = "Index out-of-bound: " & $i & " >= " & $maxLen & "."
+    raise newException(IndexDefect, msg)
 
 # Element access
 proc `[]`*[T](self: CppVector[T], idx: Natural): lent T {.inline.} =
@@ -395,36 +399,50 @@ proc `[]=`*[T](self: var CppVector[T], idx: Natural, val: T) {.inline.} =
   when compileOption("boundChecks"): self.checkIndex(i)
   self.unsafeIndex(i) = val
 
-# Converter: CppVectorIterator -> CppVectorConstIterator
-converter CppVectorIteratorToCppVectorConstIterator*[T](x: CppVectorIterator[T]):
-          CppVectorConstIterator[T] {.importcpp: "#".}
-  ## Implicitly convert mutable C++ iterator to immutable C++ iterator.
+template `iterator`*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorIterator[T]] =
+  CppVectorIterator[T]
 
-# Display the content of a vector
-proc `$`*[T](v: CppVector[T]): string =
-  ## The `$` operator for CppVector type variables.
-  ## This is used internally when calling `echo` on a CppVector type variable.
+template constIterator*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorConstIterator[T]] =
+  CppVectorConstIterator[T]
+
+# Nim Iterators
+iterator items*[T](v: CppVector[T]): T =
+  ## Iterate over all the elements in CppVector `v`.
   runnableExamples:
     var
-      v = initCppVector[int]()
-    doAssert $v == "[]"
+      v: CppVector[int]
+      sum: int
 
-    v.add(100)
-    v.add(200)
-    doAssert $v == "[100, 200]"
+    v.assign(3, 5)
+
+    for elem in v:
+      sum += elem
+    doAssert sum == 15
   #
-  if v.empty():
-    result = "[]"
-  else:
-    result = "["
-    for idx in 0.csize_t ..< v.size()-1:
-      result.add($v[idx])
-      if idx < v.size() - 1:
-        result.add(", ")
-    result.add($v.last() & "]")
+  for idx in 0.csize_t ..< v.len():
+    yield v[idx]
+
+iterator pairs*[T](v: CppVector[T]): (csize_t, T) =
+  ## Iterate over `(index, value)` for all the elements in CppVector `v`.
+  runnableExamples:
+    var
+      v: CppVector[int]
+      sum: int
+
+    v.assign(3, 5)
+
+    for idx, elem in v:
+      sum += idx.int + elem
+    doAssert sum == 18
+  #
+  for idx in 0.csize_t ..< v.len():
+    yield (idx, v[idx])
+
+# Converter: CppVectorIterator -> CppVectorConstIterator
+converter CppVectorIteratorToCppVectorConstIterator*[T](x: CppVectorIterator[T]): CppVectorConstIterator[T] {.importcpp: "#".}
+  ## Implicitly convert mutable C++ iterator to immutable C++ iterator.
 
 # Aliases
-
 proc len*(v: CppVector): csize_t {.inline.} =
   ## Alias for `size proc <#size%2CCppVector>`_.
   v.size()
@@ -480,45 +498,35 @@ proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
 
-template `iterator`*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorIterator[T]] =
-  CppVectorIterator[T]
-
-template constIterator*[T](_: typedesc[CppVector[T]]): typedesc[CppVectorConstIterator[T]] =
-  CppVectorConstIterator[T]
-
-# Nim Iterators
-
-iterator items*[T](v: CppVector[T]): T =
-  ## Iterate over all the elements in CppVector `v`.
+# Display the content of a vector
+proc `$`*[T](v: CppVector[T]): string =
+  ## The `$` operator for CppVector type variables.
+  ## This is used internally when calling `echo` on a CppVector type variable.
   runnableExamples:
     var
-      v: CppVector[int]
-      sum: int
+      v = initCppVector[int]()
+    doAssert $v == "[]"
 
-    v.assign(3, 5)
+    v.add(100)
+    v.add(200)
+    doAssert $v == "[100, 200]"
 
-    for elem in v:
-      sum += elem
-    doAssert sum == 15
-  #
-  for idx in 0.csize_t ..< v.len():
-    yield v[idx]
+  if v.empty():
+    result = "[]"
+  else:
+    result = "["
+    for val in v.items():
+      result.add "000" #$val
+      result.add ", "
+    result.add "]"
 
-iterator pairs*[T](v: CppVector[T]): (csize_t, T) =
-  ## Iterate over `(index, value)` for all the elements in CppVector `v`.
-  runnableExamples:
-    var
-      v: CppVector[int]
-      sum: int
-
-    v.assign(3, 5)
-
-    for idx, elem in v:
-      sum += idx.int + elem
-    doAssert sum == 18
-  #
-  for idx in 0.csize_t ..< v.len():
-    yield (idx, v[idx])
+    for idx in 0.csize_t ..< v.size()-1:
+      when compileOption("boundChecks"): v.checkIndex(idx)
+      let val = (addr v.unsafeIndex(idx))[]
+      result.add($(v[idx]))
+      if idx < v.size() - 1:
+        result.add(", ")
+    result.add($v.last() & "]")
 
 # To and from seq
 proc toSeq*[T](v: CppVector[T]): seq[T] =
@@ -545,3 +553,4 @@ proc toCppVector*[T](s: openArray[T]): CppVector[T] =
   #
   for elem in s:
     result.add(elem)
+
