@@ -350,11 +350,8 @@ proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# >= #)".} 
 {.pop.} # {.push header: "<vector>".}
 
 # Nim specifics
-template checkIndex[T](self: CppVector[T], i: csize_t) =
-  let 
-    maxLen = uint(self.size())
-    i = uint(i)
-
+proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
+  let maxLen = self.size()
   if unlikely i >= maxLen:
     let msg = "Index out-of-bound: " & $i & " >= " & $maxLen & "."
     raise newException(IndexDefect, msg)
@@ -498,34 +495,52 @@ proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
 
-# Display the content of a vector
-proc `$`*[T](v: CppVector[T]): string =
-  ## The `$` operator for CppVector type variables.
-  ## This is used internally when calling `echo` on a CppVector type variable.
-  runnableExamples:
-    var
-      v = initCppVector[int]()
-    doAssert $v == "[]"
+when defined(dollar1) or true:
+  proc `$`*[T](v: CppVector[T]): string =
+    ## The `$` operator for CppVector type variables.
+    ## This is used internally when calling `echo` on a CppVector type variable.
+    runnableExamples:
+      var
+        v = initCppVector[int]()
+      doAssert $v == "[]"
 
-    v.add(100)
-    v.add(200)
-    doAssert $v == "[100, 200]"
+      v.add(100)
+      v.add(200)
+      doAssert $v == "[100, 200]"
 
-  if v.empty():
-    result = "[]"
-  else:
+    let maxLen = int(v.size())
     result = "["
-    for val in v.items():
-      result.add "000" #$val
-      result.add ", "
+    for idx in 0..maxLen-1:
+      let val = v[idx]
+      result.add $val
+      if idx < maxLen - 1:
+        result.add(", ")
     result.add "]"
 
-    for idx in 0.csize_t ..< v.size()-1:
-      when compileOption("boundChecks"): v.checkIndex(idx)
-      let val = (addr v.unsafeIndex(idx))[]
-      result.add($(v[idx]))
-      if idx < v.size() - 1:
-        result.add(", ")
+when defined(dollar2):
+  # Display the content of a vector
+  proc `$`*[T](v: CppVector[T]): string =
+    ## The `$` operator for CppVector type variables.
+    ## This is used internally when calling `echo` on a CppVector type variable.
+    runnableExamples:
+      var
+        v = initCppVector[int]()
+      doAssert $v == "[]"
+
+      v.add(100)
+      v.add(200)
+      doAssert $v == "[100, 200]"
+
+    # Calling that line fails Nim compilation as if `$` proc was inexistant
+    result = "["
+    for val in v.items():
+    # for idx in 0.csize_t ..< v.size()-1:
+      # when compileOption("boundChecks"): v.checkIndex(idx)
+      # let val = (addr v.unsafeIndex(idx))[]
+      result.add($val)
+      result.add(", ")
+
+    result.delete(^3..^1)
     result.add($v.last() & "]")
 
 # To and from seq
@@ -553,4 +568,3 @@ proc toCppVector*[T](s: openArray[T]): CppVector[T] =
   #
   for elem in s:
     result.add(elem)
-
