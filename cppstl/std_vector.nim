@@ -495,7 +495,7 @@ proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
 
-when defined(dollar1) or true:
+when not defined(dollar1):
   proc `$`*[T](v: CppVector[T]): string =
     ## The `$` operator for CppVector type variables.
     ## This is used internally when calling `echo` on a CppVector type variable.
@@ -517,7 +517,7 @@ when defined(dollar1) or true:
         result.add(", ")
     result.add "]"
 
-when defined(dollar2):
+when defined(dollar1):
   # Display the content of a vector
   proc `$`*[T](v: CppVector[T]): string =
     ## The `$` operator for CppVector type variables.
