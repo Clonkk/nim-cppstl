@@ -3,4 +3,4 @@ switch("path", "$projectDir/..")
 when not defined(testing):
   switch("outdir", "tests/bin")
 
-swtich("cc", "gcc")
+switch("cc", "gcc")
