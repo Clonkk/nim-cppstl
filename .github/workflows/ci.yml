@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         nim:
-          - '1.6.x'
           - '2.0.x'
           - 'stable'
         os:
