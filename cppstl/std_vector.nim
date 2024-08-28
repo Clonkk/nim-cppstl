@@ -21,8 +21,10 @@ type
 proc initCppVector*[T](): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
 proc initCppVector*[T](n: csize_t): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
 proc initCppVector*[T](n: csize_t, val: T): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
-proc initCppVector*[T](x: CppVector[T]): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
 proc initCppVector*[T](first, last: CppVectorConstIterator[T]): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
+
+# TODO Fix this one
+proc initCppVector*[T](x: CppVector[T]): CppVector[T] {.constructor, importcpp: "std::vector<'*0>(@)".}
 
 # Iterators
 proc begin*[T](v: CppVector[T]): CppVectorIterator[T] {.importcpp: "begin".} =
@@ -108,8 +110,8 @@ proc reserve*[T](self: var CppVector[T], n: csize_t) {.importcpp: "reserve".}
 proc shrinkToFit*[T](self: var CppVector[T]) {.importcpp: "shrink_to_fit".}
 
 # Internal utility functions
-proc unsafeIndex[T](self: var CppVector[T], i: csize_t): var T {.importcpp: "#[#]".}
-proc unsafeIndex[T](self: CppVector[T], i: csize_t): lent T {.importcpp: "#[#]".}
+proc unsafeIndex[T](self: var CppVector[T], i: csize_t): var T {.importcpp: "(#[#])".}
+proc unsafeIndex[T](self: CppVector[T], i: csize_t): lent T {.importcpp: "(#[#])".}
 
 proc at*[T](self: var CppVector[T], n: csize_t): var T {.importcpp: "at".}
 proc at*[T](self: CppVector[T], n: csize_t): T {.importcpp: "at".}
@@ -350,7 +352,7 @@ proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# >= #)".} 
 {.pop.} # {.push header: "<vector>".}
 
 # Nim specifics
-proc checkIndex[T](self: CppVector[T], i: csize_t) {.inline.} =
+template checkIndex[T](self: CppVector[T], i: csize_t) =
   let maxLen = self.size()
   if unlikely i >= maxLen:
     let msg = "Index out-of-bound: " & $i & " >= " & $maxLen & "."
@@ -380,7 +382,7 @@ proc `[]`*[T](self: var CppVector[T], idx: Natural): var T {.inline.} =
   let i = csize_t(idx)
   when compileOption("boundChecks"): self.checkIndex(i)
   # this strange syntax is to avoid a bug in the Nim C++ code generator
-  (addr self.unsafeIndex(i))[]
+  self.unsafeIndex(i)
 
 proc `[]=`*[T](self: var CppVector[T], idx: Natural, val: T) {.inline.} =
   ## Set the value at `v[idx]` to the specified value `val`.
@@ -495,53 +497,31 @@ proc last*[T](v: CppVector[T]): T {.inline.} =
   ## Alias for `back proc <#back%2CCppVector[T]_2>`_.
   v.back()
 
-when not defined(dollar1):
-  proc `$`*[T](v: CppVector[T]): string =
-    ## The `$` operator for CppVector type variables.
-    ## This is used internally when calling `echo` on a CppVector type variable.
-    runnableExamples:
-      var
-        v = initCppVector[int]()
-      doAssert $v == "[]"
+# Display the content of a vector
+# Workaround due to generic bug
+proc toString[T](v: CppVector[T]): string =
+  result = "["
+  let maxIdx = v.size()-1
+  for idx, val in v.pairs():
+    result.add($(val))
+    if idx < maxIdx:
+      result.add ", " 
 
-      v.add(100)
-      v.add(200)
-      doAssert $v == "[100, 200]"
+  result.add("]")
 
-    let maxLen = int(v.size())
-    result = "["
-    for idx in 0..maxLen-1:
-      let val = v[idx]
-      result.add $val
-      if idx < maxLen - 1:
-        result.add(", ")
-    result.add "]"
+proc `$`*[T](v: CppVector[T]): string =
+  ## The `$` operator for CppVector type variables.
+  ## This is used internally when calling `echo` on a CppVector type variable.
+  runnableExamples:
+    var
+      v = initCppVector[int]()
+    doAssert $v == "[]"
 
-when defined(dollar1):
-  # Display the content of a vector
-  proc `$`*[T](v: CppVector[T]): string =
-    ## The `$` operator for CppVector type variables.
-    ## This is used internally when calling `echo` on a CppVector type variable.
-    runnableExamples:
-      var
-        v = initCppVector[int]()
-      doAssert $v == "[]"
+    v.add(100)
+    v.add(200)
+    doAssert $v == "[100, 200]"
 
-      v.add(100)
-      v.add(200)
-      doAssert $v == "[100, 200]"
-
-    # Calling that line fails Nim compilation as if `$` proc was inexistant
-    result = "["
-    for val in v.items():
-    # for idx in 0.csize_t ..< v.size()-1:
-      # when compileOption("boundChecks"): v.checkIndex(idx)
-      # let val = (addr v.unsafeIndex(idx))[]
-      result.add($val)
-      result.add(", ")
-
-    result.delete(^3..^1)
-    result.add($v.last() & "]")
+  toString(v)
 
 # To and from seq
 proc toSeq*[T](v: CppVector[T]): seq[T] =

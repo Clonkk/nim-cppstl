@@ -1,4 +1,5 @@
 import cppstl/std_vector
+import std/strutils
 
 type Foo = object
   x: int
@@ -31,3 +32,5 @@ proc main =
   v.clear()
 
 main()
+
+
