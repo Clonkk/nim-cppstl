@@ -63,26 +63,6 @@ proc findFirstNotOf*(self: CppString, s: cstring, pos, n: csize_t): csize_t {.im
 proc findLastNotOf*(self: CppString, s: cstring, pos: csize_t = std_npos): csize_t {.importcpp: "find_last_not_of".}
 proc findLastNotOf*(self: CppString, s: cstring, pos, n: csize_t): csize_t {.importcpp: "find_last_not_of".}
 
-proc `==`*(a: CppString, b: CppString) : bool {.importcpp:"(# == #)".} = 
-  ## Return `true` if the contents of lhs and rhs are equal. 
-  runnableExamples:
-    var a = initCppString("abc".cstring)
-    var b = initCppString("abc".cstring)
-    doAssert a == b
-
-proc `!=`*(a: CppString, b: CppString) : bool {.importcpp:"(# != #)".} = 
-  ## Return `true` if the contents of lhs and rhs are NOT equal.
-  runnableExamples:
-    var a = initCppString("abc".cstring)
-    var b = initCppString("def".cstring)
-    doAssert a != b
-
-
-proc `<`*(a: CppString, b: CppString): bool {.importcpp: "(# < #)".}
-proc `>`*(a: CppString, b: CppString): bool {.importcpp: "(# > #)".}
-proc `<=`*(a: CppString, b: CppString): bool {.importcpp: "(# <= #)".}
-proc `>=`*(a: CppString, b: CppString): bool {.importcpp: "(# >= #)".}
-
 proc compare*(self: CppString, s: cstring): cint {.importcpp: "compare".}
 proc compare*(self: CppString, pos, l: csize_t, str: cstring): cint {.importcpp: "compare".}
 proc compare*(self: CppString, pos, l: csize_t, str: cstring, n: csize_t): cint {.importcpp: "compare".}
@@ -95,6 +75,7 @@ converter CppStrIteratorToStrConstIterator*(s: CppStrIterator): CppStrConstItera
 
 
 {.push inline.}
+
 proc initCppString*(s: string): CppString =
   initCppString(s.cstring)
 

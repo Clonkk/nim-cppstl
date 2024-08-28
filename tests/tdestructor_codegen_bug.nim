@@ -47,4 +47,5 @@ proc main() =
 
   echo "END"
 
-main()
+when isMainModule:
+  main()

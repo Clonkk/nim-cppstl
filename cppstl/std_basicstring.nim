@@ -179,14 +179,14 @@ proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArr
 
 proc `+`*[T](a: CppBasicString[T], b: T): CppBasicString[T] {.importcpp: "# + ('2)(#)".}
 proc `+`*[T](a: T, b: CppBasicString[T]): CppBasicString[T] {.importcpp: "('1)(#) + #".}
-proc `+`*[T](a: CppBasicString[T], b: CppBasicString[T]): CppBasicString[T] {.importcpp: "# + #".}
+proc `+`*[T](a: CppBasicString[T], b: CppBasicString[T]): CppBasicString[T] {.importcpp: "(# + #)".}
 
-proc `==`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# == #".}
-proc `!=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# != #".}
-proc `<`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# < #".}
-proc `<=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# <= #".}
-proc `>`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# > #".}
-proc `>=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "# >= #".}
+proc `==`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# == #)".}
+proc `!=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# != #)".}
+proc `<`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# < #)".}
+proc `<=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# <= #)".}
+proc `>`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# > #)".}
+proc `>=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# >= #)".}
 
 # Converter: CppBasicStringIterator[T] -> CppBasicStringConstIterator[T]
 converter CppBasicStringIteratorToBasicStringConstIterator*[T](s: CppBasicStringIterator[T]): CppBasicStringConstIterator[T] {.importcpp: "#".}

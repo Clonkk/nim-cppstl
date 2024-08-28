@@ -33,12 +33,12 @@ proc makePair*[F,S](a:F; b:S):CppPair[F,S] {.importcpp:"std::make_pair(@)" .}
 proc getImpl[T1, T2](p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<'0>(@)".}
 proc getImpl[T1, T2](n: int, p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<#>(@)".}
 
-# proc `==`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# == #".}
-# proc `!=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# != #".}
-# proc `<`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# < #".}
-# proc `<=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# <= #".}
-# proc `>`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# > #".}
-# proc `>=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "# >= #".}
+# proc `==`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# == #)".}
+# proc `!=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# != #)".}
+# proc `<=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# <= #)".}
+# proc `>=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# >= #)".}
+# proc `<`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# < #)".}
+# proc `>`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool {.importcpp: "(# > #)".}
 
 {.pop.} # header
 
@@ -89,7 +89,9 @@ proc `>=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool =
     result = false
   else:
     result = true
-#
+
+
+
 #-----------
 # Some sugar
 #-----------

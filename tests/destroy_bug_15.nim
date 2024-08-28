@@ -31,6 +31,7 @@ proc main =
   # Clear should call object destructor
   v.clear()
 
-main()
+when isMainModule:
+  main()
 
 
