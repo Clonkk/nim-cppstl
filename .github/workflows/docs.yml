@@ -13,9 +13,7 @@ jobs:
 
       - uses: jiro4989/setup-nim-action@v2
         with:
-          # TODO use 2.2.0 when it's released - gendoc is broken om 2.0.8
-          nim-version: devel 
-          use-nightlies: true
+          nim-version: stable 
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: nimble install -y
       - name: Set CI config github
