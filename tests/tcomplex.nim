@@ -4,6 +4,7 @@ import complex
 import std/math
 import cppstl/std_complex
 
+
 proc main() =
   suite "CppComplex":
     test "constructors":
@@ -28,6 +29,7 @@ proc main() =
           refres = refa + refb
           res = a + b
         check almostEqual(refres, toComplex(res))
+
       block:
         var
           a = initCppComplex[float64](141.571, 124.412)
@@ -94,3 +96,4 @@ proc main() =
 
 when isMainModule:
   main()
+

@@ -2,6 +2,7 @@
 import std/[unittest, strformat, sequtils]
 import cppstl/std_vector
 
+
 proc main() =
   suite "CppVector":
     test "constructor, size/len, empty":
@@ -445,4 +446,6 @@ proc main() =
       check v1 == @['w', 'x', 'y', 'z'].toCppVector()
       check v2 == @['a', 'b', 'c'].toCppVector()
 
-main()
+when isMainModule:
+  main()
+

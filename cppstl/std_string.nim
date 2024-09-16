@@ -24,7 +24,7 @@ proc initCppString*(s: cstring, n: csize_t): CppString {.constructor, importcpp:
 proc initCppString*(first, last: CppStrConstIterator): CppString {.constructor, importcpp: "std::string(@)".}
 
 # Modifiers
-proc `+=`*(self: var CppString, str: cstring) {.importcpp: "# += #".}
+proc `+=`*(self: var CppString, str: cstring) {.importcpp: "(# += #)".}
 
 proc append*(self: var CppString, str: cstring) {.importcpp: "append".}
 proc append*(self: var CppString, str: cstring, n: csize_t) {.importcpp: "append".}
@@ -69,6 +69,14 @@ proc compare*(self: CppString, pos, l: csize_t, str: cstring, subpos, subl: csiz
 
 # Converter: CppStrIterator -> StrConstIterator
 converter CppStrIteratorToStrConstIterator*(s: CppStrIterator): CppStrConstIterator {.importcpp: "#".}
+
+# Relational operators
+proc `==`*(a: CppString, b: CppString): bool {.importcpp: "(# == #)".}
+proc `!=`*(a: CppString, b: CppString): bool {.importcpp: "(# != #)".}
+proc `<`*(a: CppString, b: CppString): bool  {.importcpp: "(# < #)".}
+proc `<=`*(a: CppString, b: CppString): bool {.importcpp: "(# <= #)".}
+proc `>`*(a: CppString, b: CppString): bool  {.importcpp: "(# > #)".}
+proc `>=`*(a: CppString, b: CppString): bool {.importcpp: "(# >= #)".}
 
 {.pop.}
 

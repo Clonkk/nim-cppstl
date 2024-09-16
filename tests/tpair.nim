@@ -116,5 +116,7 @@ proc main() =
       check tup == (first: f, second: s)
       check makePair(tup) == pair
 
+
 when isMainModule:
   main()
+

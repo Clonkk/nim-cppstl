@@ -2,6 +2,7 @@
 import unittest
 import cppstl/std_string
 
+
 proc main() =
   suite "CppString":
     test "constructors and iterators":
@@ -416,5 +417,7 @@ proc main() =
         c = 'b'
       check s1.toString == "bbbbbbbbb"
 
+
 when isMainModule:
   main()
+
