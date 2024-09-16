@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.6.2"
+version       = "0.7.0"
 author        = "Clonkk"
 description   = "Bindings for the C++ Standard Template Library (STL)"
 license       = "MIT"
@@ -8,7 +8,7 @@ license       = "MIT"
 
 # Dependencies
 
-requires "nim >= 1.0.0"
+requires "nim >= 2.0.0"
 
 backend = "cpp"
 
