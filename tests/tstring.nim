@@ -58,7 +58,8 @@ proc main() =
       let oldCap = s.capacity
       s.reserve(2*oldCap)
 
-      check s.capacity == 2*oldCap
+      #Capacity should be at least the reserved space
+      check s.capacity >= 2*oldCap
 
       s.clear
 
