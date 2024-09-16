@@ -3,7 +3,7 @@ import unittest
 import complex
 import cppstl/std_complex
 
-proc main() = 
+proc main() =
   suite "CppComplex":
     test "constructors":
       var a = initCppComplex[float32](41.0, 31.0)
@@ -18,8 +18,8 @@ proc main() =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa+refb
-          res = a+b
+          refres = refa + refb
+          res = a + b
         check res == toCppComplex(refres)
       block:
         var
@@ -27,8 +27,8 @@ proc main() =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa-refb
-          res = a-b
+          refres = refa - refb
+          res = a - b
         check res == toCppComplex(refres)
       block:
         var
@@ -36,8 +36,8 @@ proc main() =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa*refb
-          res = a*b
+          refres = refa * refb
+          res = a * b
         check res == toCppComplex(refres)
       block:
         var
@@ -45,8 +45,8 @@ proc main() =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa/refb
-          res = a/b
+          refres = refa / refb
+          res = a / b
         check res == toCppComplex(refres)
 
     test "abs":

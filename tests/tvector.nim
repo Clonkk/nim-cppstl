@@ -23,7 +23,7 @@ proc main() =
         check v[2] == 0
 
       block:
-        var  v = initCppVector[int](3, 1)
+        var v = initCppVector[int](3, 1)
         check v.size() == 3
         check v[0] == 1
         check v[1] == 1
@@ -39,14 +39,14 @@ proc main() =
       check v[1] == 2
       check v[2] == 3
 
-      block: 
+      block:
         var v2 = initCppVector(v)
         check v.size() == v2.size()
         check v[0] == v2[0]
         check v[1] == v2[1]
         check v[2] == v2[2]
 
-      block: 
+      block:
         var v2 = initCppVector(begin(v), `end`(v))
 
         check v.size == v2.size
@@ -55,7 +55,7 @@ proc main() =
         check v[2] == v2[2]
         check v == v2
 
-      block: 
+      block:
         var v2 = initCppVector(rBegin(v), rEnd(v))
 
         check v.size == v2.size
@@ -64,7 +64,7 @@ proc main() =
         check v[2] == v2[0]
         check v != v2
 
-      block: 
+      block:
         var v2 = initCppVector(cBegin(v), cEnd(v))
 
         check v.size == v2.size
@@ -73,7 +73,7 @@ proc main() =
         check v[2] == v2[2]
         check v == v2
 
-      block: 
+      block:
         var v2 = initCppVector(crBegin(v), crEnd(v))
 
         check v.size == v2.size
@@ -92,14 +92,14 @@ proc main() =
 
       let oldCap = v.capacity
       let oldSz = v.size
-      v.reserve(2*oldCap)
+      v.reserve(2 * oldCap)
 
       check oldCap < v.capacity
       check oldSz == v.size
 
-      v.resize(oldSz+1)
+      v.resize(oldSz + 1)
 
-      check oldSz+1 == v.size
+      check oldSz + 1 == v.size
 
       v.shrinkToFit()
 
@@ -128,7 +128,7 @@ proc main() =
           discard v.at(4)
 
       v = initCppVector[int](5)
-      for i in 0..<v.size:
+      for i in 0 ..< v.size:
         v[i] = i.int
 
       check v.front == 0
@@ -144,7 +144,7 @@ proc main() =
       var pdata = v.data
 
       check pdata[] == 10
-      check cast[ptr int](cast[int](pdata)+1*sizeof(int))[] == 11
+      check cast[ptr int](cast[int](pdata) + 1 * sizeof(int))[] == 11
 
     test "push/add, pop, front/first, back/last":
       var
@@ -179,22 +179,22 @@ proc main() =
 
     test "modifiers":
       var v = initCppVector[int]()
-      for i in 0..<3:
+      for i in 0 ..< 3:
         v.pushBack i
 
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v[i] == i
 
       v.popBack()
 
       check v.size == 2
-      for i in 0..<v.size:
+      for i in 0 ..< v.size:
         check v[i] == i.int
 
       discard v.insert(v.`end`, 2)
 
       check v.size == 3
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v[i] == i.int
 
       v.popBack()
@@ -202,7 +202,7 @@ proc main() =
       discard v.insert(v.cEnd, 2)
 
       check v.size == 3
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v[i] == i
 
       discard v.insert(v.begin, 100)
@@ -218,26 +218,26 @@ proc main() =
       discard v.insert(v.begin(), 3, 1)
 
       check v.size == 8
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v[i] == 1
 
       discard v.insert(v.`end`(), v.begin(), v.`end`())
 
       check v.size == 16
-      for i in 0..<8:
-        check v[i] == v[i+8]
+      for i in 0 ..< 8:
+        check v[i] == v[i + 8]
 
-      discard v.erase(v.begin()+8, v.`end`())
+      discard v.erase(v.begin() + 8, v.`end`())
 
       check v.size == 8
 
-      discard v.erase(v.begin()+2, v.`end`())
+      discard v.erase(v.begin() + 2, v.`end`())
 
       check v.size == 2
 
       v[0] = 1
       v[1] = 2
-      discard v.erase(v.begin()+1)
+      discard v.erase(v.begin() + 1)
 
       check v.size == 1
       check v[0] == 1
@@ -251,13 +251,13 @@ proc main() =
       v = initCppVector[int](3, 1)
       var v1 = initCppVector[int](3, 2)
 
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v[i] == 1
         check v1[i] == 2
 
       v.swap v1
 
-      for i in 0..<3:
+      for i in 0 ..< 3:
         check v1[i] == 1
         check v[i] == 2
 
@@ -279,19 +279,16 @@ proc main() =
       check not (foo >= bar)
       check foo <= bar
 
-      let
-        v1 = @[1, 2, 3].toCppVector()
+      let v1 = @[1, 2, 3].toCppVector()
 
       block: # ==, <=, >=
-        let
-          v2 = v1
+        let v2 = v1
         check v1 == v2
         check v1 <= v2
         check v1 >= v2
 
       block: # >, >=
-        let
-          v2 = @[1, 2, 4].toCppVector()
+        let v2 = @[1, 2, 4].toCppVector()
         check v2 > v1
         check v2 >= v1
 
@@ -303,8 +300,7 @@ proc main() =
         check v2 > v3
 
       block: # <, <=
-        let
-          v2 = @[1, 2, 4].toCppVector()
+        let v2 = @[1, 2, 4].toCppVector()
         check v1 < v2
         check v1 <= v2
 
@@ -359,10 +355,8 @@ proc main() =
       check v.toSeq() == s
 
     test "converting from an immutable sequence":
-      let
-        s = @[1.1, 2.2, 3.3, 4.4, 5.5]
-      var
-        v: CppVector[float]
+      let s = @[1.1, 2.2, 3.3, 4.4, 5.5]
+      var v: CppVector[float]
 
       v = s.toCppVector()
       check v.toSeq() == s
@@ -376,8 +370,7 @@ proc main() =
       check v.toSeq() == s
 
     test "assign":
-      var
-        v: CppVector[char]
+      var v: CppVector[char]
 
       check v.len() == 0
 
@@ -388,16 +381,14 @@ proc main() =
       check v.toSeq() == @['a', 'a']
 
     test "set an element value `[]=`":
-      var
-        v = initCppVector[int](5)
+      var v = initCppVector[int](5)
 
       v[1] = 100
       v[3] = 300
       check v.toSeq() == @[0, 100, 0, 300, 0]
 
     test "(c)begin, (c)end, insert":
-      var
-        v = @[1, 2, 3].toCppVector()
+      var v = @[1, 2, 3].toCppVector()
 
       # insert elem at the beginning
       discard v.insert(v.cBegin(), 9)
@@ -430,21 +421,19 @@ proc main() =
       check v == @[1, 2, 3, 1, 2, 3].toCppVector()
 
       # Below is a long-winded way to copy one CppVector to another.
-      var
-        v2: CppVector[int]
+      var v2: CppVector[int]
       discard v2.insert(v2.cEnd(), v.cBegin(), v.cEnd())
       check v2 == v
 
     test "iterator arithmetic":
-      var
-        v = @[1, 2, 3].toCppVector()
+      var v = @[1, 2, 3].toCppVector()
 
       # Insert elem after the first element.
-      discard v.insert(v.cBegin()+1, 9)
+      discard v.insert(v.cBegin() + 1, 9)
       check v == @[1, 9, 2, 3].toCppVector()
 
       # Insert elem before the last element.
-      discard v.insert(v.cEnd()-1, 9)
+      discard v.insert(v.cEnd() - 1, 9)
       check v == @[1, 9, 2, 9, 3].toCppVector()
 
     test "swap two vectors":

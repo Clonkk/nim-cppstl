@@ -38,8 +38,7 @@ proc insert*(self: var CppString, pos: csize_t, s: cstring, n: csize_t) {.import
 proc replace*(self: var CppString, pos, l: csize_t, s: cstring) {.importcpp: "replace".}
 proc replace*(self: var CppString, i1, i2: CppStrConstIterator, s: cstring) {.importcpp: "replace".}
 proc replace*(self: var CppString, pos, l: csize_t, s: cstring, n: csize_t) {.importcpp: "replace".}
-proc replace*(self: var CppString, i1, i2: CppStrConstIterator, s: cstring, n: csize_t) {.
-    importcpp: "replace".}
+proc replace*(self: var CppString, i1, i2: CppStrConstIterator, s: cstring, n: csize_t) {.importcpp: "replace".}
 
 # CppString operations
 # Avoid const char* vs char* issues
@@ -73,48 +72,54 @@ converter CppStrIteratorToStrConstIterator*(s: CppStrIterator): CppStrConstItera
 
 {.pop.}
 
-
 {.push inline.}
 
 proc initCppString*(s: string): CppString =
   initCppString(s.cstring)
 
-proc `+`*(a: CppString, b: string|cstring): CppString =
+proc `+`*(a: CppString, b: string | cstring): CppString =
   result = (a + initCppString(b))
-proc `+`*(a: string|cstring, b: CppString): CppString =
+
+proc `+`*(a: string | cstring, b: CppString): CppString =
   let a = initCppString(a)
   result = (a + b)
 
-proc `==`*(a: CppString, b: string|cstring): bool =
+proc `==`*(a: CppString, b: string | cstring): bool =
   let b = initCppString(b)
   result = (a == b)
-proc `==`*(a: string|cstring, b: CppString): bool =
+
+proc `==`*(a: string | cstring, b: CppString): bool =
   let a = initCppString(a)
   result = (a == b)
 
-proc `!=`*(a: CppString, b: string|cstring): bool =
+proc `!=`*(a: CppString, b: string | cstring): bool =
   result = (a != initCppString(b))
-proc `!=`*(a: string|cstring, b: CppString): bool =
+
+proc `!=`*(a: string | cstring, b: CppString): bool =
   result = (initCppString(a) != b)
 
-proc `<`*(a: CppString, b: string|cstring): bool =
+proc `<`*(a: CppString, b: string | cstring): bool =
   result = (a < initCppString(b))
-proc `<`*(a: string|cstring, b: CppString): bool =
+
+proc `<`*(a: string | cstring, b: CppString): bool =
   result = (initCppString(a) < b)
 
-proc `<=`*(a: CppString, b: string|cstring): bool =
+proc `<=`*(a: CppString, b: string | cstring): bool =
   result = (a <= initCppString(b))
-proc `<=`*(a: string|cstring, b: CppString): bool =
+
+proc `<=`*(a: string | cstring, b: CppString): bool =
   result = (initCppString(a) <= b)
 
-proc `>`*(a: CppString, b: string|cstring): bool =
+proc `>`*(a: CppString, b: string | cstring): bool =
   result = (a > initCppString(b))
-proc `>`*(a: string|cstring, b: CppString): bool =
+
+proc `>`*(a: string | cstring, b: CppString): bool =
   result = (initCppString(a) > b)
 
-proc `>=`*(a: CppString, b: string|cstring): bool =
+proc `>=`*(a: CppString, b: string | cstring): bool =
   result = (a >= initCppString(b))
-proc `>=`*(a: string|cstring, b: CppString): bool =
+
+proc `>=`*(a: string | cstring, b: CppString): bool =
   result = (initCppString(a) >= b)
 
 {.pop.}
@@ -124,7 +129,8 @@ proc `>=`*(a: string|cstring, b: CppString): bool =
 proc toCppString*(s: string): CppString {.inline.} =
   initCppString(cstring(s), len(s).csize_t)
 
-proc toString*(s: CppString): string = $(s.cStr())
+proc toString*(s: CppString): string =
+  $(s.cStr())
 
 # Display CppString
 proc `$`*(s: CppString): string {.noinit.} =

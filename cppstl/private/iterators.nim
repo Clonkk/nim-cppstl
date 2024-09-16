@@ -4,11 +4,10 @@ type
   CppIterator*[ValueType] {.importc.} = object
   CppConstIterator*[ValueType] {.importc.} = object
 
-type
-  SomeCppIterator = CppIterator or CppConstIterator
+type SomeCppIterator = CppIterator or CppConstIterator
 
-proc `+`*[I: SomeCppIterator](it: I, offset: int): I {.importcpp: "# + #"}
-proc `-`*[I: SomeCppIterator](it: I, offset: int): I {.importcpp: "# - #"}
+proc `+`*[I: SomeCppIterator](it: I, offset: int): I {.importcpp: "# + #".}
+proc `-`*[I: SomeCppIterator](it: I, offset: int): I {.importcpp: "# - #".}
 
 proc inc*(it: SomeCppIterator) {.importcpp: "(void)(++#)".}
 proc inc*(it: SomeCppIterator, offset: int) {.importcpp: "(void)(# += #)".}

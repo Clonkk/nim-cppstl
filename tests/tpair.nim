@@ -3,7 +3,7 @@ import std/unittest
 import cppstl/std_string
 import cppstl/std_pair
 
-proc main() = 
+proc main() =
   suite "CppPair":
     test "constructors and field access":
       block:
@@ -86,7 +86,6 @@ proc main() =
         check p4 > p1
         check not (p4 <= p1)
 
-
     test "other non-member functions":
       block:
         var p = initCppPair(initCppString("hello"), 42.cint)
@@ -109,10 +108,10 @@ proc main() =
       check $p == "CppPair(first: hello, second: 42)"
 
     test "toTuple and back":
-      let 
+      let
         f = "Hello world"
         s = 144
-      var pair : CppPair[string,int] = makePair(f, s)
+      var pair: CppPair[string, int] = makePair(f, s)
       var tup = pair.toTuple()
       check tup == (first: f, second: s)
       check makePair(tup) == pair

@@ -21,12 +21,29 @@ const stdNpos*: csize_t = high(typedesc[csize_t])
 
 # Constructor
 proc initCppBasicString*[T](): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>()".}
-proc initCppBasicString*[T](str: CppBasicString[T]): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
-proc initCppBasicString*[T](str: CppBasicString[T], pos: csize_t): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
-proc initCppBasicString*[T](str: CppBasicString[T], pos, len: csize_t): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
-proc initCppBasicString*[T](s: ptr UncheckedArray[T]): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
-proc initCppBasicString*[T](s: ptr UncheckedArray[T], n: csize_t): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
-proc initCppBasicString*[T](first, last: CppBasicStringConstIterator): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+proc initCppBasicString*[T](
+  str: CppBasicString[T]
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+
+proc initCppBasicString*[T](
+  str: CppBasicString[T], pos: csize_t
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+
+proc initCppBasicString*[T](
+  str: CppBasicString[T], pos, len: csize_t
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+
+proc initCppBasicString*[T](
+  s: ptr UncheckedArray[T]
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+
+proc initCppBasicString*[T](
+  s: ptr UncheckedArray[T], n: csize_t
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
+
+proc initCppBasicString*[T](
+  first, last: CppBasicStringConstIterator
+): CppBasicString[T] {.constructor, importcpp: "std::basic_string<'*0>(@)".}
 
 # Iterators
 proc begin*[T](x: CppBasicString[T]): CppBasicStringIterator[T] {.importcpp: "begin".}
@@ -88,15 +105,21 @@ proc assign*[T](self: var CppBasicString[T], n: csize_t, c: T) {.importcpp: "ass
 proc assign*[T](self: var CppBasicString[T], first, last: CppBasicStringConstIterator[T]) {.importcpp: "assign".}
 
 proc insert*[T](self: var CppBasicString[T], pos: csize_t, str: CppBasicString[T]) {.importcpp: "insert".}
-proc insert*[T](self: var CppBasicString[T], pos: csize_t, str: CppBasicString[T], subpos, sublen: csize_t) {.
-    importcpp: "insert".}
+proc insert*[T](
+  self: var CppBasicString[T], pos: csize_t, str: CppBasicString[T], subpos, sublen: csize_t
+) {.importcpp: "insert".}
+
 proc insert*[T](self: var CppBasicString[T], pos: csize_t, s: ptr UncheckedArray[T]) {.importcpp: "insert".}
 proc insert*[T](self: var CppBasicString[T], pos: csize_t, s: ptr UncheckedArray[T], n: csize_t) {.importcpp: "insert".}
 proc insert*[T](self: var CppBasicString[T], p, n: csize_t, c: T) {.importcpp: "insert".}
-proc insert*[T](self: var CppBasicString[T], p: CppBasicStringConstIterator[T], n: csize_t, c: T) {.importcpp: "insert".}
+proc insert*[T](
+  self: var CppBasicString[T], p: CppBasicStringConstIterator[T], n: csize_t, c: T
+) {.importcpp: "insert".}
+
 proc insert*[T](self: var CppBasicString[T], p: CppBasicStringConstIterator[T], c: T) {.importcpp: "insert".}
-proc insert*[T](self: var CppBasicString[T], p: CppBasicStringIterator[T], first, last: CppBasicStringConstIterator[T]) {.
-    importcpp: "insert".}
+proc insert*[T](
+  self: var CppBasicString[T], p: CppBasicStringIterator[T], first, last: CppBasicStringConstIterator[T]
+) {.importcpp: "insert".}
 
 proc erase*[T](self: var CppBasicString[T]) {.importcpp: "erase".}
 proc erase*[T](self: var CppBasicString[T], pos: csize_t, l: csize_t = std_npos) {.importcpp: "erase".}
@@ -104,19 +127,35 @@ proc erase*[T](self: var CppBasicString[T], pos: CppBasicStringIterator[T]) {.im
 proc erase*[T](self: var CppBasicString[T], first, last: CppBasicStringIterator[T]) {.importcpp: "erase".}
 
 proc replace*[T](self: var CppBasicString[T], pos, l: csize_t, str: CppBasicString[T]) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], str: CppBasicString[T]) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], pos, l: csize_t, str: CppBasicString[T], subpos, subl: csize_t) {.
-    importcpp: "replace".}
+proc replace*[T](
+  self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], str: CppBasicString[T]
+) {.importcpp: "replace".}
+
+proc replace*[T](
+  self: var CppBasicString[T], pos, l: csize_t, str: CppBasicString[T], subpos, subl: csize_t
+) {.importcpp: "replace".}
+
 proc replace*[T](self: var CppBasicString[T], pos, l: csize_t, s: ptr UncheckedArray[T]) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], s: ptr UncheckedArray[T]) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], pos, l: csize_t, s: ptr UncheckedArray[T], n: csize_t) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], s: ptr UncheckedArray[T], n: csize_t) {.
-    importcpp: "replace".}
+proc replace*[T](
+  self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], s: ptr UncheckedArray[T]
+) {.importcpp: "replace".}
+
+proc replace*[T](
+  self: var CppBasicString[T], pos, l: csize_t, s: ptr UncheckedArray[T], n: csize_t
+) {.importcpp: "replace".}
+
+proc replace*[T](
+  self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], s: ptr UncheckedArray[T], n: csize_t
+) {.importcpp: "replace".}
+
 proc replace*[T](self: var CppBasicString[T], pos, l: csize_t, n: csize_t, c: T) {.importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], n: csize_t, c: T) {.
-    importcpp: "replace".}
-proc replace*[T](self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], first, last: CppBasicStringConstIterator[T]) {.
-    importcpp: "replace".}
+proc replace*[T](
+  self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], n: csize_t, c: T
+) {.importcpp: "replace".}
+
+proc replace*[T](
+  self: var CppBasicString[T], i1, i2: CppBasicStringConstIterator[T], first, last: CppBasicStringConstIterator[T]
+) {.importcpp: "replace".}
 
 proc swap*[T](self: var CppBasicString[T], x: var CppBasicString[T]) {.importcpp: "swap".}
 
@@ -137,43 +176,85 @@ proc find*[T](self: CppBasicString[T], c: T, pos: csize_t = 0): csize_t {.import
 
 proc rfind*[T](self, str: CppBasicString[T], pos: csize_t = std_npos): csize_t {.importcpp: "rfind".}
 proc rfind*[T](self: CppBasicString[T], s: CppBasicString[T], pos, n: csize_t): csize_t {.importcpp: "rfind".}
-proc rfind*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos): csize_t {.importcpp: "rfind".}
+proc rfind*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos
+): csize_t {.importcpp: "rfind".}
+
 proc rfind*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t): csize_t {.importcpp: "rfind".}
 proc rfind*[T](self: CppBasicString[T], c: T, pos: csize_t = std_npos): csize_t {.importcpp: "rfind".}
 
 proc findFirstOf*[T](self, str: CppBasicString[T], pos: csize_t = 0): csize_t {.importcpp: "find_first_of".}
 proc findFirstOf*[T](self, str: CppBasicString[T], pos, n: csize_t): csize_t {.importcpp: "find_first_of".}
-proc findFirstOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = 0): csize_t {.importcpp: "find_first_of".}
-proc findFirstOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t): csize_t {.importcpp: "find_first_of".}
+proc findFirstOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = 0
+): csize_t {.importcpp: "find_first_of".}
+
+proc findFirstOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t
+): csize_t {.importcpp: "find_first_of".}
+
 proc findFirstOf*[T](self: CppBasicString[T], c: T, pos: csize_t = 0): csize_t {.importcpp: "find_first_of".}
 
 proc findLastOf*[T](self, str: CppBasicString[T], pos: csize_t = std_npos): csize_t {.importcpp: "find_last_of".}
-proc findLastOf*[T](self: CppBasicString[T], s: CppBasicString[T], pos, n: csize_t): csize_t {.importcpp: "find_last_of".}
-proc findLastOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos): csize_t {.importcpp: "find_last_of".}
-proc findLastOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t): csize_t {.importcpp: "find_last_of".}
+proc findLastOf*[T](
+  self: CppBasicString[T], s: CppBasicString[T], pos, n: csize_t
+): csize_t {.importcpp: "find_last_of".}
+
+proc findLastOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos
+): csize_t {.importcpp: "find_last_of".}
+
+proc findLastOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t
+): csize_t {.importcpp: "find_last_of".}
+
 proc findLastOf*[T](self: CppBasicString[T], c: T, pos: csize_t = std_npos): csize_t {.importcpp: "find_last_of".}
 
 proc findFirstNotOf*[T](self, str: CppBasicString[T], pos: csize_t = 0): csize_t {.importcpp: "find_first_not_of".}
 proc findFirstNotOf*[T](self, str: CppBasicString[T], pos, n: csize_t): csize_t {.importcpp: "find_first_not_of".}
-proc findFirstNotOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = 0): csize_t {.importcpp: "find_first_not_of".}
-proc findFirstNotOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t): csize_t {.importcpp: "find_first_not_of".}
+proc findFirstNotOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = 0
+): csize_t {.importcpp: "find_first_not_of".}
+
+proc findFirstNotOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t
+): csize_t {.importcpp: "find_first_not_of".}
+
 proc findFirstNotOf*[T](self: CppBasicString[T], c: T, pos: csize_t = 0): csize_t {.importcpp: "find_first_not_of".}
 
 proc findLastNotOf*[T](self, str: CppBasicString[T], pos: csize_t = std_npos): csize_t {.importcpp: "find_last_not_of".}
 proc findLastNotOf*[T](self, str: CppBasicString[T], pos, n: csize_t): csize_t {.importcpp: "find_last_not_of".}
-proc findLastNotOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos): csize_t {.importcpp: "find_last_not_of".}
-proc findLastNotOf*[T](self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t): csize_t {.importcpp: "find_last_not_of".}
-proc findLastNotOf*[T](self: CppBasicString[T], c: T, pos: csize_t = std_npos): csize_t {.importcpp: "find_last_not_of".}
+proc findLastNotOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos: csize_t = std_npos
+): csize_t {.importcpp: "find_last_not_of".}
 
-proc substr*[T](self: CppBasicString[T], pos: csize_t = 0, l: csize_t = std_npos): CppBasicString[T] {.importcpp: "substr".}
+proc findLastNotOf*[T](
+  self: CppBasicString[T], s: ptr UncheckedArray[T], pos, n: csize_t
+): csize_t {.importcpp: "find_last_not_of".}
+
+proc findLastNotOf*[T](
+  self: CppBasicString[T], c: T, pos: csize_t = std_npos
+): csize_t {.importcpp: "find_last_not_of".}
+
+proc substr*[T](
+  self: CppBasicString[T], pos: csize_t = 0, l: csize_t = std_npos
+): CppBasicString[T] {.importcpp: "substr".}
 
 proc compare*[T](self, str: CppBasicString[T]): cint {.importcpp: "compare".}
 proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: CppBasicString[T]): cint {.importcpp: "compare".}
-proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: CppBasicString[T], subpos, subl: csize_t): cint {.importcpp: "compare".}
+proc compare*[T](
+  self: CppBasicString[T], pos, l: csize_t, str: CppBasicString[T], subpos, subl: csize_t
+): cint {.importcpp: "compare".}
+
 proc compare*[T](self: CppBasicString[T], s: ptr UncheckedArray[T]): cint {.importcpp: "compare".}
 proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArray[T]): cint {.importcpp: "compare".}
-proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArray[T], n: csize_t): cint {.importcpp: "compare".}
-proc compare*[T](self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArray[T], subpos, subl: csize_t): cint {.importcpp: "compare".}
+proc compare*[T](
+  self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArray[T], n: csize_t
+): cint {.importcpp: "compare".}
+
+proc compare*[T](
+  self: CppBasicString[T], pos, l: csize_t, str: ptr UncheckedArray[T], subpos, subl: csize_t
+): cint {.importcpp: "compare".}
 
 # Non-member function overloads
 
@@ -189,15 +270,17 @@ proc `>`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# 
 proc `>=`*[T](a: CppBasicString[T], b: CppBasicString[T]): bool {.importcpp: "(# >= #)".}
 
 # Converter: CppBasicStringIterator[T] -> CppBasicStringConstIterator[T]
-converter CppBasicStringIteratorToBasicStringConstIterator*[T](s: CppBasicStringIterator[T]): CppBasicStringConstIterator[T] {.importcpp: "#".}
+converter CppBasicStringIteratorToBasicStringConstIterator*[T](
+  s: CppBasicStringIterator[T]
+): CppBasicStringConstIterator[T] {.importcpp: "#".}
 
 {.pop.}
-
 
 {.push inline.}
 
 proc `+`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): CppBasicString[T] =
   result = (a + initCppBasicString(b))
+
 proc `+`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): CppBasicString[T] =
   let a = initCppBasicString(a)
   result = (a + b)
@@ -205,32 +288,38 @@ proc `+`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): CppBasicString[T] 
 proc `==`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   let b = initCppBasicString(b)
   result = (a == b)
+
 proc `==`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   let a = initCppBasicString(a)
   result = (a == b)
 
 proc `!=`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   result = (a != initCppBasicString(b))
+
 proc `!=`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   result = (initCppBasicString(a) != b)
 
 proc `<`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   result = (a < initCppBasicString(b))
+
 proc `<`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   result = (initCppBasicString(a) < b)
 
 proc `<=`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   result = (a <= initCppBasicString(b))
+
 proc `<=`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   result = (initCppBasicString(a) <= b)
 
 proc `>`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   result = (a > initCppBasicString(b))
+
 proc `>`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   result = (initCppBasicString(a) > b)
 
 proc `>=`*[T](a: CppBasicString[T], b: ptr UncheckedArray[T]): bool =
   result = (a >= initCppBasicString(b))
+
 proc `>=`*[T](a: ptr UncheckedArray[T], b: CppBasicString[T]): bool =
   result = (initCppBasicString(a) >= b)
 
@@ -241,20 +330,23 @@ proc checkIndex[T](self: CppBasicString[T], i: csize_t) =
 proc `[]`*[T](self: CppBasicString[T], idx: Natural): T =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
-  when compileOption("boundChecks"): self.checkIndex(i)
+  when compileOption("boundChecks"):
+    self.checkIndex(i)
   (unsafeAddr self.unsafeIndex(i))[]
 
 proc `[]`*[T](self: var CppBasicString[T], idx: Natural): var T =
   let i = csize_t(idx)
   # If you add a mechanism exception to operator `[]`  it simply becomes at so might as well use at directly
-  when compileOption("boundChecks"): self.checkIndex(i)
+  when compileOption("boundChecks"):
+    self.checkIndex(i)
   # TODO : find Nim bugs # associated
   # This strange syntax is to avoid a bug in the Nim c++ code generator
   (unsafeAddr self.unsafeIndex(i))[]
 
 proc `[]=`*[T](self: var CppBasicString[T], idx: Natural, val: T) =
   let i = csize_t(idx)
-  when compileOption("boundChecks"): self.checkIndex(i)
+  when compileOption("boundChecks"):
+    self.checkIndex(i)
   self.unsafeIndex(i) = val
 
 {.pop.}
@@ -265,7 +357,7 @@ proc len*[T](v: CppBasicString[T]): csize_t {.inline.} =
   ## Alias for `size proc <#size%2CCppBasicString[T]>`_.
   v.size()
 
-proc add*[T](v: var CppBasicString[T]; elem: T) {.inline.} =
+proc add*[T](v: var CppBasicString[T], elem: T) {.inline.} =
   ## Alias for `pushBack proc <#pushBack%2CCppBasicString[T][T]%2CT>`_.
   v.pushBack(elem)
 

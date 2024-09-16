@@ -12,7 +12,7 @@ type Foo = object
 proc `=destroy`*(a: Foo) =
   echo ("=destroy", a.x)
 
-proc main =
+proc main() =
   var v = initCppVector[Foo]()
 
   # Should be empty
@@ -33,5 +33,3 @@ proc main =
 
 when isMainModule:
   main()
-
-

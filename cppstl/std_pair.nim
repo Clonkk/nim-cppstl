@@ -4,11 +4,10 @@ import std/strformat
 when not defined(cpp):
   {.error: "C++ backend required to use STL wrapper".}
 
-{.push header:"<utility>".}
+{.push header: "<utility>".}
 # https://cplusplus.com/reference/utility/pair/
 
-type
-  CppPair*[F,S] {.importcpp:"std::pair <'0,'1>"} = object
+type CppPair*[F, S] {.importcpp: "std::pair <'0,'1>".} = object
 
 # procs
 proc first*[T1, T2](this: CppPair[T1, T2]): T1 {.importcpp: "#.first".}
@@ -28,7 +27,7 @@ proc swap*[T1, T2](this, other: var CppPair[T1, T2]) {.importcpp: "#.swap(@)".}
 
 # Non-member functions
 # https://en.cppreference.com/w/cpp/utility/pair/make_pair
-proc makePair*[F,S](a:F; b:S):CppPair[F,S] {.importcpp:"std::make_pair(@)" .}
+proc makePair*[F, S](a: F, b: S): CppPair[F, S] {.importcpp: "std::make_pair(@)".}
 
 proc getImpl[T1, T2](p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<'0>(@)".}
 proc getImpl[T1, T2](n: int, p: CppPair[T1, T2], T: typedesc[T1 or T2]): T {.importcpp: "std::get<#>(@)".}
@@ -71,6 +70,7 @@ proc `<`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool =
     return true
   else:
     return false
+
 #
 proc `<=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool =
   ## 4) !(rhs < lhs)
@@ -90,8 +90,6 @@ proc `>=`*[T1, T2](lhs, rhs: CppPair[T1, T2]): bool =
   else:
     result = true
 
-
-
 #-----------
 # Some sugar
 #-----------
@@ -110,15 +108,15 @@ proc get*[T1, T2](n: static int, p: CppPair[T1, T2]): auto =
     {.error: "index in pair must be 0 or 1".}
   getImpl(n, p, ResultType)
 
-proc `$`*[F,S](val:CppPair[F,S]):string =
+proc `$`*[F, S](val: CppPair[F, S]): string =
   # provides stdout for CppPair
   &"CppPair(first: {val.first}, second: {val.second})"
 
-proc toTuple*[F,S](val:CppPair[F,S]):tuple[first:F, second:S] =
+proc toTuple*[F, S](val: CppPair[F, S]): tuple[first: F, second: S] =
   ## converts a CppPair into a Nim's tuple
   (val.first, val.second)
 
-proc makePair*[F, S](t: tuple[first: F, second: S]) : CppPair[F, S] = 
+proc makePair*[F, S](t: tuple[first: F, second: S]): CppPair[F, S] =
   result = initCppPair[F, S]()
   result.first = t.first
   result.second = t.second
