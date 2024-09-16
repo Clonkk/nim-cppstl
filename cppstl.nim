@@ -11,6 +11,11 @@ export std_complex
 import cppstl/std_pair
 export std_pair
 
+when not defined(cpp):
+  {.error: "C++ backend required to use STL wrapper".}
+# std=c++11 at least needed
+# {.passC: "-std=c++11".}
+
 ## Nim wrapper for C++ STL :
 ##   * ``std::vector`` mapped to ``CppVector``
 ##   * ``std::basic_string`` mapped to ``CppBasicString``
@@ -34,24 +39,10 @@ runnableExamples:
 
 runnableExamples:
   import cppstl
-  import math
-  var vec = initCppVector[float64]()
-  for i in 0..<5:
-    vec.push_back(sqrt(i.float64))
-  assert vec[0] == sqrt 0.0
-  assert vec[1] == sqrt 1.0
-  assert vec[2] == sqrt 2.0
-  assert vec[3] == sqrt 3.0
-
-runnableExamples:
-  import cppstl
   import complex
   var z = initCppComplex[float32](41.0, 31.0)
   var conj_z = z.conj()
   assert conj_z.real == z.real
   assert conj_z.imag == -z.imag
 
-when not defined(cpp):
-  {.error: "C++ backend required to use STL wrapper".}
-# std=c++11 at least needed
-# {.passC: "-std=c++11".}
+
