@@ -8,6 +8,7 @@ permissions:
   id-token: write
   pages: write
 
+ 
 jobs:
   # Build job
   build:
@@ -30,13 +31,11 @@ jobs:
         run: nimble gendoc -y
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs/'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
+        uses: actions/deploy-pages@v4
 
