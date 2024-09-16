@@ -1,7 +1,7 @@
 # Nim bindings for the C++ STL
 
 ![workflow](https://github.com/Clonkk/nim-cppstl/actions/workflows/ci.yml/badge.svg)
-![workflow](https://github.com/Clonkk/nim-cppstl/actions/workflows/docs.yml/badge.svg)
+![workflow](https://github.com/Clonkk/nim-cppstl/actions/workflows/doctest.yml/badge.svg)
 
 ## Introduction
 
