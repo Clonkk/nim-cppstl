@@ -246,7 +246,7 @@ proc erase*[T](self: var CppVector[T], first, last: CppVectorConstIterator[T]): 
 proc clear*[T](self: var CppVector[T]) {.importcpp: "clear".}
 
 # Relational operators
-proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# == #".} =
+proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# == #)".} =
   ## Return `true` if the contents of lhs and rhs are equal, that is,
   ## they have the same number of elements and each element in lhs compares
   ## equal with the element in rhs at the same position.
@@ -258,7 +258,7 @@ proc `==`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# == #".} =
       v2 = v1
     doAssert v1 == v2
 
-proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# != #".} =
+proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# != #)".} =
   ## Return `true` if the contents of lhs and rhs are not equal, that is,
   ## either they do not have the same number of elements, or one of the elements
   ## in lhs does not compare equal with the element in rhs at the same position.
@@ -276,7 +276,7 @@ proc `!=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# != #".} =
     v3[0] = 100
     doAssert v3 != v1
 
-proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# < #".} =
+proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# < #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## less than `b`.
   ##
@@ -294,7 +294,7 @@ proc `<`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# < #".} =
     v2[2] = 0
     doAssert v2 < v1
 
-proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# <= #".} =
+proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# <= #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## less than or equal to `b`.
   ##
@@ -312,7 +312,7 @@ proc `<=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# <= #".} =
     v2[2] = 0
     doAssert v2 <= v1
 
-proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# > #".} =
+proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# > #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## greater than `b`.
   ##
@@ -330,7 +330,7 @@ proc `>`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# > #".} =
     v2[2] = 0
     doAssert v1 > v2
 
-proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "# >= #".} =
+proc `>=`*[T](a: CppVector[T], b: CppVector[T]): bool {.importcpp: "(# >= #)".} =
   ## Return `true` if `a` is `lexicographically <https://en.cppreference.com/w/cpp/algorithm/lexicographical_compare>`_
   ## greater than or equal to `b`.
   ##
