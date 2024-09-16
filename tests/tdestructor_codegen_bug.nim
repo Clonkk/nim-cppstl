@@ -1,10 +1,9 @@
 # without the definiton of the `=destroy` hook this gives a code gen error
 import cppstl/std_smartptrs
 
-type
-  Obj = object
-    id: string
-    isDestroyed: bool
+type Obj = object
+  id: string
+  isDestroyed: bool
 
 type
   SharedPtrObj = CppSharedPtr[Obj]
@@ -22,7 +21,7 @@ proc init*(T: type SharedPtrObj, id: string): SharedPtrObj =
   result.id = id
   result.isDestroyed = false
 
-proc init*(T: type UniquePtrObj, id: string): UniquePtrObj=
+proc init*(T: type UniquePtrObj, id: string): UniquePtrObj =
   result = make_unique(Obj)
   result.id = id
   result.isDestroyed = false
@@ -44,7 +43,7 @@ proc main() =
   # echo o
   echo o.id
 
-
   echo "END"
 
-main()
+when isMainModule:
+  main()

@@ -3,7 +3,8 @@ import unittest
 import complex
 import cppstl/std_complex
 
-proc test = 
+
+proc main() =
   suite "CppComplex":
     test "constructors":
       var a = initCppComplex[float32](41.0, 31.0)
@@ -18,8 +19,9 @@ proc test =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa+refb
-          res = a+b
+          refres = refa + refb
+          res = a + b
+
         check res == toCppComplex(refres)
       block:
         var
@@ -27,8 +29,8 @@ proc test =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa-refb
-          res = a-b
+          refres = refa - refb
+          res = a - b
         check res == toCppComplex(refres)
       block:
         var
@@ -36,8 +38,8 @@ proc test =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa*refb
-          res = a*b
+          refres = refa * refb
+          res = a * b
         check res == toCppComplex(refres)
       block:
         var
@@ -45,8 +47,8 @@ proc test =
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
-          refres = refa/refb
-          res = a/b
+          refres = refa / refb
+          res = a / b
         check res == toCppComplex(refres)
 
     test "abs":
@@ -85,4 +87,6 @@ proc test =
       var a = initCppComplex[float64](141.571, 124.412)
       check `$`(a) == "(141.571, 124.412)"
 
-test()
+when isMainModule:
+  main()
+

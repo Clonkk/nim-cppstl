@@ -1,9 +1,9 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
 import std/unittest
-import cppstl/std_pair
 import cppstl/std_string
+import cppstl/std_pair
 
-proc test = 
+proc main() =
   suite "CppPair":
     test "constructors and field access":
       block:
@@ -12,31 +12,38 @@ proc test =
         check p.second == 0.cint
 
       block:
-        var p1 = initCppPair(initCppString("hello"), 42.cint)
-        check p1.first == initCppString("hello")
+        var p1 = initCppPair(("hello"), 42.cint)
+        check p1.first == ("hello")
         check p1.second == 42.cint
 
         var p2 = initCppPair(p1)
-        check p2.first == initCppString("hello")
+        check p2.first == ("hello")
         check p2.second == 42.cint
 
     test "member functions":
-      var
-        p1 = initCppPair(initCppString("hello"), 42.cint)
-        p2 = initCppPair(initCppString("world"), 100.cint)
-      p1.swap(p2)
-      check p1.first == initCppString("world")
-      check p1.second == 100.cint
-      check p2.first == initCppString("hello")
-      check p2.second == 42.cint
+      block:
+        var
+          p1 = initCppPair("hello", 42.cint)
+          p2 = initCppPair("world", 100.cint)
+
+        p1.swap(p2)
+        check p1.first == ("world")
+        check p1.second == 100.cint
+        check p2.first == ("hello")
+        check p2.second == 42.cint
 
     test "comparison operators":
       block:
+        let
+          s1 = toCppString("hello")
+          s2 = toCppString("0hello")
+          s3 = toCppString("zhello")
+
         var
-          p1 = initCppPair(initCppString("hello"), 42.cint)
-          p2 = initCppPair(initCppString("hello"), 50.cint)
-          p3 = initCppPair(initCppString("0hello"), 50.cint)
-          p4 = initCppPair(initCppString("zhello"), 50.cint)
+          p1 = initCppPair(s1, 42.cint)
+          p2 = initCppPair(toCppString("hello"), 50.cint)
+          p3 = initCppPair(s2, 50.cint)
+          p4 = initCppPair(s3, 50.cint)
 
         check not (p1 == p2)
         check not (p2 == p1)
@@ -79,7 +86,6 @@ proc test =
         check p4 > p1
         check not (p4 <= p1)
 
-
     test "other non-member functions":
       block:
         var p = initCppPair(initCppString("hello"), 42.cint)
@@ -102,12 +108,15 @@ proc test =
       check $p == "CppPair(first: hello, second: 42)"
 
     test "toTuple and back":
-      let 
+      let
         f = "Hello world"
         s = 144
-      var pair : CppPair[string,int] = makePair(f, s)
+      var pair: CppPair[string, int] = makePair(f, s)
       var tup = pair.toTuple()
       check tup == (first: f, second: s)
       check makePair(tup) == pair
 
-test()
+
+when isMainModule:
+  main()
+
