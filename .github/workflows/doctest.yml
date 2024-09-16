@@ -16,6 +16,8 @@ jobs:
         uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: stable 
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - run: nimble install -y
       - run: nimble gendoc
 

@@ -16,6 +16,7 @@ jobs:
         uses: jiro4989/setup-nim-action@v2
         with:
           nim-version: stable 
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Pages
         id: pages
@@ -31,4 +32,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+
