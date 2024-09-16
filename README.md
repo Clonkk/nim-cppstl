@@ -27,7 +27,7 @@ requires "cppstl"
 
 ## Limitations
 
-``cppstl`` currently wraps :
+#### ``cppstl`` currently wraps :
 
 * ``std::string``
 * ``std::basic_string``
@@ -38,6 +38,26 @@ requires "cppstl"
 * Smart pointers are partially supported:
   * ``std::unique_ptr``
   * ``std::shared_ptr``
+
+#### Avoid using wrapped STL objects in top-level Nim scope.
+  Most of the times it works on Nim 1.x but leads to both compile-time and runtime errors on 2.x.
+  So instantiate them in subroutines only to ensure portability between 1.x and 2.x.
+
+I.e this usecase is not recommended: 
+```
+when isMainModule:
+  var vec = initCppVector[int]()
+  vec.pushBack(20)
+```
+Use this one instead:
+```
+when isMainModule:
+  proc foo = 
+    var vec = initCppVector[int]()
+    vec.pushBack(20)
+  foo()
+```
+
 
 ## Contributions
 
