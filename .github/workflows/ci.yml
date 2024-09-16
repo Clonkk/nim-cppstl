@@ -32,5 +32,4 @@ jobs:
       - run: nimble install -y
       - run: testament p "tests/t*.nim"
       - run: nimble test
-      - run: nimble gendoc
 

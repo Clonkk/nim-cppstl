@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - devel
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup nim
+        uses: jiro4989/setup-nim-action@v2
+        with:
+          nim-version: stable 
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nimble install -y
+      - run: nimble gendoc
+
