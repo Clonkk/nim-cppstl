@@ -28,7 +28,6 @@ jobs:
         with:
           use-nightlies: true
           nim-version: ${{ matrix.nim }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: nimble install -y
       - run: testament p "tests/t*.nim"
       - run: nimble test
