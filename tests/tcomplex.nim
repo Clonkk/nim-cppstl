@@ -1,6 +1,7 @@
 # This code is licensed under MIT license (see LICENSE.txt for details)
 import unittest
 import complex
+import std/math
 import cppstl/std_complex
 
 proc main() =
@@ -14,13 +15,19 @@ proc main() =
     test "Operators":
       block:
         var
+          a = initCppComplex[float64](1.5, 1.0)
+          b = initCppComplex[float64](1.5, 1.0)
+        check a == b
+
+      block:
+        var
           a = initCppComplex[float64](141.571, 124.412)
           b = initCppComplex[float64](22.17843, 0.523)
           refa = toComplex(a)
           refb = toComplex(b)
           refres = refa + refb
           res = a + b
-        check res == toCppComplex(refres)
+        check almostEqual(refres, toComplex(res))
       block:
         var
           a = initCppComplex[float64](141.571, 124.412)
@@ -29,7 +36,7 @@ proc main() =
           refb = toComplex(b)
           refres = refa - refb
           res = a - b
-        check res == toCppComplex(refres)
+        check almostEqual(refres, toComplex(res))
       block:
         var
           a = initCppComplex[float64](141.571, 124.412)
@@ -38,7 +45,7 @@ proc main() =
           refb = toComplex(b)
           refres = refa * refb
           res = a * b
-        check res == toCppComplex(refres)
+        check almostEqual(refres, toComplex(res))
       block:
         var
           a = initCppComplex[float64](141.571, 124.412)
@@ -47,7 +54,7 @@ proc main() =
           refb = toComplex(b)
           refres = refa / refb
           res = a / b
-        check res == toCppComplex(refres)
+        check almostEqual(refres, toComplex(res))
 
     test "abs":
       var
