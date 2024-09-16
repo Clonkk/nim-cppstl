@@ -15,6 +15,7 @@ jobs:
         nim:
           - '2.0.x'
           - 'stable'
+          - devel
         os:
           - ubuntu-latest
           # - windows-latest
@@ -25,6 +26,7 @@ jobs:
       - name: Setup nim
         uses: jiro4989/setup-nim-action@v2
         with:
+          use-nightlies: true
           nim-version: ${{ matrix.nim }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: nimble install -y
