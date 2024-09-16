@@ -6,5 +6,4 @@ when (NimMajor, NimMinor, NimPatch) < (1, 4, 0):
   # IndexDefect was introduced in 1.4.0
   type IndexDefect* = IndexError
 
-type
-  OutOfRangeException* {.importcpp: "std::out_of_range", header: "stdexcept".} = object of ValueError
+type OutOfRangeException* {.importcpp: "std::out_of_range", header: "stdexcept".} = object of ValueError

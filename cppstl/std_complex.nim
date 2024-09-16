@@ -1,8 +1,7 @@
 # std::complex
 # -----------------------------------------------------------------------
 {.push header: "<complex>".}
-type
-  CppComplex*[T: SomeFloat] {.importcpp: "std::complex".} = object
+type CppComplex*[T: SomeFloat] {.importcpp: "std::complex".} = object
 
 func initCppComplex*[T: SomeFloat](re, im: T): CppComplex[T] {.constructor, importcpp: "std::complex<'*0>(@)".}
 func polar*[T: SomeFloat](r, theta: T): CppComplex[T] {.importcpp: "std::polar<'*0>(@)".}

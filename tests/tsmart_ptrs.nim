@@ -2,10 +2,9 @@ import cppstl/std_smartptrs
 import std/unittest
 import std/strutils
 
-type
-  Obj = object
-    id: int
-    name: string
+type Obj = object
+  id: int
+  name: string
 
 var guid = 0
 
@@ -31,19 +30,25 @@ proc testShared() =
   test "SharedPtr":
     var sp1 = SharedPtrObj.init("ptr_1")
 
-    check: sp1.id == 1
+    check:
+      sp1.id == 1
 
-    check: sp1.name == "ptr_1"
+    check:
+      sp1.name == "ptr_1"
 
     sp1.name = "ptr_2"
-    check: sp1.name == "ptr_2"
+    check:
+      sp1.name == "ptr_2"
 
     var sp2 = sp1
-    check: sp2.id == 1
-    check: sp2.name == "ptr_2"
+    check:
+      sp2.id == 1
+    check:
+      sp2.name == "ptr_2"
 
     sp2.name = "ptr_3"
-    check: sp1.name == "ptr_3"
+    check:
+      sp1.name == "ptr_3"
     check sp1.name.len() == 5
 
     var sp3 = block:
@@ -53,27 +58,36 @@ proc testShared() =
     check sp3.deref == sp1.deref
 
     when defined(gcArc) or defined(gcOrc):
-      check: $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"
+      check:
+        $(sp1) == "CppShared ptr Obj(id: 1, name: \"ptr_3\")"
     else:
-      check: contains($(sp1), """CppShared ptr""")
-      check: contains($(sp1), """[id = 1,
-name =""")
-      check: contains($(sp1), """"ptr_3"]""" )
+      check:
+        contains($(sp1), """CppShared ptr""")
+      check:
+        contains(
+          $(sp1),
+          """[id = 1,
+name =""",
+        )
+      check:
+        contains($(sp1), """"ptr_3"]""")
 
 proc testUnique() =
   test "UniquePtr":
     var up1 = UniquePtrObj.init("ptr_1")
 
-    check: up1.id == 2
+    check:
+      up1.id == 2
 
-    check: up1.name == "ptr_1"
+    check:
+      up1.name == "ptr_1"
 
     up1.name = "ptr_2"
-    check: up1.name == "ptr_2"
+    check:
+      up1.name == "ptr_2"
     # Create a codegen bug
     # See https://github.com/nim-lang/Nim/issues/18982
     # check: $(up1) == "CppUnique ptr Obj(id: 2, name: \"ptr_2\")"
-
 
 when isMainModule:
   testShared()
