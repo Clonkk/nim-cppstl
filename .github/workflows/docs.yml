@@ -10,9 +10,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: "gh-pages"
-      - name: "install_nim"
-        id: install_nim
-        uses: iffy/install-nim@v3
+
+      - uses: jiro4989/setup-nim-action@v2
+        with:
+          # TODO use 2.2.0 when it's released - gendoc is broken om 2.0.8
+          nim-version: devel 
+          use-nightlies: true
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: nimble install -y
       - name: Set CI config github
         run: |
